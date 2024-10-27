@@ -1,0 +1,52 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Результаты{% endblock %}
+
+{% block content %}
+
+{% load custom_filters %}  <!-- Загрузка пользовательских фильтров -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ contest.name }} - Ответы пользователей</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .correct {
+            background-color: lightgreen;
+        }
+        .incorrect {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container mt-5">
+    <h1>Ответы пользователей на задачи</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Пользователь</th>
+            {% for task in tasks %}
+            <th>{{ task.name }}</th>
+            {% endfor %}
+            <th>Число решенных задач</th>  <!-- Новая колонка -->
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.username }}</td>
+            {% for task in tasks %}
+            <td class="{% if answers_dict|get:user.id|get:task.id %}bg-success{% else %}bg-white{% endif %}"></td>
+            {% endfor %}
+            <td>{{ user_solved_count|get:user.id }}</td>  <!-- Отображаем число решенных задач -->
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+{% endblock %}
