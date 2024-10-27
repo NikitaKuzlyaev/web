@@ -2,7 +2,8 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
 from .views import main, register, user_login, contests, logout_view, contests_view, contest_detail_view_admin, \
-    submit_answer_view, contest_results_view, contest_detail_view, task_details, users_answers_view
+    submit_answer_view, contest_results_view, contest_detail_view, task_details, users_answers_view, topics, \
+    topics_view, topic_detail_view
 from django.contrib.auth import views as auth_views
 
 from .forms import CustomAuthenticationForm  # Импортируем кастомную форму входа
@@ -10,6 +11,8 @@ from .forms import CustomAuthenticationForm  # Импортируем касто
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name='main'),
+    path('topics/', topics_view, name='topics'),
+    path('topics/<int:topic_id>/', topic_detail_view, name='topic_detail'),
     path('contests/', contests_view, name='contests'),
     path('contests/admin/<int:contest_id>/', contest_detail_view_admin, name='contest_detail_admin'),
     path('contests/<int:contest_id>/', contest_detail_view, name='contest_detail'),

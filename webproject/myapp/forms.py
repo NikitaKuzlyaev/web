@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # your_app/forms.py
 from django import forms
-from .models import Contest
+from .models import Contest, Topic, Comment
 
 
 class ContestForm(forms.ModelForm):
@@ -18,6 +18,18 @@ class ContestForm(forms.ModelForm):
             'name': 'Название',
         }
 
+class TopicForm(forms.ModelForm):
+    class Meta:
+        model = Topic
+        fields = ['name', 'content']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название обсуждения'}),
+            'content': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Текст обсуждения'}),
+        }
+        labels = {
+            'name': 'Название',
+            'content': 'Содержание',
+        }
 
 from .models import Task
 
