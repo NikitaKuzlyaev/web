@@ -28,49 +28,6 @@ def main(request):
     return render(request, 'main.html')
 
 
-def topics(request):
-    return render(request, 'topics.html')
-
-
-from .models import Topic, Comment
-from .forms import TopicForm
-
-
-def topics_view(request):
-    topics = Topic.objects.all().order_by('-created_at')  # Получаем все обсуждения
-    if request.method == 'POST':
-        form = TopicForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('topics')  # Перенаправляем на страницу обсуждений после создания
-    else:
-        form = TopicForm()
-    context = {
-        'topics': topics,
-        'form': form,
-    }
-    return render(request, 'topics.html', context)
-
-
-def topic_detail_view(request, topic_id):
-    topic = get_object_or_404(Topic, id=topic_id)
-    # tasks = contest.tasks.all()
-
-    # Получаем все правильные ответы пользователя
-    # correct_answers = {answer.task.id for answer in UserAnswer.objects.filter(user=request.user, is_correct=True)}
-
-    # if request.method == 'POST':
-    #     pass
-    #
-    # else:
-    #     form = TaskForm()
-
-    context = {
-        'topic': topic,
-    }
-    return render(request, 'topic_detail.html', context)
-
-
 def contests(request):
     return render(request, 'contests.html')
 

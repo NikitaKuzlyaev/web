@@ -4,8 +4,11 @@ from django.contrib.auth.models import User
 
 # your_app/forms.py
 from django import forms
-from .models import Contest, Topic, Comment
+from .models import Contest
+from .models import Task
 
+
+from django.contrib.auth.forms import AuthenticationForm
 
 class ContestForm(forms.ModelForm):
     class Meta:
@@ -17,22 +20,6 @@ class ContestForm(forms.ModelForm):
         labels = {
             'name': 'Название',
         }
-
-class TopicForm(forms.ModelForm):
-    class Meta:
-        model = Topic
-        fields = ['name', 'content']
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название обсуждения'}),
-            'content': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Текст обсуждения'}),
-        }
-        labels = {
-            'name': 'Название',
-            'content': 'Содержание',
-        }
-
-from .models import Task
-
 
 class TaskForm(forms.ModelForm):
     class Meta:
@@ -93,9 +80,6 @@ class CustomUserCreationForm(UserCreationForm):
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError("Пароли не совпадают.")
         return password2
-
-
-from django.contrib.auth.forms import AuthenticationForm
 
 
 class CustomAuthenticationForm(AuthenticationForm):
