@@ -7,19 +7,79 @@ from django import forms
 from .models import Contest
 from .models import Profile
 from .models import ContestPage
+from .models import ContestCheckerPythonCode
 
 from django.contrib.auth.forms import AuthenticationForm
 
 
+class CodeEditForm(forms.ModelForm):
+    class Meta:
+        model = ContestCheckerPythonCode
+        fields = ['code']  # Включаем поле code из модели
+        widgets = {
+            'code': forms.Textarea(attrs={'rows': 20, 'cols': 80}),  # Кастомизация виджета для textarea
+        }
+
+
+class ContestUserProfileForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)  # Поле для пароля
+    name = forms.CharField(max_length=255)  # Поле для имени пользователя
+    contest_access = forms.ModelChoiceField(queryset=Contest.objects.all(), widget=forms.HiddenInput())  # Скрытое поле для выбора соревнования
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']  # Поля для имени пользователя и пароля
+
+    def save(self, commit=True, *args, **kwargs):
+        # Сначала создаем пользователя, но не сохраняем его сразу в БД
+        user = super().save(commit=False)
+
+        # Устанавливаем пароль в зашифрованном виде
+        user.set_password(self.cleaned_data['password'])
+
+        # Сохраняем пользователя, если нужно
+        if commit:
+            user.save()
+
+        # Создаем профиль и связываем его с пользователем
+        profile = Profile.objects.create(user=user, name=self.cleaned_data['name'], contest_access=self.cleaned_data['contest_access'])
+
+        return user
+
 class ContestForm(forms.ModelForm):
     class Meta:
         model = Contest
-        fields = ['name']
+        fields = ['name', 'time_start', 'time_end', 'is_open']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название соревнования'}),
+            'time_start': forms.DateTimeInput(
+                attrs={
+                    'class': 'form-control datetimepicker',
+                    'type': 'datetime-local',  # HTML5-тип для выбора даты и времени
+                }
+            ),
+            'time_end': forms.DateTimeInput(
+                attrs={
+                    'class': 'form-control datetimepicker',
+                    'type': 'datetime-local',
+                }
+            ),
+            'name': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Название соревнования',
+                }
+            ),
+            'is_open': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input',
+                }
+            ),
         }
         labels = {
             'name': 'Название',
+            'time_start': 'Время начала соревнования',
+            'time_end': 'Время завершения соревнования',
+            'is_open': 'Открытое соревнование',  # Подпись для чекбокса
         }
 
 

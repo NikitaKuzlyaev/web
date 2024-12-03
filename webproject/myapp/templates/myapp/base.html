@@ -4,81 +4,144 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Мой Сайт{% endblock %}</title>
+    <title>{% block title %}ML Contest System{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <style>
-        /* Стили для навигационной панели */
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
+    .footer {
+        margin-top: auto;
+    }
 
-        .navbar a {
-            float: left;
-            display: block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
-        }
-
-        /* Центрирование основного содержимого */
-        .container {
-            max-width: 800px;
-            margin: 50px auto; /* 50px от верхнего края */
-            padding: 20px;
-            text-align: center; /* Центрирование текста */
-        }
-
-        /* Стили для кнопок */
-        .button {
-            background-color: #4CAF50; /* Зеленый */
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 2px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
+        footer {
+    height: 40px;
+    padding: 5px 0;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.5; /* Можно регулировать по потребности */
+}
     </style>
+    <!--    <style>-->
+    <!--        /* Стили для навигационной панели */-->
+    <!--        body {-->
+    <!--            margin: 0;-->
+    <!--            font-family: Arial, sans-serif;-->
+    <!--        }-->
+
+    <!--        .navbar {-->
+    <!--            background-color: #333;-->
+    <!--            overflow: hidden;-->
+    <!--            padding-left: 400px;-->
+    <!--        }-->
+
+    <!--        .navbar a {-->
+    <!--            float: left;-->
+    <!--            display: block;-->
+    <!--            color: #f2f2f2;-->
+    <!--&lt;!&ndash;            text-align: center;&ndash;&gt;-->
+    <!--            padding: 14px 20px;-->
+    <!--            text-decoration: none;-->
+    <!--        }-->
+
+    <!--        .navbar a:hover {-->
+    <!--            background-color: #ddd;-->
+    <!--            color: black;-->
+    <!--        }-->
+
+    <!--        /* Центрирование основного содержимого */-->
+    <!--        .container {-->
+    <!--            max-width: 800px;-->
+    <!--            margin: 50px auto; /* 50px от верхнего края */-->
+    <!--            padding: 20px;-->
+    <!--&lt;!&ndash;            text-align: center; /* Центрирование текста */&ndash;&gt;-->
+    <!--        }-->
+
+    <!--        /* Стили для кнопок */-->
+    <!--        .button {-->
+    <!--            background-color: #4CAF50; /* Зеленый */-->
+    <!--            border: none;-->
+    <!--            color: white;-->
+    <!--            padding: 10px 20px;-->
+    <!--            text-align: center;-->
+    <!--            text-decoration: none;-->
+    <!--            display: inline-block;-->
+    <!--            font-size: 16px;-->
+    <!--            margin: 10px 2px;-->
+    <!--            cursor: pointer;-->
+    <!--            border-radius: 4px;-->
+    <!--        }-->
+
+    <!--        .button:hover {-->
+    <!--            background-color: #45a049;-->
+    <!--        }-->
+    <!--    </style>-->
 
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <a href="{% url 'main' %}">Главная</a>
-            <a href="{% url 'contests' %}">Соревнования</a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}">Выйти</a>
-                <span style="float: right; color: #f2f2f2; padding: 14px 20px;">Привет, {{ user.username }}!</span>
-            {% else %}
-                <a href="{% url 'login' %}">Войти</a>
-                <a href="{% url 'register' %}">Регистрация</a>
-            {% endif %}
-        </div>
-    </header>
 
+{% load static %}
+<!-- Хэдер с навигацией -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        {% block content %}
-        {% endblock %}
+        <!-- Логотип с изображением -->
+        <a class="navbar-brand" href="{% url 'main' %}">
+            <img src="{% static 'icon.png' %}" alt="Logo" style="height: 40px;">
+        </a>
+
+
+        <!-- Ссылки меню -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contests' %}">Соревнования</a>
+                </li>
+            </ul>
+
+            <!-- Ссылки справа -->
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
+                </li>
+                <li class="nav-item">
+                    <span style="float: right; color: #f2f2f2; padding: 14px 20px;">Привет, {{ user.username }}!</span>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Войти</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
+</nav>
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<footer class="footer mt-auto bg-dark text-white py-3">
+    <div class="container text-center">
+        <p>ML Contest System</p>
+    </div>
+</footer>
+
+
 </body>
+
+
 </html>

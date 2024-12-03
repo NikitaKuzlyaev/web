@@ -9,42 +9,116 @@
     <meta charset="UTF-8">
     <title>Соревнования</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
 </head>
 <body>
 <div class="container mt-1">
-    <h1>Список соревнований</h1>
+    <!--    <h4>Список доступных соревнований</h4>-->
+    <!--    <ul class="list-group mb-4">-->
+    <!--        {% for contest in contests %}-->
+    <!--        <li class="list-group-item d-flex justify-content-between align-items-center">-->
+    <!--            <span>{{ contest.name }}</span>-->
+    <!--            <div style="float: right;">-->
+    <!--                <span>{{ contest.time_start }}{{ contest.time_end }}</span>-->
+    <!--            </div>-->
+    <!--            <div>-->
+    <!--                <a href="{% url 'contest_detail' contest.id %}" class="btn btn-info btn-sm mr-2">Просмотр</a>-->
+    <!--                {% if user.is_staff %}-->
+    <!--                <a href="{% url 'contest_detail_admin' contest.id %}" class="btn btn-secondary btn-sm">Админ</a>-->
+    <!--                {% endif %}-->
+    <!--            </div>-->
+    <!--        </li>-->
+    <!--        {% empty %}-->
+    <!--        <li class="list-group-item">Нет соревнований.</li>-->
+    <!--        {% endfor %}-->
+    <!--    </ul>-->
+    <h4>Список доступных соревнований</h4>
     <ul class="list-group mb-4">
         {% for contest in contests %}
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-            <span>{{ contest.name }}</span>
+        <li class="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-3 rounded">
             <div>
-                <a href="{% url 'contest_detail' contest.id %}" class="btn btn-info btn-sm mr-2">Просмотр</a>
+                <h6 class="mb-1">{{ contest.name }}</h6>
+                <small class="text-muted">{{ contest.time_start|date:"d.m.Y H:i" }} - {{ contest.time_end|date:"d.m.Y H:i" }}</small>
+            </div>
+
+            <div class="d-flex align-items-center">
+                {% if not user.is_authenticated %}
+                <button class="btn btn-info btn-sm" disabled>
+                    <i class="fas fa-lock"></i> Нужно войти
+                </button>
+                {% else %}
+                {% if user_profile.contest_access != contest and not contest.is_open and not user.is_staff %}
+                <button class="btn btn-info btn-sm mr-2" disabled>
+                    <i class="fas fa-lock"></i> Нет прав
+                </button>
+                {% else %}
+                <a href="{% url 'contest_detail' contest.id %}" class="btn btn-info btn-sm mr-2">
+                    <i class="fas fa-eye"></i> Просмотр
+                </a>
+                {% endif %}
+                {% endif %}
+
                 {% if user.is_staff %}
-                <a href="{% url 'contest_detail_admin' contest.id %}" class="btn btn-secondary btn-sm">Админ</a>
+                <a href="{% url 'contest_detail_admin' contest.id %}" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-cogs"></i> Админ
+                </a>
                 {% endif %}
             </div>
         </li>
         {% empty %}
-        <li class="list-group-item">Нет соревнований.</li>
+        <li class="list-group-item text-center">Нет доступных соревнований.</li>
         {% endfor %}
     </ul>
+    <!--    <ul class="list-group mb-4">-->
+    <!--        {% for contest in contests %}-->
+    <!--        <li class="list-group-item d-flex justify-content-between align-items-center">-->
+    <!--            <span>{{ contest.name }}</span>-->
+    <!--            <div style="float: right;">-->
+    <!--                <span>{{ contest.time_start|date:"d.m.Y H:i" }} - {{ contest.time_end|date:"d.m.Y H:i" }}</span>-->
+    <!--            </div>-->
+    <!--            <div>-->
+    <!--                {% if not user.is_authenticated %}-->
 
+    <!--                {% else %}-->
+    <!--                    {% if user_profile.contest_access != contest and not contest.is_open and not user.is_staff %}-->
+    <!--                        <button class="btn btn-info btn-sm mr-2" disabled>-->
+    <!--                            <i class="fas fa-lock"></i> Нет прав-->
+    <!--                        </button>-->
+    <!--                    {% else %}-->
+    <!--                        <a href="{% url 'contest_detail' contest.id %}" class="btn btn-info btn-sm mr-2">Просмотр</a>-->
+    <!--                    {% endif %}-->
+    <!--                {% endif %}-->
+
+    <!--                {% if user.is_staff %}-->
+    <!--                <a href="{% url 'contest_detail_admin' contest.id %}" class="btn btn-secondary btn-sm">Админ</a>-->
+    <!--                {% endif %}-->
+    <!--            </div>-->
+    <!--        </li>-->
+    <!--        {% empty %}-->
+    <!--        <li class="list-group-item">Нет доступных соревнований.</li>-->
+    <!--        {% endfor %}-->
+    <!--    </ul>-->
     {% if user.is_staff %}
-    <h2>Добавить новое соревнование</h2>
-    <form method="post" novalidate>
-        {% csrf_token %}
-        <div class="form-group">
-            {{ form.name.label_tag }}
-            {{ form.name }}
-            {% if form.name.errors %}
-            <div class="text-danger">
-                {{ form.name.errors }}
+    <h4>Добавить новое соревнование</h4>
+    <div class="col-md-4">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <!--{{ form.name.label_tag }}
+                {{ form.name }}-->
+                {{ form.as_p }}
+                {% if form.name.errors %}
+                <div class="text-danger">
+                    {{ form.name.errors }}
+                </div>
+                {% endif %}
             </div>
-            {% endif %}
-        </div>
-        <button type="submit" class="btn btn-primary">Добавить</button>
-    </form>
-    {% endif %}
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        {% endif %}
+    </div>
 </div>
 
 <!-- Подключение Bootstrap JS и зависимостей (опционально) -->
