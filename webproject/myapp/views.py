@@ -1,63 +1,94 @@
-import time
-from django.shortcuts import render
-# Create your views here.
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm  # Импортируем кастомную форму
-from django.contrib.auth import logout
-from django.shortcuts import redirect
-from django.contrib.auth.models import User
-from django.contrib.auth.decorators import user_passes_test
-from django.contrib.auth.decorators import login_required
-from .models import Contest
-from .forms import ContestForm
-from .forms import ContestPageForm
-from .models import ContestPage
-from .models import BlogPage
-from django.http import JsonResponse
-from django.utils.timezone import now
-# main/views.py
-from django.shortcuts import get_object_or_404
-from django.contrib.auth.decorators import user_passes_test
-from .models import Contest, ContestPage
-from .forms import ContestPageForm
-from .forms import ContestUserProfileForm
-from django.db import models
-from .models import Contest
-from .models import Contest
+from django.shortcuts import (
+    render, redirect, get_object_or_404
+)
+from django.http import HttpResponse, JsonResponse
+from django.contrib.auth import (
+    login, authenticate, logout
+)
+from django.contrib.auth.decorators import (
+    login_required, user_passes_test
+)
+from django.core.exceptions import ObjectDoesNotExist
 from django.contrib import messages
-from .forms import CodeEditForm
-from .models import ContestCheckerPythonCode
-from .models import ContestCheckerAnswerFile
+from django.utils.timezone import now
+from django.forms import modelformset_factory
+from django.db.models import Max
+from django.db import models
+
+from .forms import (
+    CustomUserCreationForm, ContestForm, ContestPageForm,
+    ContestUserProfileForm, CodeEditForm, ContestTagForm
+)
+from .models import (
+    User, Contest, ContestPage, BlogPage, ContestCheckerPythonCode,
+    ContestCheckerAnswerFile, ContestThresholdSubmission,
+    SubmissionFile, Submission, Profile, ContestTag
+)
+from .utils import have_access
+from . import utils
+
+# Внешние библиотеки
 import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_squared_error
 from io import StringIO
 import ast
-from .models import SubmissionFile
-from .models import Submission
-from .models import Profile
-from .utils import have_access  # Импортируем функцию из utils.py
+import pytz
+import time
+import logging
+
+# Имя логгера из настроек
+logger = logging.getLogger('myapp')
+
+# Получение текущего времени в UTC+7
+timezone_utc7 = pytz.timezone('Asia/Bangkok')  # UTC+7
+
 
 def is_admin(user):
-    return user.is_staff  # или user.is_superuser, если хотите ограничить только суперпользователямp
+    return user.is_staff  # или user.is_superuser, если хотите ограничить только суперпользователя
 
 
-def contest_access_required(view_func):
+def contest_user_access_politic(view_func):
     """
-    Кастомный декоратор, проверяющий, имеет ли пользователь доступ к конкурсу.
-    Используется для проверки как у администратора, так и у обычного пользователя с доступом к конкурсу.
+    Кастомный декоратор, проверяющий, имеет ли пользователь доступ к контесту.
     """
 
     def _wrapped_view(request, *args, **kwargs):
         contest_id = kwargs.get('contest_id')
         if contest_id:
             user = request.user
-            # Ваша логика проверки, например:
             if not have_access(user, contest_id=contest_id):
                 return redirect('/contests/')  # Если доступа нет, редиректим на страницу с соревнованиями
+        return view_func(request, *args, **kwargs)
+
+    return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
+
+
+def contest_time_access_politic(view_func):
+    """
+    Проверка по времени доступа к контесту.
+    Пользователь проходит по политике, когда он или администратор, или соревнование идет сейчас
+    """
+
+    def _wrapped_view(request, *args, **kwargs):
+        contest_id = kwargs.get('contest_id')
+        if contest_id:
+            contest = Contest.objects.filter(id=contest_id).first()
+
+            if contest:
+                user = request.user
+                if user.is_staff:
+                    return view_func(request, *args, **kwargs)
+
+                current_time_utc7 = now().astimezone(timezone_utc7)
+                time_start = contest.time_start
+                time_end = contest.time_end
+
+                logger.debug(current_time_utc7, time_start, time_end)
+                if current_time_utc7 < time_start or current_time_utc7 > time_end:
+                    logger.debug('Закрыто по времени', current_time_utc7, time_start, time_end)
+                    return redirect('/contests/')
+
         return view_func(request, *args, **kwargs)
 
     return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
@@ -169,6 +200,7 @@ def main_blog_delete(request, blog_id):
 
     return render(request, 'main.html', context)
 
+
 @login_required
 def submit_file(request):
     # Получаем contest_id и select_page из POST-запроса
@@ -193,10 +225,6 @@ def submit_file(request):
         # Получаем файл через get() для безопасной обработки, если файл отсутствует
         uploaded_file = request.FILES.get('file')
 
-        # if (not contest.is_open):
-        #     messages.error(request, 'Не выбран файл для загрузки.')
-        #     uploaded_file = None
-
         if uploaded_file:
 
             # Создаем объект SubmissionFile
@@ -215,8 +243,6 @@ def submit_file(request):
                 metrics={},  # Пустой JSON для метрик
             )
             submission.save()
-
-            # messages.success(request, 'Файл успешно загружен!')
 
             # Здесь можно сохранить файл
             messages.success(request, 'Файл успешно загружен!')
@@ -288,26 +314,34 @@ def submit_file(request):
 
 # @login_required
 def contests_view(request):
-    contests = Contest.objects.all().order_by('-created_at')  # Получаем все соревнования
+    # Получаем все соревнования и связанные теги
+    contests = Contest.objects.all().prefetch_related('tag').order_by('-created_at')
 
     if request.user.is_authenticated:
-        user_profile = request.user.profile  # Access user profile if user is authenticated
+        user_profile = request.user.profile
     else:
-        user_profile = None  # Handle case when user is not authenticated
+        user_profile = None
 
     if request.method == 'POST':
         form = ContestForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('contests')  # Redirect to contests page after creating a contest
+            return redirect('contests')
     else:
         form = ContestForm()
 
-        # Combine context into one dictionary
-    context = {
-        'contests': contests,
+    contests_with_tags = []  # Собираем теги в словарь, чтобы удобнее было обращаться в шаблоне
+    for contest in contests:
+        tags = contest.tag.all()  # Все теги, связанные с соревнованием
+        contests_with_tags.append({
+            'contest': contest,
+            'tags': tags,
+        })
+
+    context = {  # Формируем контекст
+        'contests_with_tags': contests_with_tags,  # Список соревнований с их тегами
         'form': form,
-        'user_profile': user_profile,  # Pass user profile to template
+        'user_profile': user_profile,
     }
 
     return render(request, 'contests.html', context)
@@ -317,195 +351,64 @@ def contests_view(request):
 @user_passes_test(is_admin)
 def contest_detail_view_admin(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
-    contest_pages = contest.pages.all()
-
-    selected_page = None  # Для передачи выбранной вкладки в форму
-
-    form_contest = ContestForm(instance=contest)
-    # Передача в контекст выбранной страницы для редактирования
-    page_id = request.GET.get('edit_page_id')
-    if page_id:
-        selected_page = get_object_or_404(ContestPage, id=page_id)
-
-    context = {
-        'contest': contest,
-        'contest_pages': contest_pages,
-        'selected_page': selected_page,
-        'form_contest': form_contest,
-    }
 
     if request.method == 'POST':
         if 'delete_contest' in request.POST:
-            # contest_id = request.POST.get('contest_id')
-            # contest = get_object_or_404(contest, id=contest_id)
-            contest.delete()
-            # messages.success(request, 'Задача успешно удалена.')
-            return redirect('contests')
+            return utils.ContestDetailViewAdmin.handle_contest_delete(request, contest)
 
         elif 'edit_contest' in request.POST:
-            form_contest = ContestForm(request.POST, instance=contest)
-            if form_contest.is_valid():
-                form_contest.save()
-                # Здесь можно добавить редирект или сообщение об успехе
-                context = {
-                    'contest': contest,
-                    'contest_pages': contest_pages,
-                    'selected_page': selected_page,
-                    'form_contest': form_contest,
-                }
-                return render(request, 'contest_detail_admin.html', context)
+            return utils.ContestDetailViewAdmin.handle_edit_contest(request, contest)
 
-        # Обработка добавления вкладки
-        elif 'add_page' in request.POST:
-            # Найти максимальное значение order в таблице ContestPage для данного конкурса
-            max_order = ContestPage.objects.filter(contest=contest).aggregate(max_order=models.Max('order'))['max_order']
-            # Если нет страниц (max_order будет None), начнем с 0
-            new_order = (max_order or 0) + 1
-
-            ContestPage.objects.create(title='empty', content='empty', contest=contest, order=new_order)
-            messages.success(request, 'Новая вкладка добавлена.')
-            return redirect('contest_detail_admin', contest_id=contest.id)
+        elif 'add_page' in request.POST:  # Обработка добавления вкладки
+            return utils.ContestDetailViewAdmin.handle_add_page(request, contest)
 
         elif 'edit_page' in request.POST:
-            page_id = request.POST.get('edit_page')
-            selected_page = get_object_or_404(ContestPage, id=page_id)
-            context = {
-                'contest': contest,
-                'contest_pages': contest_pages,
-                'selected_page': selected_page,
-                'form_contest': form_contest,
-            }
-            return render(request, 'contest_detail_admin.html', context)
+            return utils.ContestDetailViewAdmin.handle_edit_page(request, contest)
 
         elif 'save_page' in request.POST:
-            page_id = request.POST.get('page_id')
+            return utils.ContestDetailViewAdmin.handle_save_page(request, contest)
 
-            if str(page_id).isnumeric():
-                page = get_object_or_404(ContestPage, id=page_id)
+        elif 'delete_page' in request.POST:  # Обработка удаления страницы
+            return utils.ContestDetailViewAdmin.handle_delete_page(request, contest)
 
-                if page != None:
-                    title = request.POST.get('title')
-                    content = request.POST.get('content')
-
-                    # Обновление данных вкладки
-                    page.title = title
-                    page.content = content
-                    page.save()
-
-                    messages.success(request, f'Вкладка "{title}" была успешно обновлена.')
-            else:
-                title = request.POST.get('title')
-                content = request.POST.get('content')
-                # Найти максимальное значение order в таблице ContestPage для данного конкурса
-                max_order = ContestPage.objects.filter(contest=contest).aggregate(max_order=models.Max('order'))['max_order']
-                # Если нет страниц (max_order будет None), начнем с 0
-                new_order = (max_order or 0) + 1
-
-                ContestPage.objects.create(title=title, content=content, contest=contest, order=new_order)
-                messages.success(request, 'Новая вкладка добавлена.')
-                return redirect('contest_detail_admin', contest_id=contest.id)
-            return redirect('contest_detail_admin', contest_id=contest.id)
-
-        # Обработка удаления страницы
-        elif 'delete_page' in request.POST:
-            page_id = request.POST.get('page_id')
-            page = get_object_or_404(ContestPage, id=page_id)
-            page.delete()
-
-            messages.success(request, 'Вкладка была удалена.')
-            return redirect('contest_detail_admin', contest_id=contest.id)
+        elif 'add_threshold' in request.POST:  # Обработка добавления вкладки
+            return utils.ContestDetailViewAdmin.handle_add_threshold(request, contest)
 
         elif 'add_answer_file' in request.POST:
-            # Получаем файл через get() для безопасной обработки, если файл отсутствует
-            uploaded_file = request.FILES.get('file')
-
-            if uploaded_file:
-                # Проверяем, существует ли уже запись для этого контеста и пользователя
-                try:
-                    # Получаем или создаем новый объект
-                    existing_file = ContestCheckerAnswerFile.objects.get(contest=contest)
-                    # Если объект существует, обновляем его файл
-                    existing_file.file = uploaded_file
-                    existing_file.save()  # Сохраняем изменения
-                    messages.success(request, 'Файл успешно обновлен!')
-                except ContestCheckerAnswerFile.DoesNotExist:
-                    # Если такого файла нет, создаем новый
-                    new_file = ContestCheckerAnswerFile(
-                        contest=contest,
-                        user=request.user,
-                        file=uploaded_file,
-                    )
-                    new_file.save()
-                    messages.success(request, 'Файл успешно загружен!')
-
-            else:
-                messages.error(request, 'Не выбран файл для загрузки.')
+            utils.ContestDetailViewAdmin.handle_add_answer_file(request, contest)
 
         elif 'run_checker' in request.POST:
-            # Получаем код из модели ContestCheckerPythonCode, связанный с конкретным контестом
-            contest_checker_code = ContestCheckerPythonCode.objects.get(contest=contest)
-            code = contest_checker_code.code  # Код, который нужно выполнить
+            utils.ContestDetailViewAdmin.handle_run_checker(request, contest)
 
-            # Получаем файл из модели ContestCheckerAnswerFile, связанный с контестом
-            answer_file = ContestCheckerAnswerFile.objects.filter(contest=contest).first()
+        elif 'add_tag' in request.POST:  # Добавление нового тега
+            utils.ContestDetailViewAdmin.handle_add_tag(request, contest)
 
-            if answer_file:
-                # Открываем файл и читаем его содержимое
-                with open(answer_file.file.path, 'r') as file:
-                    csv_answer = file.read()  # Содержимое CSV файла
-            else:
-                csv_answer = None
+        elif 'edit_tag' in request.POST:  # Редактирование существующего тега
+            utils.ContestDetailViewAdmin.handle_edit_tag(request, contest)
 
-            csv_part = csv_answer
-            # Подготовим данные для передачи в exec
+        elif 'delete_tag' in request.POST:  # Удаление существующего тега
+            utils.ContestDetailViewAdmin.handle_delete_tag(request, contest)
 
-            globals_dict = {}
-            locals_dict = {
-                'csv_str_1': csv_answer,  # Параметр csv_data передается в код
-                'csv_str_2': csv_part
-            }
-
-            # Выполняем код из базы данных
-            exec(code, globals_dict, locals_dict)
-
-            # После выполнения кода можно получить результат из locals_dict
-            result = locals_dict.get('result_dict', '{}')  # Например, если результат сохраняется в переменную result
-
-            # Преобразование строки в словарь
-            # result_dict = ast.literal_eval(result)
-            print(result)  # {'mse': 0.0, 'status': 'ok'}
-
-            messages.success(request, result)
-
-    else:
-        # form = ContestPageForm(instance=contest)
-        form_contest = ContestForm(instance=contest)
-        pass
-
-    # Передача в контекст выбранной страницы для редактирования
-    page_id = request.GET.get('edit_page_id')
-    if page_id:
-        selected_page = get_object_or_404(ContestPage, id=page_id)
-
-    form_contest = ContestForm(instance=contest)
-    context = {
-        'contest': contest,
-        'contest_pages': contest_pages,
-        'selected_page': selected_page,
-        'form_contest': form_contest,
-    }
+    context = utils.ContestDetailViewAdmin.get_context(request, contest)
 
     return render(request, 'contest_detail_admin.html', context)
 
 
-from django.db.models import Max
+@login_required
+@user_passes_test(is_admin)
+def admin_panel(request):
+    context = {
+    }
+
+    return render(request, 'admin_panel.html', context)
 
 
 def contest_detail_results(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
+    contest_thresholds = contest.thresholds.all()
 
     # Получаем все Submission для конкретного контеста
-    submissions = Submission.objects.filter(contest=contest)
+    submissions = Submission.objects.filter(contest=contest).exclude(status_code=5)
 
     # Сортируем по пользователю и времени создания
     submissions = submissions.order_by('user', '-created_at')
@@ -516,8 +419,14 @@ def contest_detail_results(request, contest_id):
         if submission.user not in last_submissions:
             last_submissions[submission.user] = submission
 
+    list_thresholds = []
+    for threshold in contest_thresholds:
+        sub = threshold.submission
+        list_thresholds.append(sub)
+
+    #print(list_thresholds)
     # Преобразуем в список
-    final_submissions = list(last_submissions.values())
+    final_submissions = list(last_submissions.values())  # + list_thresholds
 
     # Сортируем по последней метрике
     def get_last_metric(submission):
@@ -531,10 +440,30 @@ def contest_detail_results(request, contest_id):
     # Передаем в шаблон
     context = {
         'contest': contest,
+        'contest_thresholds': contest_thresholds,
         'submissions': final_submissions,
     }
 
     return render(request, 'contest_detail_results.html', context)
+
+
+def contest_detail_submissions(request, contest_id):
+    contest = get_object_or_404(Contest, id=contest_id)
+
+    # Получаем все Submission для конкретного контеста
+    submissions = Submission.objects.filter(contest=contest).exclude(status_code=5)
+
+    # Сортируем по пользователю и времени создания
+    submissions = submissions.order_by('-created_at')
+    first_sub = 0
+    # Передаем в шаблон
+    context = {
+        'contest': contest,
+        'submissions': submissions,
+        'first_sub': first_sub,
+    }
+
+    return render(request, 'contest_detail_submissions.html', context)
 
 
 @login_required
@@ -594,35 +523,26 @@ def move_contest_page(request, page_id, direction):
     page = get_object_or_404(ContestPage, id=page_id)
     contest = page.contest
 
-    contest_pages = contest.pages.all()
-    selected_page = None  # Для передачи выбранной вкладки в форму
-    target_page = None
-    if direction == 'up':
-        # Найти страницу выше по order
-        target_page = ContestPage.objects.filter(
-            contest=page.contest,
-            order__lt=page.order  # Меньший порядок
-        ).order_by('-order').first()  # Самый большой из меньших
-    elif direction == 'down':
-        # Найти страницу ниже по order
-        target_page = ContestPage.objects.filter(
-            contest=page.contest,
-            order__gt=page.order  # Больший порядок
-        ).order_by('order').first()  # Самый маленький из больших
+    # Определяем направление сортировки и фильтрации
+    order_filter = 'order__lt' if direction == 'up' else 'order__gt'
+    order_by = '-order' if direction == 'up' else 'order'
 
-    # Если есть страница для обмена
+    # Находим целевую страницу
+    target_page = ContestPage.objects.filter(
+        contest=contest, **{order_filter: page.order}
+    ).order_by(order_by).first()
+
+    # Обмениваем значения `order`, если нашли целевую страницу
     if target_page:
-        # Меняем их значения order
         page.order, target_page.order = target_page.order, page.order
-        page.save()
-        target_page.save()
+        ContestPage.objects.bulk_update([page, target_page], ['order'])
 
-    form_contest = ContestForm(instance=contest)
+    # Формируем контекст
     context = {
         'contest': contest,
-        'contest_pages': contest_pages,
-        'selected_page': selected_page,
-        'form_contest': form_contest,
+        'contest_pages': contest.pages.all(),
+        'selected_page': None,
+        'form_contest': ContestForm(instance=contest),
     }
 
     return render(request, 'contest_detail_admin.html', context)
@@ -656,10 +576,8 @@ def delete_contest_page(request, page_id):
     return redirect('contest_detail_admin', contest_id=contest_id)
 
 
-# @login_required
-
-# Используем лямбда-функцию для получения contest_id из request
-@contest_access_required
+@contest_user_access_politic
+@contest_time_access_politic
 def contest_detail_view(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
 
@@ -681,6 +599,7 @@ def contest_detail_view(request, contest_id):
     }
     return render(request, 'contest_detail.html', context)
 
+
 @user_passes_test(is_admin)
 def contest_participants_admin(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
@@ -694,7 +613,6 @@ def contest_participants_admin(request, contest_id):
                 user = User.objects.filter(profile=participant)
                 user.delete()  # Удаляем участника
                 return redirect('contest_participants_admin', contest_id=contest.id)  # Перенаправляем на страницу с участниками
-
 
         form = ContestUserProfileForm(request.POST)
         if form.is_valid():

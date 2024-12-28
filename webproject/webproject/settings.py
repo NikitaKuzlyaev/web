@@ -133,21 +133,44 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Папка для сбо�
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
 
+import os
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'stream': 'ext://sys.stdout',  # Логи выводятся в stdout
+            'formatter': 'simple',
+        },
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs/app.log'),
+            'formatter': 'verbose',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
-            'level': 'INFO',
+            'handlers': ['file'],
+            'level': 'DEBUG',
             'propagate': True,
+        },
+        'myapp': {  # Логгер для вашего приложения
+            'handlers': ['console', 'file'],
+            'level': 'DEBUG',
+            'propagate': False,
         },
     },
 }

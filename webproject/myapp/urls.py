@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
 from .views import main, register, user_login, contests, logout_view, contests_view, contest_detail_view_admin, contest_detail_view, \
-    contest_detail_view_admin_checker, contest_detail_results, contest_participants_admin
+    contest_detail_view_admin_checker, contest_detail_results, contest_participants_admin, contest_detail_submissions, admin_panel
 from django.contrib.auth import views as auth_views
 from . import views
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('', main, name='main'),
     path('contests/', contests_view, name='contests'),
     path('contests/admin/<int:contest_id>/', contest_detail_view_admin, name='contest_detail_admin'),
+    path('admin_panel/', admin_panel, name='admin_panel'),
     path('contests/<int:contest_id>/', contest_detail_view, name='contest_detail'),
     path('register/', register, name='register'),
     path('login/',
@@ -30,7 +31,8 @@ urlpatterns = [
     path('move_contest_page/<int:page_id>/<str:direction>/', views.move_contest_page, name='move_contest_page'),
     path('contests/admin/checker/<int:contest_id>/', contest_detail_view_admin_checker, name='contest_detail_admin_checker'),
     path('contests/results/<int:contest_id>/', contest_detail_results, name='contest_detail_results'),
+    path('contests/submissions/<int:contest_id>/', contest_detail_submissions, name='contest_detail_submissions'),
+
     path('contests/participants_admin/<int:contest_id>/', contest_participants_admin, name='contest_participants_admin'),
 
 ]
-

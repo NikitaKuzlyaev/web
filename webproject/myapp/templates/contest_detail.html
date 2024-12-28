@@ -40,6 +40,9 @@
     <!-- Кнопки навигации -->
     <div class="d-flex justify-content-center gap-3 mb-3">
         <a href="{% url 'contests' %}" class="btn btn-outline-secondary btn-lg shadow-sm">Назад к соревнованиям</a>
+        <a href="{% url 'contest_detail_submissions' contest.id %}" class="btn btn-outline-primary btn-lg shadow-sm">
+            Посылки
+        </a>
         <a href="{% url 'contest_detail_results' contest.id %}" class="btn btn-outline-primary btn-lg shadow-sm">
             Результаты
         </a>
@@ -64,7 +67,6 @@
 
         <!-- Таймер -->
         <div id="timer" class="alert alert-info text-center shadow-sm">
-            <strong>Таймер:</strong>
             <div id="timer-display" class="mt-2"></div>
         </div>
 
@@ -187,21 +189,32 @@
     // Переменная для хранения идентификатора интервала
     let intervalId;
 
-    // Дата начала контеста (примерная дата, замените на реальную из вашего контекста)
     const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
+    const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
 
-    // Функция, которую мы будем запускать
+    // Функция обновления таймера
     function updateTimer() {
         const now = new Date().getTime();  // Текущее время
-        const timeLeft = contestStartDate - now;  // Оставшееся время до начала
 
-        if (timeLeft <= 0) {
-            clearInterval(intervalId);  // Останавливаем таймер, когда время истекло
-            document.getElementById("timer").innerHTML = "The contest has started!";
-            return;
+        // Если текущее время меньше времени начала соревнования
+        if (now < contestStartDate) {
+            const timeLeft = contestStartDate - now;
+            displayTime("До начала соревнования осталось:", timeLeft);
         }
+        // Если текущее время находится между началом и концом соревнования
+        else if (now >= contestStartDate && now < contestEndDate) {
+            const timeLeft = contestEndDate - now;
+            displayTime("До окончания соревнования осталось:", timeLeft);
+        }
+        // Если текущее время больше времени окончания соревнования
+        else {
+            clearInterval(intervalId);  // Останавливаем таймер
+            document.getElementById("timer-display").innerHTML = "<strong>Соревнование завершено</strong>";
+        }
+    }
 
-        // Вычисляем часы, минуты и секунды
+    // Функция отображения времени
+    function displayTime(message, timeLeft) {
         const hours = Math.floor(timeLeft / (1000 * 60 * 60));  // Часы
         const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  // Минуты
         const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  // Секунды
@@ -212,16 +225,17 @@
             (minutes < 10 ? '0' : '') + minutes + ":" +
             (seconds < 10 ? '0' : '') + seconds;
 
-        // Отображаем таймер на странице
-        document.getElementById("timer").innerHTML = `
+        // Обновляем текст таймера
+        document.getElementById("timer-display").innerHTML = `
+            <strong>${message}</strong>
             <h3>${formattedTime}</h3>
         `;
     }
 
-    // Запускаем функцию сразу при загрузке страницы
+    // Запуск таймера при загрузке страницы
     window.onload = function() {
-        updateTimer();  // Запуск сразу
-        intervalId = setInterval(updateTimer, 100);  // Затем вызываем каждый 100 мс
+        updateTimer();  // Сразу обновляем
+        intervalId = setInterval(updateTimer, 200);  // Каждую секунду обновляем
     }
 </script>
 

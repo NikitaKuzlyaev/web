@@ -19,11 +19,30 @@ class Profile(models.Model):
 
 
 class Contest(models.Model):
+    COLOR_CHOICES = [
+        ("#FF0000", "Красный"),
+        ("#0000FF", "Синий"),
+        ("#00FF00", "Зеленый"),
+        ("#FFA500", "Оранжевый"),
+        ("#FFFF00", "Желтый"),
+        ("#800080", "Пурпурный"),
+        ("#00FFFF", "Циановый"),
+        ("#FFC0CB", "Розовый"),
+        ("#000000", "Черный"),
+        ("#FFFFFF", "Белый"),  # Добавлен белый цвет
+        ("#A52A2A", "Коричневый"),
+        ("#808080", "Серый"),
+        ("#ADD8E6", "Светло-голубой"),
+        ("#FF6347", "Томато"),
+        ("#32CD32", "Лаймовый"),
+    ]
+
     name = models.CharField(max_length=255, unique=True)  # Поле Name
     created_at = models.DateTimeField(auto_now_add=True)  # Дата создания
     time_start = models.DateTimeField()  # Время начала
     time_end = models.DateTimeField()  # Время окончания
     is_open = models.BooleanField(default=True)  # Флаг, открыт ли конкурс
+    color = models.CharField(max_length=7, choices=COLOR_CHOICES, default="#0000FF")  # Цвет
 
     def __str__(self):
         return self.name
@@ -96,3 +115,34 @@ class ContestCheckerAnswerFile(models.Model):
 
     def __str__(self):
         return f"Python code created on {self.created_at}"
+
+
+class ContestThresholdSubmission(models.Model):
+    contest = models.ForeignKey(Contest, related_name='thresholds', on_delete=models.CASCADE)  # Внешний ключ к соревнованию
+    title = models.CharField(max_length=100)  # Название порога
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Внешний ключ к пользователю
+    submission = models.ForeignKey(Submission, on_delete=models.CASCADE)
+
+
+class ContestTag(models.Model):
+    COLOR_CHOICES = [
+        ("#FF0000", "Красный"),
+        ("#0000FF", "Синий"),
+        ("#00FF00", "Зеленый"),
+        ("#FFA500", "Оранжевый"),
+        ("#FFFF00", "Желтый"),
+        ("#800080", "Пурпурный"),
+        ("#00FFFF", "Циановый"),
+        ("#FFC0CB", "Розовый"),
+        ("#000000", "Черный"),
+        ("#FFFFFF", "Белый"),  # Добавлен белый цвет
+        ("#A52A2A", "Коричневый"),
+        ("#808080", "Серый"),
+        ("#ADD8E6", "Светло-голубой"),
+        ("#FF6347", "Томато"),
+        ("#32CD32", "Лаймовый"),
+    ]
+
+    contest = models.ForeignKey(Contest, related_name='tag', on_delete=models.CASCADE)  # Внешний ключ к соревнованию
+    title = models.CharField(max_length=20)  # Название тега
+    color = models.CharField(max_length=7, choices=COLOR_CHOICES, default="#0000FF")  # Цвет

@@ -8,8 +8,24 @@ from .models import Contest
 from .models import Profile
 from .models import ContestPage
 from .models import ContestCheckerPythonCode
+from .models import ContestThresholdSubmission
+from django.core.exceptions import ValidationError
 
 from django.contrib.auth.forms import AuthenticationForm
+
+from .models import ContestTag
+
+from django.forms import modelformset_factory
+
+TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1)
+
+class ContestTagForm(forms.ModelForm):
+    class Meta:
+        model = ContestTag
+        fields = ['title', 'color']  # Поля для ввода названия и цвета тега
+        widgets = {
+            'color': forms.Select(choices=ContestTag.COLOR_CHOICES),
+        }
 
 
 class CodeEditForm(forms.ModelForm):
@@ -46,10 +62,11 @@ class ContestUserProfileForm(forms.ModelForm):
 
         return user
 
+
 class ContestForm(forms.ModelForm):
     class Meta:
         model = Contest
-        fields = ['name', 'time_start', 'time_end', 'is_open']
+        fields = ['name', 'time_start', 'time_end', 'is_open', 'color']  # Добавляем 'color'
         widgets = {
             'time_start': forms.DateTimeInput(
                 attrs={
@@ -74,13 +91,29 @@ class ContestForm(forms.ModelForm):
                     'class': 'form-check-input',
                 }
             ),
+            'color': forms.Select(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
         }
         labels = {
             'name': 'Название',
             'time_start': 'Время начала соревнования',
             'time_end': 'Время завершения соревнования',
             'is_open': 'Открытое соревнование',  # Подпись для чекбокса
+            'color': 'Цвет плашки',  # Подпись для выбора цвета
         }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        time_start = cleaned_data.get('time_start')
+        time_end = cleaned_data.get('time_end')
+
+        if time_start and time_end and time_end < time_start:
+            raise ValidationError("Дата окончания не может быть раньше даты начала.")
+
+        return cleaned_data
 
 
 class ContestPageForm(forms.ModelForm):
