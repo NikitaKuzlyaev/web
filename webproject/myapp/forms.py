@@ -5,32 +5,148 @@ from django.contrib.auth.models import User
 # your_app/forms.py
 from django import forms
 from .models import Contest
+from .models import Profile
+from .models import ContestPage
+from .models import ContestCheckerPythonCode
+from .models import ContestThresholdSubmission
+from .models import QuizProblem
+from django.core.exceptions import ValidationError
+
+from django.contrib.auth.forms import AuthenticationForm
+
+from .models import ContestTag
+
+from django.forms import modelformset_factory
+
+TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1)
+
+
+class QuizProblemForm(forms.ModelForm):
+    # class Meta:
+    #     model = QuizProblem
+    #     fields = ['title', 'content', 'answer', 'points']
+
+    class Meta:
+        model = QuizProblem
+        fields = ['title', 'content', 'answer', 'points']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название темы задачи'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Условие задачи', 'rows': 10}),
+        }
+        labels = {
+            'title': 'Название темы задачи',
+            'content': 'Условие задачи',
+        }
+
+
+class ContestTagForm(forms.ModelForm):
+    class Meta:
+        model = ContestTag
+        fields = ['title', 'color']  # Поля для ввода названия и цвета тега
+        widgets = {
+            'color': forms.Select(choices=ContestTag.COLOR_CHOICES),
+        }
+
+
+class CodeEditForm(forms.ModelForm):
+    class Meta:
+        model = ContestCheckerPythonCode
+        fields = ['code']  # Включаем поле code из модели
+        widgets = {
+            'code': forms.Textarea(attrs={'rows': 20, 'cols': 80}),  # Кастомизация виджета для textarea
+        }
+
+
+class ContestUserProfileForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput)  # Поле для пароля
+    name = forms.CharField(max_length=255)  # Поле для имени пользователя
+    contest_access = forms.ModelChoiceField(queryset=Contest.objects.all(), widget=forms.HiddenInput())  # Скрытое поле для выбора соревнования
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']  # Поля для имени пользователя и пароля
+
+    def save(self, commit=True, *args, **kwargs):
+        # Сначала создаем пользователя, но не сохраняем его сразу в БД
+        user = super().save(commit=False)
+
+        # Устанавливаем пароль в зашифрованном виде
+        user.set_password(self.cleaned_data['password'])
+
+        # Сохраняем пользователя, если нужно
+        if commit:
+            user.save()
+
+        # Создаем профиль и связываем его с пользователем
+        profile = Profile.objects.create(user=user, name=self.cleaned_data['name'], contest_access=self.cleaned_data['contest_access'])
+
+        return user
 
 
 class ContestForm(forms.ModelForm):
     class Meta:
         model = Contest
-        fields = ['name']
+        fields = ['name', 'time_start', 'time_end', 'is_open', 'color']  # Добавляем 'color'
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название соревнования'}),
+            'time_start': forms.DateTimeInput(
+                attrs={
+                    'class': 'form-control datetimepicker',
+                    'type': 'datetime-local',  # HTML5-тип для выбора даты и времени
+                }
+            ),
+            'time_end': forms.DateTimeInput(
+                attrs={
+                    'class': 'form-control datetimepicker',
+                    'type': 'datetime-local',
+                }
+            ),
+            'name': forms.TextInput(
+                attrs={
+                    'class': 'form-control',
+                    'placeholder': 'Название соревнования',
+                }
+            ),
+            'is_open': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input',
+                }
+            ),
+            'color': forms.Select(
+                attrs={
+                    'class': 'form-control',
+                }
+            ),
         }
         labels = {
             'name': 'Название',
+            'time_start': 'Время начала соревнования',
+            'time_end': 'Время завершения соревнования',
+            'is_open': 'Открытое соревнование',  # Подпись для чекбокса
+            'color': 'Цвет плашки',  # Подпись для выбора цвета
         }
 
+    def clean(self):
+        cleaned_data = super().clean()
+        time_start = cleaned_data.get('time_start')
+        time_end = cleaned_data.get('time_end')
 
-from .models import Task
+        if time_start and time_end and time_end < time_start:
+            raise ValidationError("Дата окончания не может быть раньше даты начала.")
+
+        return cleaned_data
 
 
-class TaskForm(forms.ModelForm):
+class ContestPageForm(forms.ModelForm):
     class Meta:
-        model = Task
-        fields = ['name', 'condition', 'correct_answer']
+        model = ContestPage
+        fields = ['title', 'content']  # Поля, которые нужно редактировать
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите название задачи'}),
-            'condition': forms.Textarea(
-                attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Введите условие задачи'}),
-            'correct_answer': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите верный ответ'}),
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Заголовок страницы'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Содержимое страницы', 'rows': 5}),
+        }
+        labels = {
+            'title': 'Заголовок',
+            'content': 'Содержимое',
         }
 
 
@@ -70,6 +186,17 @@ class CustomUserCreationForm(UserCreationForm):
             'max_length': 'Пароль не должен превышать 10 символов.'
         }
     )
+    profile_name = forms.CharField(
+        max_length=50,
+        min_length=1,
+        required=True,
+        help_text='',
+        error_messages={
+            'required': 'Пожалуйста, введите имя пользователя.',
+            'max_length': 'Имя пользователя не должно превышать 10 символов.',
+            'min_length': 'Имя пользователя должно содержать как минимум 1 символ.'
+        }
+    )
 
     class Meta:
         model = User
@@ -82,8 +209,19 @@ class CustomUserCreationForm(UserCreationForm):
             raise forms.ValidationError("Пароли не совпадают.")
         return password2
 
+    def save(self, commit=True):
+        # Сохраняем пользователя через родительский метод
+        user = super().save(commit=False)
 
-from django.contrib.auth.forms import AuthenticationForm
+        # Сохраняем профиль после создания пользователя
+        if commit:
+            user.save()  # Сначала сохраняем пользователя, чтобы получить его ID
+            profile = Profile.objects.create(
+                user=user,
+                name=self.cleaned_data['profile_name']  # Присваиваем имя профиля из формы
+            )
+
+        return user
 
 
 class CustomAuthenticationForm(AuthenticationForm):

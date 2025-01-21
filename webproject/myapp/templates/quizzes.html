@@ -1,13 +1,13 @@
 {% extends "myapp/base.html" %}
 
-{% block title %}Соревнования{% endblock %}
+{% block title %}Квизы{% endblock %}
 
 {% block content %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Соревнования</title>
+    <title>Квизы</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Подключение Font Awesome через CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -16,7 +16,7 @@
 <body>
 <div class="container mt-1">
 
-    <h4>Список доступных соревнований</h4>
+    <h4>Список доступных квизов</h4>
     <ul class="list-group mb-4">
         {% for item in contests_with_tags %}
         <li class="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-3 rounded" style="--edge-color: {{ item.contest.color }}">
@@ -59,12 +59,12 @@
             </div>
         </li>
         {% empty %}
-        <li class="list-group-item text-center">Нет доступных соревнований.</li>
+        <li class="list-group-item text-center">Нет доступных квизов.</li>
         {% endfor %}
     </ul>
 
     {% if user.is_staff %}
-    <h4>Добавить новое соревнование</h4>
+    <h4>Добавить новый квиз</h4>
     <div class="col-md-4">
         <form method="post" novalidate>
             {% csrf_token %}
