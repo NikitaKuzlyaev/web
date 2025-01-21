@@ -9,6 +9,7 @@ from .models import Profile
 from .models import ContestPage
 from .models import ContestCheckerPythonCode
 from .models import ContestThresholdSubmission
+from .models import QuizProblem
 from django.core.exceptions import ValidationError
 
 from django.contrib.auth.forms import AuthenticationForm
@@ -18,6 +19,25 @@ from .models import ContestTag
 from django.forms import modelformset_factory
 
 TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1)
+
+
+class QuizProblemForm(forms.ModelForm):
+    # class Meta:
+    #     model = QuizProblem
+    #     fields = ['title', 'content', 'answer', 'points']
+
+    class Meta:
+        model = QuizProblem
+        fields = ['title', 'content', 'answer', 'points']
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Название темы задачи'}),
+            'content': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Условие задачи', 'rows': 10}),
+        }
+        labels = {
+            'title': 'Название темы задачи',
+            'content': 'Условие задачи',
+        }
+
 
 class ContestTagForm(forms.ModelForm):
     class Meta:

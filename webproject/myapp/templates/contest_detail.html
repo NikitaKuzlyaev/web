@@ -40,9 +40,19 @@
     <!-- Кнопки навигации -->
     <div class="d-flex justify-content-center gap-3 mb-3">
         <a href="{% url 'contests' %}" class="btn btn-outline-secondary btn-lg shadow-sm">Назад к соревнованиям</a>
+
+
+        {% if quiz %}
+        <a href="{% url 'quiz_field' contest.id %}" class="btn btn-outline-primary btn-lg shadow-sm">
+            Задания
+        </a>
+        {% else %}
         <a href="{% url 'contest_detail_submissions' contest.id %}" class="btn btn-outline-primary btn-lg shadow-sm">
             Посылки
         </a>
+        {% endif %}
+
+
         <a href="{% url 'contest_detail_results' contest.id %}" class="btn btn-outline-primary btn-lg shadow-sm">
             Результаты
         </a>

@@ -48,6 +48,68 @@ class Contest(models.Model):
         return self.name
 
 
+class Quiz(models.Model):
+    contest = models.ForeignKey(Contest, on_delete=models.CASCADE)  # Внешний ключ к соревнованию
+    pass
+
+
+class QuizUser(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который сделал попытку
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)  # Внешний ключ к соревнованию
+    score = models.PositiveIntegerField(default=1000)
+
+    def decrease_score(self, points):
+        self.score = self.score - points
+        self.save()
+
+    def increase_score(self, points):
+        self.score = self.score + points
+        self.save()
+
+class QuizField(models.Model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    width = models.PositiveIntegerField(default=6)
+    height = models.PositiveIntegerField(default=4)
+
+
+class QuizFieldCell(models.Model):
+    quizField = models.ForeignKey(QuizField, related_name='cells', on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    row = models.PositiveIntegerField()
+    col = models.PositiveIntegerField()
+
+    cell_type = models.CharField(
+        max_length=20,
+        choices=[
+            ('normal', 'Normal'),
+            ('not_created', 'NotCreated'),
+            ('blocked', 'Blocked'),
+            ('special', 'Special'),
+        ],
+        default='not_created',
+    )
+    # quizProblem = models.ForeignKey(QuizProblem, null=True, blank=True, on_delete=models.SET_NULL)  # Привязка к вопросу
+
+
+class QuizProblem(models.Model):
+    quizFieldCell = models.ForeignKey(QuizFieldCell, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    answer = models.CharField(max_length=100)
+    points = models.PositiveIntegerField()  # Стоимость задачи
+
+    def __str__(self):
+        return self.title
+
+
+class QuizAttempt(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который сделал попытку
+    problem = models.ForeignKey(QuizProblem, related_name='attempts', on_delete=models.CASCADE)
+    attempt_number = models.PositiveIntegerField(default=1)  # Номер попытки
+    is_successful = models.BooleanField(default=False)  # Успешность попытки
+    created_at = models.DateTimeField(auto_now_add=True)  # Время попытки
+
+
 class ContestPage(models.Model):
     contest = models.ForeignKey(Contest, related_name='pages', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)  # Название вкладки

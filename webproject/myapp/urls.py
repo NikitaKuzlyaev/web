@@ -2,8 +2,13 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
 from .views import main, register, user_login, contests, logout_view, contests_view, contest_detail_view_admin, contest_detail_view, \
-    contest_detail_view_admin_checker, contest_detail_results, contest_participants_admin, contest_detail_submissions, admin_panel
+    contest_detail_view_admin_checker, contest_detail_results, contest_participants_admin, contest_detail_submissions, \
+    admin_panel
 from django.contrib.auth import views as auth_views
+
+from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_field_view, quiz_buy_problem
+
+
 from . import views
 
 from .forms import CustomAuthenticationForm  # Импортируем кастомную форму входа
@@ -12,9 +17,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name='main'),
     path('contests/', contests_view, name='contests'),
+    path('quizzes/', quiz_view, name='quizzes'),
+    path('quiz_field/<int:contest_id>/', quiz_field_view, name='quiz_field'),
+    path('edit_quiz_problem/<int:quiz_problem_id>/', edit_quiz_problem, name='edit_quiz_problem'),
+    path('buy_quiz_problem/<int:quiz_problem_id>/', quiz_buy_problem, name='quiz_buy_problem'),
+
     path('contests/admin/<int:contest_id>/', contest_detail_view_admin, name='contest_detail_admin'),
     path('admin_panel/', admin_panel, name='admin_panel'),
     path('contests/<int:contest_id>/', contest_detail_view, name='contest_detail'),
+
     path('register/', register, name='register'),
     path('login/',
          auth_views.LoginView.as_view(template_name='myapp/login.html', authentication_form=CustomAuthenticationForm),

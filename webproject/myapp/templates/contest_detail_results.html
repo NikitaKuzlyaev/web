@@ -1,6 +1,6 @@
 {% extends "myapp/base.html" %}
 
-{% block title %}Детали соревнования{% endblock %}
+{% block title %}Результаты{% endblock %}
 
 {% block content %}
 <!-- main/templates/contest_detail_admin.html -->
@@ -44,67 +44,58 @@
 </div>
 
 
-<!--<p>Contest ID: {{ contest.id }}</p>-->
-<!--<p>Page ID: {{ selected_page.id }}</p>-->
 
-<!--<div class="row mt-4">-->
-<!--  <table border="1">-->
-<!--        <thead>-->
-<!--            <tr>-->
-<!--                <th>User</th>-->
-<!--                <th>Metrics</th>-->
-<!--            </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--            {% for submission in submissions %}-->
-<!--                <tr>-->
-<!--                    <td>{{ submission.user.username }}</td>-->
-<!--                    <td>-->
-<!--                        {% for key, value in submission.metrics.items %}-->
-<!--                            <strong>{{ key }}:</strong> {{ value }}<br>-->
-<!--                        {% endfor %}-->
-<!--                    </td>-->
-<!--                </tr>-->
-<!--            {% empty %}-->
-<!--                <tr>-->
-<!--                    <td colspan="2">No submissions yet.</td>-->
-<!--                </tr>-->
-<!--            {% endfor %}-->
-<!--        </tbody>-->
-<!--    </table>-->
+<style>
+    .dark-row2
+    {
+        background-color: #FFF5EE;
+        color: black;
+        font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
+    }
+</style>
 
-<!--</div>-->
 <div class="row mt-4">
     <div class="col-10 mx-auto">
-        <table class="table table-sm table-bordered table-hover table-striped text-center shadow-sm w-100">
+        <p>Сортировка по последней метрике</p>
+        <table class="table table-sm table-bordered table-hover text-center shadow-sm w-100">
             <!-- Заголовок таблицы -->
             <thead>
-                <tr>
-                    <th scope="col" class="align-middle" style="width: 5%;">#</th>
-                    <th scope="col" class="align-middle" style="width: 45%;">Пользователь</th>
-                    <th scope="col" class="align-middle" style="width: 50%;">Метрики</th>
-                </tr>
+            <tr>
+                <th scope="col" class="align-middle" style="width: 5%;">#</th>
+                <th scope="col" class="align-middle" style="width: 45%;">Пользователь</th>
+                <th scope="col" class="align-middle" style="width: 50%;">Метрики</th>
+            </tr>
             </thead>
 
             <!-- Тело таблицы -->
             <tbody>
-                {% for submission in submissions %}
-                <tr class="align-middle">
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ submission.user.username }}</td>
-                    <td class="text-start">
-                        <ul class="list-unstyled mb-0">
-                            {% for key, value in submission.metrics.items %}
-                            <li><strong>{{ key }}:</strong> {{ value }}</li>
-                            {% endfor %}
-                        </ul>
-                    </td>
-                </tr>
-                {% empty %}
-                <tr>
-                    <td colspan="3" class="text-muted">Пока нет отправленных данных.</td>
-                </tr>
-                {% endfor %}
+            {% for obj in objects %}
+            <tr class="align-middle {% if obj.counter == 0 %}dark-row2{% endif %}">
+
+                {% if obj.counter == 0 %}
+                <td></td>
+                <td>Threshold: {{ obj.name }}</td>
+                {% else %}
+                <td>{{ obj.counter }}</td>
+                <td>{{ obj.sub.user.username }}</td>
+                {% endif %}
+                <td class="text-start">
+                    {% if obj.sub.metrics %}
+                    <ul class="list-unstyled mb-0">
+                        {% for key, value in obj.sub.metrics.items %}
+                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <span class="text-muted">Нет метрик</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-muted">Пока нет отправленных данных.</td>
+            </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>
@@ -128,81 +119,6 @@
         margin: 0; /* Убираем отступы у заголовков внутри вкладок */
     }
 </style>
-
-<!--<style>-->
-<!--    table {-->
-<!--        border-collapse: collapse;-->
-<!--        width: 100%;-->
-<!--        margin-top: 20px;-->
-<!--        font-size: 16px;-->
-<!--    }-->
-
-<!--    th, td {-->
-<!--        padding: 12px;-->
-<!--        text-align: left;-->
-<!--        border: 1px solid #ddd;-->
-<!--    }-->
-
-<!--    th {-->
-<!--        background-color: #343a40;-->
-<!--        color: white;-->
-<!--    }-->
-
-<!--    tr:nth-child(even) {-->
-<!--        background-color: #f9f9f9;-->
-<!--    }-->
-
-<!--    tr:hover {-->
-<!--        background-color: #f1f1f1;-->
-<!--    }-->
-
-<!--    td.text-start {-->
-<!--        text-align: left;-->
-<!--    }-->
-<!--</style>-->
-
-
-<script>
-    // Переменная для хранения идентификатора интервала
-    let intervalId;
-
-    // Дата начала контеста (примерная дата, замените на реальную из вашего контекста)
-    const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
-
-    // Функция, которую мы будем запускать
-    function updateTimer() {
-        const now = new Date().getTime();  // Текущее время
-        const timeLeft = contestStartDate - now;  // Оставшееся время до начала
-
-        if (timeLeft <= 0) {
-            clearInterval(intervalId);  // Останавливаем таймер, когда время истекло
-            document.getElementById("timer").innerHTML = "The contest has started!";
-            return;
-        }
-
-        // Вычисляем часы, минуты и секунды
-        const hours = Math.floor(timeLeft / (1000 * 60 * 60));  // Часы
-        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  // Минуты
-        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  // Секунды
-
-        // Форматируем время в HH:MM:SS
-        const formattedTime =
-            (hours < 10 ? '0' : '') + hours + ":" +
-            (minutes < 10 ? '0' : '') + minutes + ":" +
-            (seconds < 10 ? '0' : '') + seconds;
-
-        // Отображаем таймер на странице
-        document.getElementById("timer").innerHTML = `
-            <h3>${formattedTime}</h3>
-        `;
-    }
-
-    // Запускаем функцию сразу при загрузке страницы
-    window.onload = function() {
-        updateTimer();  // Запуск сразу
-        intervalId = setInterval(updateTimer, 100);  // Затем вызываем каждый 100 мс
-    }
-</script>
 
 
 {% endblock %}

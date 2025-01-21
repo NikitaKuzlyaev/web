@@ -4,30 +4,52 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}ML Contest System{% endblock %}</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
     <style>
         body {
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-    }
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    .footer {
-        margin-top: auto;
-    }
+        .footer {
+            margin-top: auto;
+        }
 
-        footer {
-    height: 40px;
-    padding: 5px 0;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    line-height: 1.5; /* Можно регулировать по потребности */
-}
+        footer, nav {
+            background-color: #1E1E24;
+            color: white;
+            text-align: center;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        nav a.navbar-brand {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a.navbar-brand:hover {
+            color: lightgray;
+        }
+
+        .navbar-nav.ml-auto {
+            margin-left: auto;
+        }
+
+        .navbar-nav li.nav-item {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .navbar-nav li.nav-item span {
+            color: #f2f2f2;
+            padding: 14px 20px;
+        }
     </style>
 
 </head>
@@ -35,13 +57,12 @@
 
 {% load static %}
 <!-- Хэдер с навигацией -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container">
         <!-- Логотип с изображением -->
         <a class="navbar-brand" href="{% url 'main' %}">
             <img src="{% static 'icon.png' %}" alt="Logo" style="height: 40px;">
         </a>
-
 
         <!-- Ссылки меню -->
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -51,6 +72,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'contests' %}">Соревнования</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'quizzes' %}">Квизы</a>
                 </li>
                 {% if user.is_staff %}
                 <li class="nav-item">
@@ -66,7 +90,7 @@
                     <a class="nav-link" href="{% url 'logout' %}">Выйти</a>
                 </li>
                 <li class="nav-item">
-                    <span style="float: right; color: #f2f2f2; padding: 14px 20px;">Привет, {{ user.username }}!</span>
+                    <span>Привет, {{ user.username }}!</span>
                 </li>
                 {% else %}
                 <li class="nav-item">
@@ -80,19 +104,18 @@
         </div>
     </div>
 </nav>
+
 <div class="container">
     {% block content %}
     {% endblock %}
 </div>
 
-<footer class="footer mt-auto bg-dark text-white py-3">
+<!-- Футер -->
+<footer class="footer mt-auto">
     <div class="container text-center">
         <p>ML Contest System</p>
     </div>
 </footer>
 
-
 </body>
-
-
 </html>
