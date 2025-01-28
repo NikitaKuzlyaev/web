@@ -117,126 +117,97 @@ def quiz_view(request):
 
 def quiz_field_view(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
-
     quiz_field = get_object_or_404(QuizField, quiz__contest=contest)
+    quiz = get_object_or_404(Quiz, contest=quiz_field.quiz.contest)
+    quiz_user = QuizUser.objects.filter(quiz=quiz_field.quiz, user=request.user).first()
 
-    w = quiz_field.width  # Ширина
-    h = quiz_field.height  # Высота
-    columns = list(range(w))
-    rows = list(range(h))
+    if request.method == 'POST':
+        if 'check_answer' in request.POST:
+            quiz_check_answer(request, contest)
+        return redirect('quiz_field', contest_id=contest.id)
 
-    # Находим все QuizFieldCell, которые принадлежат данному Contest через Quiz
-    quiz_field_cells = QuizFieldCell.objects.filter(
-        quizField__quiz__contest=contest
-    ).select_related('quizField')  # Оптимизация запросов через select_related
+    w, h = quiz_field.width, quiz_field.height  # Ширина, Высота
+    quiz_field_cells = QuizFieldCell.objects.filter(quizField__quiz__contest=contest).select_related('quizField')
 
     # Если ячеек нет, создаем их для всех возможных row и col
     if not quiz_field_cells.exists():
-        for row in range(quiz_field.height):  # h - высота
-            for col in range(quiz_field.width):  # w - ширина
-                # Создаем новую ячейку
+        for row in range(quiz_field.height):
+            for col in range(quiz_field.width):
                 QuizFieldCell.objects.create(quizField=quiz_field, row=row, col=col, title=f"Cell {row}-{col}")
 
     # Инициализируем двумерный массив для задач
     task_field = [[None for _ in range(w)] for _ in range(h)]
     quiz_field_flags = [['ok' for _ in range(w)] for _ in range(h)]
+    can_buy_flags = [[True for _ in range(w)] for _ in range(h)]
+    potential_score, hearts_data, problems_to_show = [], [], []
 
-    used_hearts = []
-    full_hearts = []
-    potential_score = []
-
-    logger.debug(' 2')
-
-    # Проходим по всем QuizFieldCell и заполняем двумерный массив задачами
     for cell in quiz_field_cells:
         quiz_problem = QuizProblem.objects.filter(quizFieldCell=cell).first()
 
-        if quiz_problem:
-            if cell.row < h and cell.col < w:
-                task_field[cell.row][cell.col] = quiz_problem
-        else:
-            # Если задачи нет, создаем новую
+        if not quiz_problem:
             quiz_problem = QuizProblem.objects.create(quizFieldCell=cell, title='problem', points=100, answer='0', content='-')
             task_field[cell.row][cell.col] = quiz_problem
 
-        verdict = 'ok'
-
-        last_attempt = QuizAttempt.objects.filter(user=request.user, problem=quiz_problem).order_by('-attempt_number').first()
-        if last_attempt:
-            if last_attempt.is_successful:
-                verdict = 'solved'
-            elif last_attempt.attempt_number >= 3:
-                verdict = 'failed'
-            else:
-                verdict = 'in-progress'
-
         if cell.row < h and cell.col < w:
-            quiz_field_flags[cell.row][cell.col] = verdict
+            task_field[cell.row][cell.col] = quiz_problem
 
-    logger.debug(used_hearts)
+    for row in range(h):
+        for col in range(w):
+            quiz_problem = task_field[row][col]
 
-    tasks_ids = []
-    for row in task_field:
-        task_row = []
-        for task in row:
-            if task:
-                task_row.append(task.id)
-            else:
-                task_row.append(None)
-        tasks_ids.append(task_row)
+            verdict = 'ok'
+            can_buy = number_of_current_user_problems(quiz=quiz, user=request.user) < 3
+            pt = quiz_problem.points
 
-    # Находим все QuizProblems, для которых:
-    # 1. Есть попытки этого пользователя.
-    # 2. Все попытки для этого задания имеют attempt_number < 3 и is_successful=False.
-    problems = QuizProblem.objects.filter(
-        attempts__user=request.user  # Фильтруем задачи по пользователю через связанные попытки
-    ).exclude(
-        Q(attempts__attempt_number__gte=3) | Q(attempts__is_successful=True)  # Исключаем задачи с неудачными попытками или с количеством попыток >= 3
-    ).distinct()  # Убираем дубли
+            last_attempt = QuizAttempt.objects.filter(user=request.user, problem=quiz_problem).order_by('-attempt_number').first()
+            if last_attempt:
+                if last_attempt.is_successful:
+                    verdict = 'solved'
+                    can_buy = False
+                elif last_attempt.attempt_number >= 3:
+                    verdict = 'failed'
+                    can_buy = False
+                else:
+                    verdict = 'in-progress'
+                    can_buy = False
+                    if last_attempt.attempt_number == 0:
+                        hearts_data.append((quiz_problem, '', '333', pt * 2))
+                    elif last_attempt.attempt_number == 1:
+                        hearts_data.append((quiz_problem, '1', '22', pt * 3 // 2))
+                    elif last_attempt.attempt_number == 2:
+                        hearts_data.append((quiz_problem, '22', '1', pt))
 
-    quiz_user = QuizUser.objects.filter(quiz=quiz_field.quiz, user=request.user).first()
+                if quiz_problem.points > quiz_user.score:
+                    can_buy = False
 
-    # Сначала создайте пустые списки для сердец
-    hearts_data = []
+            can_buy = can_buy or request.user.is_staff
 
-    # Пример получения информации о задачах
-    for prob in problems:
-        last_attempt = QuizAttempt.objects.filter(user=request.user, problem=prob).order_by('-attempt_number').first()
-        pt = prob.points
+            quiz_field_flags[row][col] = verdict
+            can_buy_flags[row][col] = can_buy
 
-        if last_attempt:
-            if last_attempt.attempt_number == 0:
-                hearts_data.append((prob, '', '333', pt * 2))
-            elif last_attempt.attempt_number == 1:
-                hearts_data.append((prob, '1', '22', pt * 3 // 2))
-            elif last_attempt.attempt_number == 2:
-                hearts_data.append((prob, '22', '1', pt))
-        else:
-            hearts_data.append((prob, '', '333', pt))  # Если попыток не было, то все сердца полные
-
-    if request.method == 'POST':
-        if 'check_answer' in request.POST:
-            quiz_check_answer(request, contest)
-
-        return redirect('quiz_field', contest_id=contest.id)
+    tasks_ids = [[None if not task_field[j][i] else task_field[j][i].id for i in range(w)] for j in range(h)]
+    # for row in task_field:
+    #     for task in row:
+    #         if task:
+    #             task_row.append(task.id)
+    #         else:
+    #             task_row.append(None)
+    #     tasks_ids.append(task_row)
 
     context = {
-        'columns': columns,  # Диапазон для столбцов
-        'rows': rows,  # Диапазон для строк
+        'columns': list(range(w)),  # Диапазон для столбцов
+        'rows': list(range(h)),  # Диапазон для строк
         'task_field': task_field,  # Двумерный массив с задачами
         'tasks_ids': tasks_ids,
-        'problems': problems,
+        'problems': problems_to_show,
         'contest': contest,
         'quiz_user': quiz_user,
-
         'potential_score': potential_score,
-        'used_hearts': used_hearts,
-        'full_hearts': full_hearts,
         'quiz_field_flags': quiz_field_flags,
         'hearts_data': hearts_data,
-
+        'number_of_current_user_problems': number_of_current_user_problems(quiz=quiz, user=request.user),
+        'can_buy_flags': can_buy_flags,
     }
-
     logger.debug(quiz_field_flags)
     return render(request, 'quiz_field.html', context)
 
@@ -244,7 +215,6 @@ def quiz_field_view(request, contest_id):
 @user_passes_test(is_admin)
 def edit_quiz_problem(request, quiz_problem_id):
     quiz_problem = get_object_or_404(QuizProblem, id=quiz_problem_id)
-
     quiz_field_cell = get_object_or_404(QuizFieldCell, quizField=quiz_problem.quizFieldCell.quizField, id=quiz_problem.quizFieldCell.id)
     quiz_field = get_object_or_404(QuizField, id=quiz_field_cell.quizField.id)
     quiz = get_object_or_404(Quiz, contest=quiz_field.quiz.contest)
@@ -260,16 +230,12 @@ def edit_quiz_problem(request, quiz_problem_id):
         if form.is_valid():
             form.save()
             context['form'] = form
-
-            # return render(request, 'edit_quiz_problem.html', context=context)
-            # return redirect('quiz_field', contest_id=contest.id)
             return render(request, 'edit_quiz_problem.html', context=context)
     else:
         form = QuizProblemForm(instance=quiz_problem)
         context['form'] = form
 
     return render(request, 'edit_quiz_problem.html', context=context)
-    # return redirect('quiz_field', contest_id=contest.id)
 
 
 def quiz_buy_problem(request, quiz_problem_id):
@@ -291,6 +257,9 @@ def quiz_buy_problem(request, quiz_problem_id):
             quiz=quiz
         )
 
+    if number_of_current_user_problems(quiz=quiz, user=request.user) >= 3:
+        return quiz_field_view(request, contest_id=contest.id)
+
     # Проверка, что хватает денег на покупку задачи
     if not quiz_user.score >= quiz_problem.points:
         return quiz_field_view(request, contest_id=contest.id)
@@ -309,6 +278,7 @@ def quiz_buy_problem(request, quiz_problem_id):
         logger.debug('Bought a problem')
         logger.debug(quiz_problem.points)
         quiz_user.decrease_score(quiz_problem.points)
+        last_attempt.save()
     else:
         pass
 
@@ -361,3 +331,54 @@ def quiz_check_answer(request, contest):
 
     return redirect('quiz_field', contest_id=contest.id)
 
+
+def quiz_results(request, contest_id):
+    contest = get_object_or_404(Contest, id=contest_id)
+
+    # Получаем всех пользователей, у которых quiz привязан к данному contest
+    users = QuizUser.objects.filter(quiz__contest=contest).select_related('user', 'user__profile')
+
+    user_and_score = []
+    for quiz_user in users:
+        user = quiz_user.user
+
+        if user.is_staff:
+            continue
+
+        profile = user.profile
+        user_and_score.append((profile.name, quiz_user.score))
+
+    context = {
+        'contest': contest,
+        'users': users,
+        'user_and_score': user_and_score
+    }
+
+    return render(request, 'quiz_results.html', context)
+
+
+def number_of_current_user_problems(quiz: Quiz, user: User):
+    quiz_field = get_object_or_404(QuizField, quiz=quiz)
+    quiz_field_cells = QuizFieldCell.objects.filter(quizField=quiz_field)
+
+    result = 0
+
+    for cell in quiz_field_cells:
+        quiz_problem = QuizProblem.objects.filter(quizFieldCell=cell).first()
+
+        if not quiz_problem:
+            continue
+        if not (cell.row < quiz_field.height and cell.col < quiz_field.width):
+            continue
+
+        last_attempt = QuizAttempt.objects.filter(user=user, problem=quiz_problem).order_by('-attempt_number').first()
+        if last_attempt:
+            if last_attempt.is_successful:
+                pass
+            elif last_attempt.attempt_number >= 3:
+                pass
+            else:
+                result += 1
+
+    logger.debug(result)
+    return result

@@ -6,7 +6,7 @@ from .views import main, register, user_login, contests, logout_view, contests_v
     admin_panel
 from django.contrib.auth import views as auth_views
 
-from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_field_view, quiz_buy_problem
+from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_field_view, quiz_buy_problem, quiz_results
 
 
 from . import views
@@ -21,6 +21,7 @@ urlpatterns = [
     path('quiz_field/<int:contest_id>/', quiz_field_view, name='quiz_field'),
     path('edit_quiz_problem/<int:quiz_problem_id>/', edit_quiz_problem, name='edit_quiz_problem'),
     path('buy_quiz_problem/<int:quiz_problem_id>/', quiz_buy_problem, name='quiz_buy_problem'),
+    path('quiz_results/<int:contest_id>/', quiz_results, name='quiz_results'),
 
     path('contests/admin/<int:contest_id>/', contest_detail_view_admin, name='contest_detail_admin'),
     path('admin_panel/', admin_panel, name='admin_panel'),
