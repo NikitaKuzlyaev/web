@@ -1,0 +1,105 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Результаты{% endblock %}
+
+{% block content %}
+<!-- main/templates/contest_detail_admin.html -->
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Заголовок с отступами -->
+    <div class="container mt-4 text-center">
+        <h2 class="font-weight-bold">{{ contest.name }}</h2>
+    </div>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+</head>
+<body>
+<div class="container mt-4">
+    <!-- Блок сообщений -->
+    {% if messages %}
+    <div class="mb-3">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Кнопки навигации -->
+    <div class="d-flex justify-content-center gap-3 mb-3">
+        <a href="{% url 'contest_detail' contest.id %}" class="btn btn-outline-secondary btn-lg shadow-sm">Назад к соревнованию</a>
+    </div>
+</div>
+
+
+<style>
+    .dark-row2
+    {
+        background-color: #FFF5EE;
+        color: black;
+        font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
+    }
+</style>
+
+<div class="row mt-4">
+    <div class="col-10 mx-auto">
+
+        <table class="table table-sm table-bordered table-hover text-center shadow-sm w-100">
+            <!-- Заголовок таблицы -->
+            <thead>
+            <tr>
+                <th scope="col" class="align-middle" style="width: 5%;">#</th>
+                <th scope="col" class="align-middle" style="width: 45%;">Команда</th>
+                <th scope="col" class="align-middle" style="width: 50%;">Счет</th>
+            </tr>
+            </thead>
+
+            <!-- Тело таблицы -->
+            <tbody>
+            {% for username, score in user_and_score %}
+                <td></td>
+                <td>{{ username }}</td>
+                <td>{{ score }}</td>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-muted">Пока нет результатов.</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Подключение Bootstrap JS и зависимостей (опционально) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+<!-- Добавляем стили -->
+<style>
+    .list-group-item {
+        padding: 5px 10px; /* Уменьшаем отступы вокруг текста */
+        font-size: 12px; /* Уменьшаем размер шрифта */
+    }
+
+    .list-group-item h5 {
+        margin: 0; /* Убираем отступы у заголовков внутри вкладок */
+    }
+</style>
+
+
+{% endblock %}

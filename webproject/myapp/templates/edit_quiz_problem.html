@@ -8,7 +8,21 @@
     <meta charset="UTF-8">
     <title>Редактирование задачи</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 
     <style>
 
@@ -78,7 +92,7 @@ width: 60%;
 
     <div class="task-card">
         <h3>{{ quiz_problem.title }}</h3>
-        <p>{{ quiz_problem.content }}</p>
+        <p style="white-space: pre-wrap; font-size: 1rem; color: #333;">{{ quiz_problem.content|safe }}</p>
         <p>Points: {{ quiz_problem.points }}</p>
 
     </div>

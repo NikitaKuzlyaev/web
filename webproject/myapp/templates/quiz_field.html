@@ -8,17 +8,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Квиз</title>
+
     <!-- Подключение Font Awesome через CDN -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-
     <!-- Добавляем ссылку на Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
     <!-- Подключение Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+
+    <!-- Конфигурация MathJax -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                packages: {'[+]': ['textmacros']}, // Подключаем дополнительные пакеты
+            },
+            options: {
+                enableHTML: true, // Включаем поддержку HTML
+            }
+        };
     </script>
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
 
     <style>
         /* Уменьшаем шрифт для таблицы */
@@ -64,109 +87,108 @@
 
 
         /* Уменьшаем время анимации для модальных окон */
-.modal.fade .modal-dialog {
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Установите желаемую скорость */
-}
+        .modal.fade .modal-dialog {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Установите желаемую скорость */
+        }
 
 
-/* Пример для других элементов */
-.card {
-    transition: transform 0.2s ease-in-out; /* Установите свою скорость */
-}
-        .task-card {
-  border: 1px solid #ccc;
-  padding: 16px;
-  margin: 10px;
-  width: 50%;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+        /* Пример для других элементов */
+        .card {
+            transition: transform 0.2s ease-in-out; /* Установите свою скорость */
+        }
+                .task-card {
+          border: 1px solid #ccc;
+          padding: 16px;
+          margin: 10px;
+          width: 50%;
+          border-radius: 8px;
+          background-color: #f9f9f9;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
 
-.task-card h3 {
-  font-size: 1.0em;
-  color: #333;
-}
+        .task-card h3 {
+          font-size: 1.0em;
+          color: #333;
+        }
 
-.task-card p {
-  font-size: 0.8em;
-  color: #666;
-}
+        .task-card p {
+          font-size: 0.8em;
+          color: #666;
+        }
 
-.task-card a {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #f0f8ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-}
+        .task-card a {
+          display: inline-block;
+          padding: 8px 16px;
+          background-color: #f0f8ff;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+        }
 
-.task-card a:hover {
-  background-color: #45a049;
-}
+        .task-card a:hover {
+          background-color: #45a049;
+        }
 
-        /* Отключаем эффект выделения кнопки при наведении */
-    .btn-outline-primary:hover {
-        background-color: transparent;
-        border-color: #007bff;
-        opacity: 1;
-    }
-
+            /* Отключаем эффект выделения кнопки при наведении */
+        .btn-outline-primary:hover {
+            background-color: transparent;
+            border-color: #007bff;
+            opacity: 1;
+        }
 
     </style>
 
     <style>
-        /* Стиль для неудачной попытки */
-.shop-card.failed  {
-background-color: #ff9a81;
+                /* Стиль для неудачной попытки */
+        .shop-card.failed  {
+        background-color: #ff9a81;
 
-}
+        }
 
-/* Стиль для решенной задачи */
-.shop-card.solved {
-background-color: #A8E4A0;
+        /* Стиль для решенной задачи */
+        .shop-card.solved {
+        background-color: #A8E4A0;
 
-}
+        }
 
-/* Стиль для задачи, которая в процессе */
-.shop-card.in-progress {
+        /* Стиль для задачи, которая в процессе */
+        .shop-card.in-progress {
 
-border: 2px solid #000; /* Черная обводка толщиной 2px */
-}
+        border: 2px solid #000; /* Черная обводка толщиной 2px */
+        }
 
-/* Стиль для задачи, которая не была попытана */
-.shop-card.not-attempted {
-background-color: gray;
+        /* Стиль для задачи, которая не была попытана */
+        .shop-card.not-attempted {
+        background-color: gray;
 
-}
+        }
 
-.shop-card {
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.05s;
-    background-color: #f0f8ff;
-}
+        .shop-card {
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.05s;
+            background-color: #f0f8ff;
+        }
 
-.shop-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
+        .shop-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
 
-.shop-card-body {
-    text-align: center;
-}
+        .shop-card-body {
+            text-align: center;
+        }
 
-.shop-card-title {
-    margin-top: 8px;
-    font-size: 0.7rem;
-    font-weight: bold;
-}
+        .shop-card-title {
+            margin-top: 8px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
 
-.shop-card-text {
-    font-size: 0.8rem;
-    color: #6c757d;
-}
+        .shop-card-text {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
     </style>
 
 </head>
@@ -180,7 +202,7 @@ background-color: gray;
 
     {% load custom_filters %}
 
-    <div class="container my-5 d-flex" style="width: 100%;">
+    <div class="container my-2 d-flex" style="width: 100%;">
 
         <!-- Левый контейнер (65% ширины) -->
         <div class="left-container" style="width: 65%; padding-right: 10px;">
@@ -194,10 +216,14 @@ background-color: gray;
                 <div class="d-flex" style="gap: 10px;">
                     {% for col in columns %}
 
+                    {% with can_buy=can_buy_flags|get_item:row %}
+                    {% with can_buy=can_buy|get_item:col %}
+
                     {% with verdict=quiz_field_flags|get_item:row|get_item:col %}
                     <div class="{{ verdict|default:'not-attempted' }} shop-card"
-                         style="width: 120px; cursor: pointer;"
-                         data-bs-toggle="modal" data-bs-target="#confirmationModal"
+                         style="width: 120px; {% if not can_buy %} cursor: not-allowed; pointer-events: none; {% else %} cursor: pointer; {% endif %}"
+                         data-bs-toggle="modal"
+                         data-bs-target="#confirmationModal"
                          data-row="{{ row }}" data-col="{{ col }}"
                          data-task-id="{{ tasks_ids|get_item:row|get_item:col }}"
                          id="task-{{ row }}-{{ col }}">
@@ -216,6 +242,8 @@ background-color: gray;
                         {% endif %}
                         {% endwith %}
                         {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
                     </div>
                     {% endwith %}
                     {% endfor %}
@@ -225,14 +253,20 @@ background-color: gray;
             </div>
 
         </div>
-        <div class="right-container" style="width: 35%; padding-left: 10px;">
-            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 10px;">
-                <h5 class="mb-0">Ваш счет: {{ quiz_user.score }}</h5>
+        <div class="right-container" style="width: 35%; padding-left: 10px; padding-top: 2rem">
+            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
                 <i class="bi bi-award" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                <h5 class="mb-0" style="margin-left: 5px;">Ваш счет: {{ quiz_user.score }}</h5>
             </div>
-            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 10px;">
-                <h5 class="mb-0">Задач в работе: 2/3</h5>
+            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <i class="bi bi-clipboard2-check" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                <h5 class="mb-0" style="margin-left: 5px;">Задач в работе: {{ number_of_current_user_problems }}/3</h5>
             </div>
+            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <i class="bi bi-capslock-fill" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                <h6 class="mb-0" style="margin-left: 5px;">Бонус комбо: {{ 10 }}</h6>
+            </div>
+
         </div>
     </div>
 
@@ -254,7 +288,7 @@ background-color: gray;
             </div>
         </div>
 
-        <p>{{ problem.content }}</p>
+        <p style="white-space: pre-wrap; font-size: 1rem; color: #333;">{{ problem.content|safe }}</p>
         <p>Потенциально: {{ pt }}</p>
 
         <form method="POST">
