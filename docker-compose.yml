@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - static_volume:/app/webproject/staticfiles  # Монтируем volume в контейнер с Django
+      - media_volume:/app/webproject/media
+      - uwsgi_socket:/tmp  # Общий volume для сокета
+    expose:
+      - 8001
+    command: uwsgi --ini /app/uwsgi.ini  # Запуск uWSGI
+    networks:
+      - app-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    volumes:
+      - static_volume:/app/webproject/staticfiles  # Монтируем тот же volume в контейнер с Nginx
+      - media_volume:/app/webproject/media
+      - uwsgi_socket:/tmp  # Монтируем тот же сокет
+    ports:
+      - 8000:8000
+    networks:
+      - app-network
+
+volumes:
+  static_volume:  # Определяем общий volume для статики
+  media_volume:  # Определяем общий volume для медиафайлов
+  uwsgi_socket:  # Определяем volume для сокета
+
+networks:
+  app-network:
