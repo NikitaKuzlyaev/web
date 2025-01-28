@@ -1,0 +1,11 @@
+# Dockerfile для Nginx
+FROM nginx:latest
+
+# Копируем конфиг Nginx в контейнер
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Директория для статических файлов
+WORKDIR /app/webproject
+
+# Открываем порт для Nginx
+EXPOSE 8000
