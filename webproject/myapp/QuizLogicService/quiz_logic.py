@@ -12,7 +12,7 @@ from django.utils.timezone import now
 from django.forms import modelformset_factory
 from django.db.models import Max, Prefetch, Q
 from django.db import models
-
+from .message_box import MessageText
 from ..forms import (
     CustomUserCreationForm, ContestForm, ContestPageForm,
     ContestUserProfileForm, CodeEditForm, ContestTagForm, QuizProblemForm
@@ -265,7 +265,6 @@ def quiz_buy_problem(request, quiz_problem_id):
         return quiz_field_view(request, contest_id=contest.id)
 
     last_attempt = QuizAttempt.objects.filter(user=request.user, problem=quiz_problem).order_by('-attempt_number').first()
-    logger.debug(last_attempt)
 
     if not last_attempt:
         # Создаем новую попытку
@@ -276,19 +275,28 @@ def quiz_buy_problem(request, quiz_problem_id):
             is_successful=False  # Пока неудачная попытка
         )
         logger.debug('Bought a problem')
-        logger.debug(quiz_problem.points)
         quiz_user.decrease_score(quiz_problem.points)
         last_attempt.save()
     else:
         pass
 
+    #messages.success(request, MessageText.points_decrease(quiz_problem.points))
+    messages.add_message(request, messages.INFO, MessageText.problem_add(quiz_problem.title, quiz_problem.points), extra_tags='info')
+    messages.add_message(request, messages.INFO, MessageText.points_decrease(quiz_problem.points), extra_tags='info')
     return quiz_field_view(request, contest_id=contest.id)
 
 
 def quiz_check_answer(request, contest):
     logger.debug('quiz_check_answer')
+    #messages.success(request, "Ответ принят!")
 
     user_answer = request.POST.get('user_answer')  # Используем get() для безопасного доступа
+
+    # Обработка на случай пустого ответа. Хотя он не должен возникать, если не изменять код страницы формы отправки
+    if len(user_answer) == 0:
+        messages.error(request, "Поле ответа не может быть пустым!")
+        return redirect('quiz_field', contest_id=contest.id)
+
     quiz_problem_id = request.POST.get('problem_id')  # Можно задать значение по умолчанию, если ключ не найден
 
     quiz_problem = get_object_or_404(QuizProblem, id=quiz_problem_id)
@@ -300,6 +308,7 @@ def quiz_check_answer(request, contest):
 
     last_attempt = QuizAttempt.objects.filter(user=request.user, problem=quiz_problem).order_by('-attempt_number').first()
     logger.debug(last_attempt.is_successful)
+
     if last_attempt.is_successful:
         return redirect('quiz_field', contest_id=contest.id)
 
@@ -323,11 +332,23 @@ def quiz_check_answer(request, contest):
         is_successful=is_correct_answer
     )
 
+
     if is_correct_answer:
         reward_score = reward_score_table[new_attempt.attempt_number]
         quiz_user.increase_score(reward_score)
+        messages.add_message(request, messages.INFO, MessageText.points_increase(reward_score), extra_tags='info')
+        messages.success(request, MessageText.correct_answer)
     else:
-        pass
+        is_problem_lose = False
+        if new_attempt.attempt_number >= 3:
+            is_problem_lose = True
+
+        if is_problem_lose:
+            messages.add_message(request, messages.INFO, MessageText.problem_remove(quiz_problem.title, quiz_problem.points), extra_tags='info')
+            messages.error(request, MessageText.wrong_answer_last_try)
+        else:
+            reward_score = reward_score_table[new_attempt.attempt_number]
+            messages.error(request, MessageText.wrong_answer)
 
     return redirect('quiz_field', contest_id=contest.id)
 
@@ -357,6 +378,37 @@ def quiz_results(request, contest_id):
     return render(request, 'quiz_results.html', context)
 
 
+
+@user_passes_test(is_admin)
+def quiz_participants_admin(request, contest_id):
+    contest = get_object_or_404(Contest, id=contest_id)
+    participants = Profile.objects.filter(contest_access=contest)
+
+    if request.method == 'POST':
+        if 'delete_participant' in request.POST:
+            participant_id = request.POST.get('participant_id')
+            if participant_id:
+                participant = get_object_or_404(Profile, id=participant_id)
+                user = User.objects.filter(profile=participant)
+                user.delete()  # Удаляем участника
+                return redirect('quiz_participants_admin', contest_id=contest.id)  # Перенаправляем на страницу с участниками
+
+        form = ContestUserProfileForm(request.POST)
+        if form.is_valid():
+            form.save()  # Сохраняем нового пользователя и его профиль
+            return redirect('quiz_participants_admin', contest_id=contest.id)  # Перенаправляем обратно на страницу с участниками
+    else:
+        form = ContestUserProfileForm(initial={'contest_access': contest})  # Передаем текущий contest в форму
+
+    context = {
+        'contest': contest,
+        'participants': participants,
+        'form': form,
+    }
+
+    return render(request, 'quiz_participants_admin.html', context)
+
+
 def number_of_current_user_problems(quiz: Quiz, user: User):
     quiz_field = get_object_or_404(QuizField, quiz=quiz)
     quiz_field_cells = QuizFieldCell.objects.filter(quizField=quiz_field)
@@ -380,5 +432,6 @@ def number_of_current_user_problems(quiz: Quiz, user: User):
             else:
                 result += 1
 
-    logger.debug(result)
     return result
+
+

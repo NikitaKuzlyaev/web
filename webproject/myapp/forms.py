@@ -20,6 +20,12 @@ from django.forms import modelformset_factory
 
 TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1)
 
+from .models import AppConfig
+
+class AppConfigForm(forms.ModelForm):
+    class Meta:
+        model = AppConfig
+        fields = ['allow_registration', 'enable_feature_x']
 
 class QuizProblemForm(forms.ModelForm):
     # class Meta:
@@ -152,6 +158,7 @@ class ContestPageForm(forms.ModelForm):
 
 class CustomUserCreationForm(UserCreationForm):
     username = forms.CharField(
+        label="Логин",
         max_length=10,
         min_length=1,
         required=True,
@@ -226,9 +233,12 @@ class CustomUserCreationForm(UserCreationForm):
 
 class CustomAuthenticationForm(AuthenticationForm):
     username = forms.CharField(
+        label="Логин",
         max_length=10,
         min_length=1,
         required=True,
+        initial='',
+        widget=forms.TextInput(attrs={'class': 'form-control'}),
         error_messages={
             'required': 'Пожалуйста, введите имя пользователя.',
             'max_length': 'Имя пользователя не должно превышать 10 символов.',
@@ -239,6 +249,7 @@ class CustomAuthenticationForm(AuthenticationForm):
         label="Пароль",
         strip=False,
         widget=forms.PasswordInput,
+        initial='',
         min_length=1,
         max_length=10,
         error_messages={

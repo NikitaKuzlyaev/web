@@ -14,10 +14,10 @@ from django.utils.timezone import now
 from django.forms import modelformset_factory
 from django.db.models import Max, Prefetch
 from django.db import models
-
+from .models import AppConfig
 from .forms import (
     CustomUserCreationForm, ContestForm, ContestPageForm,
-    ContestUserProfileForm, CodeEditForm, ContestTagForm, QuizProblemForm
+    ContestUserProfileForm, CodeEditForm, ContestTagForm, QuizProblemForm, AppConfigForm
 )
 from .models import (
     User, Contest, ContestPage, BlogPage, ContestCheckerPythonCode,
@@ -117,13 +117,20 @@ def contests(request):
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
+        if form.is_valid() and utils.is_registration_allowed():
             user = form.save()
             login(request, user)  # Автоматически авторизовать пользователя
             return redirect('main')  # Перенаправление на домашнюю страницу
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'register.html', {'form': form})
+
+    form = CustomUserCreationForm()
+    context = {
+        'form': form,
+        'is_registration_allowed': utils.is_registration_allowed(),
+
+    }
+
+
+    return render(request, 'register.html', context)
 
 
 def user_login(request):
@@ -318,7 +325,13 @@ def submit_file(request):
 # @login_required
 def contests_view(request):
     # Получаем все соревнования и связанные теги
-    contests = Contest.objects.all().prefetch_related('tag').order_by('-created_at')
+    # Получаем только те соревнования, для которых существует связанный Quiz
+    contests = (
+        Contest.objects.filter(quiz__isnull=True)
+        .prefetch_related('tag')  # Предзагрузка связанных тегов
+        .order_by('-created_at')  # Сортировка по дате создания
+    )
+    #contests = Contest.objects.all().prefetch_related('tag').order_by('-created_at')
 
     if request.user.is_authenticated:
         user_profile = request.user.profile
@@ -394,6 +407,9 @@ def contest_detail_view_admin(request, contest_id):
             utils.ContestDetailViewAdmin.handle_delete_tag(request, contest)
 
     context = utils.ContestDetailViewAdmin.get_context(request, contest)
+    # Проверяем, существует ли связанный Quiz для этого contest
+    quiz = Quiz.objects.filter(contest=contest).first()  # Получаем первый найденный Quiz или None
+    context['quiz'] = quiz
 
     return render(request, 'contest_detail_admin.html', context)
 
@@ -401,7 +417,18 @@ def contest_detail_view_admin(request, contest_id):
 @login_required
 @user_passes_test(is_admin)
 def admin_panel(request):
+    config = AppConfig.objects.first()
+
+    if request.method == 'POST':
+        form = AppConfigForm(request.POST, instance=config)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_panel')
+    else:
+        form = AppConfigForm(instance=config)
+
     context = {
+        'form': form,
     }
 
     return render(request, 'admin_panel.html', context)
@@ -651,8 +678,3 @@ def contest_participants_admin(request, contest_id):
     }
 
     return render(request, 'contest_participants_admin.html', context)
-
-
-
-
-

@@ -26,9 +26,15 @@
     {% endif %}
 
     <a href="{% url 'contests' %}" class="btn btn-secondary mb-3">Назад к соревнованиям</a>
+
     {% if not contest.is_open %}
-    <a href="{% url 'contest_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники соревнования</a>
+        {% if quiz %}
+        <a href="{% url 'quiz_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники квиза</a>
+        {% else %}
+        <a href="{% url 'contest_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники соревнования</a>
+        {% endif %}
     {% endif %}
+
     <form method="post" style="margin: 0;">
         {% csrf_token %}
         <input type="hidden" name="contest_id" value="{{ contest.id }}">
