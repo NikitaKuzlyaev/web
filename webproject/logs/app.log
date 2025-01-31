@@ -17285,3 +17285,10 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 django.db.utils.IntegrityError: NOT NULL constraint failed: myapp_uploadedimage.user_id
 ERROR 2025-01-31 21:08:08,550 basehttp "POST /upload_image/ HTTP/1.1" 500 151670
+INFO 2025-01-31 21:14:39,510 autoreload Watching for file changes with StatReloader
+INFO 2025-01-31 21:14:41,531 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:14:42,852 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-01-31 21:14:43,958 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
+INFO 2025-01-31 21:14:44,703 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 14448
+INFO 2025-01-31 21:14:45,301 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
+INFO 2025-01-31 21:14:46,308 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
