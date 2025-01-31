@@ -17304,3 +17304,20 @@ INFO 2025-01-31 21:27:58,242 basehttp "GET /static/contest_logo.png HTTP/1.1" 30
 INFO 2025-01-31 21:27:59,584 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
 INFO 2025-01-31 21:28:00,636 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
 INFO 2025-01-31 21:28:02,035 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-01-31 21:32:50,736 autoreload Watching for file changes with StatReloader
+INFO 2025-01-31 21:32:53,493 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:32:54,841 basehttp "GET /admin_panel/ HTTP/1.1" 200 5876
+INFO 2025-01-31 21:32:55,630 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-01-31 21:32:56,789 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-01-31 21:32:57,520 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-01-31 21:33:33,086 autoreload Watching for file changes with StatReloader
+INFO 2025-01-31 21:33:39,944 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:33:41,547 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-01-31 21:33:42,113 basehttp "GET /admin_panel/ HTTP/1.1" 200 5876
+INFO 2025-01-31 21:33:43,010 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-01-31 21:33:44,253 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-01-31 21:33:44,646 basehttp "GET /admin_panel/ HTTP/1.1" 200 5876
+INFO 2025-01-31 21:33:45,016 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-01-31 21:33:45,529 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-01-31 21:33:46,104 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
+INFO 2025-01-31 21:33:47,256 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
