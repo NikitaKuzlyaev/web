@@ -35,6 +35,14 @@ import pytz
 import time
 import logging
 
+# utils.py
+from .models import AppConfig
+
+def get_app_config():
+    return AppConfig.objects.first()  # Получаем первые настройки (предполагаем, что они будут единственными)
+
+def is_registration_allowed():
+    return get_app_config().allow_registration  # Получаем значение флага для регистрации
 
 def have_access(user, contest_id):
     # Проверка, что пользователь является администратором

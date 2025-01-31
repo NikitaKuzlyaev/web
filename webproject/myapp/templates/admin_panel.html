@@ -24,6 +24,14 @@
 <body>
 
 
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+
 
 <!-- Подключение Bootstrap JS и зависимостей (опционально) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -50,8 +58,6 @@
         color: #fff;
     }
 </style>
-
-
 
 
 {% endblock %}

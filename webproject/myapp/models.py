@@ -2,6 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class AppConfig(models.Model):
+    # Настройки приложения
+    allow_registration = models.BooleanField(default=True, verbose_name="Разрешить регистрацию пользователей")
+
+    # Дополнительные настройки, если нужно
+    enable_feature_x = models.BooleanField(default=False, verbose_name="Включить функцию X")
+
+    def __str__(self):
+        return "Глобальные настройки приложения"
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     name = models.CharField(max_length=255, unique=False)
@@ -66,9 +77,10 @@ class QuizUser(models.Model):
         self.score = self.score + points
         self.save()
 
+
 class QuizField(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    width = models.PositiveIntegerField(default=6)
+    width = models.PositiveIntegerField(default=5)
     height = models.PositiveIntegerField(default=4)
 
 
