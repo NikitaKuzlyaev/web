@@ -16,7 +16,7 @@
     <!-- Подключение Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Подключение Font Awesome через CDN -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Добавляем ссылку на Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Подключение Bootstrap CSS -->
@@ -195,6 +195,14 @@ background-color: gray;
     font-size: 0.8rem;
     color: #6c757d;
 }
+.score-card {
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.05s;
+    background-color: #f0f8ff;
+}
+
+
     </style>
 
     <style>
@@ -299,17 +307,42 @@ background-color: gray;
 
         </div>
         <div class="right-container" style="width: 35%; padding-left: 10px; padding-top: 2rem">
-            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
-                <i class="bi bi-award" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
-                <h5 class="mb-0" style="margin-left: 5px;">Ваш счет: {{ quiz_user.score }}</h5>
+
+            <!-- Таймер -->
+
+            <div id="timer" class="alert alert-info text-center shadow-sm" style="margin-top: 10px;">
+                <div id="timer-display" class="mt-1"></div>
             </div>
-            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
-                <i class="bi bi-clipboard2-check" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
-                <h5 class="mb-0" style="margin-left: 5px;">Задач в работе: {{ number_of_current_user_problems }}/3</h5>
+
+            <div class="score-card d-flex align-items-center justify-content-between" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <div class="d-flex align-items-center" style="">
+                    <i class="bi bi-award" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                    <h5 class="mb-0 ms-auto" style="padding-left: 10px; vertical-align: middle;">Ваш счет:</h5>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h5 class="mb-0 ms-auto">{{ quiz_user.score }}</h5>
+                </div>
             </div>
-            <div class="d-flex align-items-center" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
-                <i class="bi bi-capslock-fill" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
-                <h6 class="mb-0" style="margin-left: 5px;">Бонус комбо: {{ 10 }}</h6>
+
+
+            <div class="score-card d-flex align-items-center justify-content-between" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <div class="d-flex align-items-center" style="">
+                    <i class="bi bi-clipboard2-check" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                    <h5 class="mb-0 ms-auto" style="padding-left: 10px; vertical-align: middle;">Задач в работе:</h5>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h5 class="mb-0 ms-auto">{{ number_of_current_user_problems }}/3</h5>
+                </div>
+            </div>
+
+            <div class="score-card d-flex align-items-center justify-content-between" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <div class="d-flex align-items-center" style="">
+                    <i class="bi bi-capslock-fill" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                    <h5 class="mb-0 ms-auto" style="padding-left: 10px; vertical-align: middle;">Бонус комбо:</h5>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h5 class="mb-0 ms-auto">{{ quiz_user.combo_score }}</h5>
+                </div>
             </div>
 
         </div>
@@ -386,15 +419,70 @@ background-color: gray;
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
             {{ message|safe }}
-            <!--            <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">-->
-            <!--                <span aria-hidden="true">&times;</span>-->
-            <!--            </button>-->
+<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">-->
+<!--                <span aria-hidden="true">&times;</span>-->
+<!--            </button>-->
         </div>
         {% endfor %}
     </div>
     {% endif %}
 
 </div>
+
+
+<script>
+    // Переменная для хранения идентификатора интервала
+    let intervalId;
+
+    const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
+    const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
+
+    // Функция обновления таймера
+    function updateTimer() {
+        const now = new Date().getTime();  // Текущее время
+
+        // Если текущее время меньше времени начала соревнования
+        if (now < contestStartDate) {
+            const timeLeft = contestStartDate - now;
+            displayTime("До начала соревнования осталось:", timeLeft);
+        }
+        // Если текущее время находится между началом и концом соревнования
+        else if (now >= contestStartDate && now < contestEndDate) {
+            const timeLeft = contestEndDate - now;
+            displayTime("До окончания соревнования осталось:", timeLeft);
+        }
+        // Если текущее время больше времени окончания соревнования
+        else {
+            clearInterval(intervalId);  // Останавливаем таймер
+            document.getElementById("timer-display").innerHTML = "<strong>Соревнование завершено</strong>";
+        }
+    }
+
+    // Функция отображения времени
+    function displayTime(message, timeLeft) {
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));  // Часы
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  // Минуты
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  // Секунды
+
+        // Форматируем время в HH:MM:SS
+        const formattedTime =
+            (hours < 10 ? '0' : '') + hours + ":" +
+            (minutes < 10 ? '0' : '') + minutes + ":" +
+            (seconds < 10 ? '0' : '') + seconds;
+
+        // Обновляем текст таймера
+        document.getElementById("timer-display").innerHTML = `
+            <strong>${message}</strong>
+            <h3>${formattedTime}</h3>
+        `;
+    }
+
+    // Запуск таймера при загрузке страницы
+    window.onload = function() {
+        updateTimer();  // Сразу обновляем
+        intervalId = setInterval(updateTimer, 200);  // Каждую секунду обновляем
+    }
+</script>
 
 
 <script>
@@ -433,9 +521,9 @@ background-color: gray;
         let alerts = document.querySelectorAll("#messageContainer .alert");
         alerts.forEach(alert => {
             alert.style.opacity = "0";
-            setTimeout(() => alert.remove(), 100); // Удаление после анимации
+            setTimeout(() => alert.remove(), 500); // Удаление после анимации
         });
-    }, 5000);
+    }, 7000);
 </script>
 
 <!-- Подключение Bootstrap JS и зависимостей (опционально) -->

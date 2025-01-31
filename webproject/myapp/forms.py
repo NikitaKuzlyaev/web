@@ -20,6 +20,13 @@ from django.forms import modelformset_factory
 
 TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1)
 
+from .models import UploadedImage
+class ImageUploadForm(forms.ModelForm):
+    class Meta:
+        model = UploadedImage
+        fields = ['image']
+
+
 from .models import AppConfig
 
 class AppConfigForm(forms.ModelForm):
@@ -85,7 +92,7 @@ class ContestUserProfileForm(forms.ModelForm):
 
         # Создаем профиль и связываем его с пользователем
         profile = Profile.objects.create(user=user, name=self.cleaned_data['name'], contest_access=self.cleaned_data['contest_access'])
-
+        profile.save()
         return user
 
 

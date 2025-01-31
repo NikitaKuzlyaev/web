@@ -110,28 +110,14 @@
 
     <!-- Кнопки навигации -->
     <div class="d-flex justify-content-center gap-3 mb-3">
+        {% if quiz %}
+        <a href="{% url 'quizzes' %}" class="btn btn-outline-secondary btn-sm shadow-sm">Назад к квизам</a>
+        <a href="{% url 'quiz_field' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Задания</a>
+        <a href="{% url 'quiz_results' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Результаты</a>
+        {% else %}
         <a href="{% url 'contests' %}" class="btn btn-outline-secondary btn-sm shadow-sm">Назад к соревнованиям</a>
-
-
-        {% if quiz %}
-        <a href="{% url 'quiz_field' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">
-            Задания
-        </a>
-        {% else %}
-        <a href="{% url 'contest_detail_submissions' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">
-            Посылки
-        </a>
-        {% endif %}
-
-
-        {% if quiz %}
-        <a href="{% url 'quiz_results' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">
-            Результаты
-        </a>
-        {% else %}
-        <a href="{% url 'contest_detail_results' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">
-            Результаты
-        </a>
+        <a href="{% url 'contest_detail_submissions' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Посылки</a>
+        <a href="{% url 'contest_detail_results' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Результаты</a>
         {% endif %}
     </div>
 </div>

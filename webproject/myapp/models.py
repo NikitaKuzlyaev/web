@@ -1,6 +1,20 @@
 from django.db import models
 from django.contrib.auth.models import User
+import os
+import uuid
 
+def upload_to(instance, filename):
+    ext = filename.split('.')[-1]
+    new_filename = f"{uuid.uuid4()}.{ext}"  # Уникальное имя
+    return os.path.join("uploads", new_filename)
+
+class UploadedImage(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который загрузил картинку
+    image = models.ImageField(upload_to=upload_to)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.image.name
 
 class AppConfig(models.Model):
     # Настройки приложения
@@ -68,6 +82,10 @@ class QuizUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который сделал попытку
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)  # Внешний ключ к соревнованию
     score = models.PositiveIntegerField(default=1000)
+    combo_score = models.PositiveIntegerField(default=0)
+
+    reward_by_problems = models.PositiveIntegerField(default=0)
+    reward_by_combo = models.PositiveIntegerField(default=0)
 
     def decrease_score(self, points):
         self.score = self.score - points
@@ -75,6 +93,20 @@ class QuizUser(models.Model):
 
     def increase_score(self, points):
         self.score = self.score + points
+        self.reward_by_problems = self.reward_by_problems + points
+        self.save()
+
+    def increase_score_by_combo(self, points):
+        self.score = self.score + points
+        self.reward_by_combo = self.reward_by_combo + points
+        self.save()
+
+    def remove_combo_score(self):
+        self.combo_score = 0
+        self.save()
+
+    def increase_combo_score(self, points):
+        self.combo_score = self.combo_score + points
         self.save()
 
 
