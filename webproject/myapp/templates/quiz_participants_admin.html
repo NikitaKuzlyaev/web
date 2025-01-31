@@ -20,6 +20,8 @@
         <tr>
             <th>Логин</th>
             <th>Имя</th>
+            <th>Счет</th>
+            <th>Комбо-баллы</th>
             <th>Действия</th>
         </tr>
     </thead>
@@ -28,6 +30,8 @@
         <tr>
             <td>{{ participant.user.username }}</td> <!-- Показываем логин, а не пароль -->
             <td>{{ participant.name }}</td>
+            <td>{{ participant.name }}</td>
+            <td>{{ participant.name }}</td>
             <td>
                 <form method="post" action="{% url 'contest_participants_admin' contest.id %}">
                     {% csrf_token %}
@@ -35,6 +39,12 @@
                     <input type="hidden" name="participant_id" value="{{ participant.id }}">
                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Вы уверены, что хотите удалить этого участника?');">
                         Удалить
+                    </button>
+                    <button type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Вы уверены, что хотите удалить этого участника?');">
+                        Смотреть посылки
+                    </button>
+                    <button type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Вы уверены, что хотите удалить этого участника?');">
+                        Редактировать
                     </button>
                 </form>
             </td>

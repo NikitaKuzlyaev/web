@@ -25,6 +25,9 @@ from .models import (
     SubmissionFile, Submission, Profile, ContestTag, Quiz, QuizField, QuizFieldCell,
     QuizAttempt, QuizProblem, QuizUser
 )
+from .models import UploadedImage
+from .forms import ImageUploadForm
+
 from .utils import have_access
 from . import utils
 

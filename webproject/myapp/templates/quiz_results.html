@@ -20,7 +20,7 @@
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <!-- Подключение Font Awesome через CDN -->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- Добавляем ссылку на Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Подключение Bootstrap CSS -->
@@ -57,34 +57,218 @@
         color: black;
         font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
     }
+
+
+
+
+    .gold-card {
+        position: relative; /* Чтобы `::before` позиционировался относительно карточки */
+        margin-top: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.05s;
+        background-color: #f0f8ff;
+        overflow: hidden; /* Обрезает градиент, если он выходит за границы */
+    }
+
+<!--    .gold-card::before {-->
+<!--        content: "";-->
+<!--        position: absolute;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        width: 100%;-->
+<!--        height: 20%; /* Высота градиента */-->
+<!--        background: linear-gradient(to bottom, rgba(255, 215, 30, 0.8), rgba(255, 215, 0, 0));-->
+<!--        border-top-left-radius: 5px; /* Подгоняем к закруглениям */-->
+<!--        border-top-right-radius: 5px;-->
+<!--        pointer-events: none; /* Чтобы градиент не перекрывал клики */-->
+<!--    }-->
+
+    .gold-card-body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    .gold-card-title {
+        padding-left: 30px;
+        font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+
+
+    .silver-card {
+        position: relative; /* Чтобы `::before` позиционировался относительно карточки */
+        margin-top: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.05s;
+        background-color: #f0f8ff;
+        overflow: hidden; /* Обрезает градиент, если он выходит за границы */
+    }
+
+<!--    .silver-card::before {-->
+<!--        content: "";-->
+<!--        position: absolute;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        width: 100%;-->
+<!--        height: 20%; /* Высота градиента */-->
+<!--        background: linear-gradient(to bottom, rgba(192, 192, 192, 0.8), rgba(192, 192, 192, 0));-->
+<!--        border-top-left-radius: 5px; /* Подгоняем к закруглениям */-->
+<!--        border-top-right-radius: 5px;-->
+<!--        pointer-events: none; /* Чтобы градиент не перекрывал клики */-->
+<!--    }-->
+
+    .silver-card-body {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .silver-card-title {
+        padding-left: 30px;
+        font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+
+    .bronze-card {
+        position: relative; /* Чтобы `::before` позиционировался относительно карточки */
+        margin-top: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.05s;
+        background-color: #f0f8ff;
+        overflow: hidden; /* Обрезает градиент, если он выходит за границы */
+    }
+
+<!--    .bronze-card::before {-->
+<!--        content: "";-->
+<!--        position: absolute;-->
+<!--        top: 0;-->
+<!--        left: 0;-->
+<!--        width: 100%;-->
+<!--        height: 20%; /* Высота градиента */-->
+<!--        background: linear-gradient(to bottom, rgba(255, 228, 181, 0.8), rgba(255, 228, 181 , 0));-->
+<!--        border-top-left-radius: 5px; /* Подгоняем к закруглениям */-->
+<!--        border-top-right-radius: 5px;-->
+<!--        pointer-events: none; /* Чтобы градиент не перекрывал клики */-->
+<!--    }-->
+    .bronze-card-body {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .bronze-card-title {
+        padding-left: 30px;
+        font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
+        font-size: 1.6rem;
+        font-weight: bold;
+    }
+
+    .default-card {
+        margin-top: 10px;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.05s;
+        background-color: #f0f8ff;
+    }
+    .default-card-body {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .default-card-title {
+        padding-left: 30px;
+        font-family: 'Courier New', sans-serif; /* Использует Arial, если нет - sans-serif */
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+
 </style>
 
 <div class="row mt-4">
-    <div class="col-10 mx-auto">
+    <div class="col-8 mx-auto">
 
-        <table class="table table-sm table-bordered table-hover text-center shadow-sm w-100">
-            <!-- Заголовок таблицы -->
-            <thead>
-            <tr>
-                <th scope="col" class="align-middle" style="width: 5%;">#</th>
-                <th scope="col" class="align-middle" style="width: 45%;">Команда</th>
-                <th scope="col" class="align-middle" style="width: 50%;">Счет</th>
-            </tr>
-            </thead>
+        {% if gold_place_name %}
+        <div class="gold-card">
+            <div class="gold-card-body d-flex align-items-center justify-content-between">
+                <div class="d-flex">
+                    <i class="bi bi-1-square-fill" style="font-size:1.5rem;"></i>
+                    <div class="gold-card-title">{{ gold_place_name }}</div>
+                </div>
 
-            <!-- Тело таблицы -->
-            <tbody>
-            {% for username, score in user_and_score %}
-                <td></td>
-                <td>{{ username }}</td>
-                <td>{{ score }}</td>
-            {% empty %}
-            <tr>
-                <td colspan="3" class="text-muted">Пока нет результатов.</td>
-            </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+                <div style="padding-right: 20px;">
+                    <h5 style="font-size:2rem;">{{ gold_place_score }}</h5>
+                </div>
+            </div>
+
+        </div>
+        {% endif %}
+
+        {% if silver_place_name %}
+        <div class="silver-card">
+            <div class="silver-card-body d-flex align-items-center justify-content-between">
+                <div class="d-flex">
+                    <i class="bi bi-2-square-fill" style="font-size:1.5rem;"></i>
+                    <div class="silver-card-title">{{ silver_place_name }}</div>
+                </div>
+                <div style="padding-right: 20px;">
+                    <h5 style="font-size:2rem;">{{ silver_place_score }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if bronze_place_name %}
+        <div class="bronze-card">
+            <div class="bronze-card-body d-flex align-items-center justify-content-between">
+                <div class="d-flex">
+                    <i class="bi bi-3-square-fill" style="font-size:1.5rem;"></i>
+                    <div class="bronze-card-title">{{ bronze_place_name }}</div>
+                </div>
+                <div style="padding-right: 20px;">
+                    <h5 style="font-size:2rem;">{{ bronze_place_score }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        {% for username, score in user_and_score %}
+        <div class="default-card">
+            <div class="default-card-body d-flex align-items-center justify-content-between">
+                <div class="d-flex">
+                    <div class="default-card-title">{{ username }}</div>
+                </div>
+                <div style="padding-right: 20px;">
+                    <h5 style="font-size:1.5rem;">{{ score }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!--        <table class="table table-sm table-bordered table-hover text-center shadow-sm w-100">-->
+        <!--            &lt;!&ndash; Заголовок таблицы &ndash;&gt;-->
+        <!--            <thead>-->
+        <!--            <tr>-->
+        <!--                <th scope="col" class="align-middle" style="width: 5%;">#</th>-->
+        <!--                <th scope="col" class="align-middle" style="width: 45%;">Команда</th>-->
+        <!--                <th scope="col" class="align-middle" style="width: 50%;">Счет</th>-->
+        <!--            </tr>-->
+        <!--            </thead>-->
+
+        <!--            &lt;!&ndash; Тело таблицы &ndash;&gt;-->
+        <!--            <tbody>-->
+        <!--            {% for username, score in user_and_score %}-->
+        <!--                <td></td>-->
+        <!--                <td>{{ username }}</td>-->
+        <!--                <td>{{ score }}</td>-->
+        <!--            {% empty %}-->
+        <!--            <tr>-->
+        <!--                <td colspan="3" class="text-muted">Пока нет результатов.</td>-->
+        <!--            </tr>-->
+        <!--            {% endfor %}-->
+        <!--            </tbody>-->
+        <!--        </table>-->
     </div>
 </div>
 

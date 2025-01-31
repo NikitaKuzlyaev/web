@@ -25,6 +25,7 @@
 
         .footer {
             margin-top: auto;
+            background-color:#85929e;
         }
 
         footer, nav {
@@ -35,13 +36,18 @@
             line-height: 1;
         }
 
+        .navbar{
+            background-color:#85929e;
+        }
+
         nav a.navbar-brand {
             color: white;
             text-decoration: none;
         }
 
-        nav a.navbar-brand:hover {
-            color: lightgray;
+        .nav-link:hover
+        {
+            color: white !important;
         }
 
         .navbar-nav.ml-auto {
@@ -64,11 +70,11 @@
 
 {% load static %}
 <!-- Хэдер с навигацией -->
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-sm">
     <div class="container-sm">
         <!-- Логотип с изображением -->
         <a class="navbar-brand" href="{% url 'main' %}">
-            <img src="{% static 'icon.png' %}" alt="Logo" style="height: 40px;">
+            <img src="{% static 'contest_logo.png' %}" alt="Logo" style="height: 25px;">
         </a>
 
         <!-- Ссылки меню -->
@@ -78,7 +84,7 @@
                     <a class="nav-link" href="{% url 'main' %}">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'contests' %}">Соревнования</a>
+                    <a class="nav-link" href="{% url 'contests' %}">ML Соревнования</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'quizzes' %}">Квизы</a>
@@ -120,7 +126,7 @@
 <!-- Футер -->
 <footer class="footer mt-auto">
     <div class="container text-center">
-        <p>ML Contest System</p>
+        <span style="color:black;">it's c</span><span style="color:yellow;">o</span><span style="color:red;">ntest</span>
     </div>
 </footer>
 

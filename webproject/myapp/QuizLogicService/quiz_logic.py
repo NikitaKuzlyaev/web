@@ -76,6 +76,11 @@ logger = logging.getLogger('myapp')
 #     pass
 
 def quiz_view(request):
+    # Очистка сообщений. временное решение/заглушка
+    storage = messages.get_messages(request)
+    for _ in storage:
+        pass  # Просто итерируемся, чтобы очистить их
+
     # Получаем только те соревнования, для которых существует связанный Quiz
     contests = (
         Contest.objects.filter(quiz__isnull=False)
@@ -116,10 +121,18 @@ def quiz_view(request):
 
 
 def quiz_field_view(request, contest_id):
+    # Очистка сообщений. временное решение/заглушка
+    storage = messages.get_messages(request)
+    for _ in storage:
+        pass  # Просто итерируемся, чтобы очистить их
+
     contest = get_object_or_404(Contest, id=contest_id)
     quiz_field = get_object_or_404(QuizField, quiz__contest=contest)
     quiz = get_object_or_404(Quiz, contest=quiz_field.quiz.contest)
     quiz_user = QuizUser.objects.filter(quiz=quiz_field.quiz, user=request.user).first()
+
+    if not quiz_user:
+        quiz_user = QuizUser.objects.create(user=request.user, quiz=quiz)
 
     if request.method == 'POST':
         if 'check_answer' in request.POST:
@@ -186,13 +199,6 @@ def quiz_field_view(request, contest_id):
             can_buy_flags[row][col] = can_buy
 
     tasks_ids = [[None if not task_field[j][i] else task_field[j][i].id for i in range(w)] for j in range(h)]
-    # for row in task_field:
-    #     for task in row:
-    #         if task:
-    #             task_row.append(task.id)
-    #         else:
-    #             task_row.append(None)
-    #     tasks_ids.append(task_row)
 
     context = {
         'columns': list(range(w)),  # Диапазон для столбцов
@@ -239,6 +245,11 @@ def edit_quiz_problem(request, quiz_problem_id):
 
 
 def quiz_buy_problem(request, quiz_problem_id):
+    # Очистка сообщений. временное решение/заглушка
+    storage = messages.get_messages(request)
+    for _ in storage:
+        pass  # Просто итерируемся, чтобы очистить их
+
     quiz_problem = get_object_or_404(QuizProblem, id=quiz_problem_id)
 
     if not quiz_problem:
@@ -280,15 +291,20 @@ def quiz_buy_problem(request, quiz_problem_id):
     else:
         pass
 
-    #messages.success(request, MessageText.points_decrease(quiz_problem.points))
+    # messages.success(request, MessageText.points_decrease(quiz_problem.points))
     messages.add_message(request, messages.INFO, MessageText.problem_add(quiz_problem.title, quiz_problem.points), extra_tags='info')
     messages.add_message(request, messages.INFO, MessageText.points_decrease(quiz_problem.points), extra_tags='info')
     return quiz_field_view(request, contest_id=contest.id)
 
 
 def quiz_check_answer(request, contest):
+    # Очистка сообщений. временное решение/заглушка
+    storage = messages.get_messages(request)
+    for _ in storage:
+        pass  # Просто итерируемся, чтобы очистить их
+
     logger.debug('quiz_check_answer')
-    #messages.success(request, "Ответ принят!")
+    # messages.success(request, "Ответ принят!")
 
     user_answer = request.POST.get('user_answer')  # Используем get() для безопасного доступа
 
@@ -332,28 +348,43 @@ def quiz_check_answer(request, contest):
         is_successful=is_correct_answer
     )
 
-
     if is_correct_answer:
         reward_score = reward_score_table[new_attempt.attempt_number]
         quiz_user.increase_score(reward_score)
+
+        reward_combo_score = (reward_score + 99) // 100
+        messages.add_message(request, messages.INFO, MessageText.combo_points_increase(reward_combo_score), extra_tags='info')
+
         messages.add_message(request, messages.INFO, MessageText.points_increase(reward_score), extra_tags='info')
-        messages.success(request, MessageText.correct_answer)
+        if quiz_user.combo_score > 0:
+            messages.add_message(request, messages.INFO, MessageText.points_increase_with_combo_points(quiz_user.combo_score), extra_tags='info')
+            quiz_user.increase_score_by_combo(quiz_user.combo_score)
+
+        quiz_user.increase_combo_score(reward_combo_score)
+        messages.success(request, MessageText.correct_answer())
     else:
         is_problem_lose = False
         if new_attempt.attempt_number >= 3:
             is_problem_lose = True
 
         if is_problem_lose:
+            quiz_user.remove_combo_score()
+            messages.add_message(request, messages.INFO, MessageText.combo_points_remove(), extra_tags='info')
             messages.add_message(request, messages.INFO, MessageText.problem_remove(quiz_problem.title, quiz_problem.points), extra_tags='info')
-            messages.error(request, MessageText.wrong_answer_last_try)
+            messages.error(request, MessageText.wrong_answer_last_try())
         else:
             reward_score = reward_score_table[new_attempt.attempt_number]
-            messages.error(request, MessageText.wrong_answer)
+            messages.error(request, MessageText.wrong_answer())
 
     return redirect('quiz_field', contest_id=contest.id)
 
 
 def quiz_results(request, contest_id):
+    # Очистка сообщений. временное решение/заглушка
+    storage = messages.get_messages(request)
+    for _ in storage:
+        pass  # Просто итерируемся, чтобы очистить их
+
     contest = get_object_or_404(Contest, id=contest_id)
 
     # Получаем всех пользователей, у которых quiz привязан к данному contest
@@ -363,20 +394,49 @@ def quiz_results(request, contest_id):
     for quiz_user in users:
         user = quiz_user.user
 
-        if user.is_staff:
+        if user.is_staff and not request.user.is_staff:
             continue
 
         profile = user.profile
         user_and_score.append((profile.name, quiz_user.score))
 
+    user_and_score.sort(key=lambda x: (x[1]))
+    gold_place_name = None
+    gold_place_score = None
+
+    silver_place_name = None
+    silver_place_score = None
+
+    bronze_place_name = None
+    bronze_place_score = None
+
+
+    # 200 iq moment
+    if len(user_and_score) > 0:
+        gold_place_name, gold_place_score = user_and_score.pop()
+    if len(user_and_score) > 0:
+        silver_place_name, silver_place_score = user_and_score.pop()
+    if len(user_and_score) > 0:
+        bronze_place_name, bronze_place_score = user_and_score.pop()
+
+    user_and_score = user_and_score[::-1]
+
     context = {
         'contest': contest,
         'users': users,
-        'user_and_score': user_and_score
+        'user_and_score': user_and_score,
+
+        'gold_place_name': gold_place_name,
+        'gold_place_score': gold_place_score,
+
+        'silver_place_name': silver_place_name,
+        'silver_place_score': silver_place_score,
+
+        'bronze_place_name': bronze_place_name,
+        'bronze_place_score': bronze_place_score,
     }
 
     return render(request, 'quiz_results.html', context)
-
 
 
 @user_passes_test(is_admin)
@@ -433,5 +493,3 @@ def number_of_current_user_problems(quiz: Quiz, user: User):
                 result += 1
 
     return result
-
-
