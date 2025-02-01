@@ -26,7 +26,7 @@ from ..models import (
     QuizAttempt, QuizProblem, QuizUser
 )
 from ..models import UploadedImage
-from ..forms import ImageUploadForm
+from ..forms import FileUploadForm
 
 from ..utils import have_access
 
@@ -47,12 +47,17 @@ def image_list(request):
     return render(request, "image_list.html", {"images": images})
 
 def upload_image(request):
-    if request.method == "POST":
-        form = ImageUploadForm(request.POST, request.FILES)
+    if request.method == 'POST':
+        form = FileUploadForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect("image_list")
+            # Создаем новый объект модели UploadedImage
+            uploaded_image = UploadedImage(
+                image=form.cleaned_data['image'],  # Присваиваем загруженное изображение
+                user=request.user  # Присваиваем текущего пользователя
+            )
+            uploaded_image.save()  # Сохраняем объект в базе данных
+            return redirect('image_list')  # Перенаправляем на успешную страницу
     else:
-        form = ImageUploadForm()
+        form = FileUploadForm()  # Создаем пустую форму
 
     return render(request, "image_upload.html", {"form": form})

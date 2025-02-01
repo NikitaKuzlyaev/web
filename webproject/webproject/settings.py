@@ -104,7 +104,8 @@ LOGIN_REDIRECT_URL = 'main'  # Имя URL или прямой путь (напр
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+#TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Bangkok'  # Например, Бангкок в UTC+7
 
 USE_I18N = True
 

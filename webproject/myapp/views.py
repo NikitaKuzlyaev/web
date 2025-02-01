@@ -26,7 +26,8 @@ from .models import (
     QuizAttempt, QuizProblem, QuizUser
 )
 from .models import UploadedImage
-from .forms import ImageUploadForm
+#from .forms import ImageUploadForm
+from .forms import FileUploadForm
 
 from .utils import have_access
 from . import utils
@@ -41,6 +42,8 @@ import pytz
 import time
 import logging
 import json
+import datetime
+from .politics import Politics
 
 # Имя логгера из настроек
 logger = logging.getLogger('myapp')
@@ -53,51 +56,114 @@ def is_admin(user):
     return user.is_staff  # или user.is_superuser, если хотите ограничить только суперпользователя
 
 
-def contest_user_access_politic(view_func):
-    """
-    Кастомный декоратор, проверяющий, имеет ли пользователь доступ к контесту.
-    """
-
-    def _wrapped_view(request, *args, **kwargs):
-        contest_id = kwargs.get('contest_id')
-        if contest_id:
-            user = request.user
-            if not have_access(user, contest_id=contest_id):
-                return redirect('/contests/')  # Если доступа нет, редиректим на страницу с соревнованиями
-        return view_func(request, *args, **kwargs)
-
-    return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
-
-
-def contest_time_access_politic(view_func):
-    """
-    Проверка по времени доступа к контесту.
-    Пользователь проходит по политике, когда он или администратор, или соревнование идет сейчас
-    """
-
-    def _wrapped_view(request, *args, **kwargs):
-        contest_id = kwargs.get('contest_id')
-        if contest_id:
-            contest = Contest.objects.filter(id=contest_id).first()
-            if not contest:
-                return redirect('/contests/')
-
-            user = request.user
-            if user.is_staff:
-                return view_func(request, *args, **kwargs)
-
-            current_time_utc7 = now().astimezone(timezone_utc7).replace(tzinfo=None)
-            time_start = contest.time_start.replace(tzinfo=None)
-            time_end = contest.time_end.replace(tzinfo=None)
-
-            logger.debug(f"Current time: {current_time_utc7}, Start: {time_start}, End: {time_end}")
-            if current_time_utc7 < time_start or current_time_utc7 > time_end:
-                logger.debug(f"Access denied: Current time {current_time_utc7} is outside [{time_start}, {time_end}]")
-                return redirect('/contests/')
-
-        return view_func(request, *args, **kwargs)
-
-    return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
+#
+#
+# def contest_user_access_politic(view_func):
+#     """
+#     Кастомный декоратор, проверяющий, имеет ли пользователь доступ к контесту.
+#     """
+#
+#     def _wrapped_view(request, *args, **kwargs):
+#         contest_id = kwargs.get('contest_id')
+#         if contest_id:
+#             user = request.user
+#             if not have_access(user, contest_id=contest_id):
+#                 return redirect('/contests/')  # Если доступа нет, редиректим на страницу с соревнованиями
+#         return view_func(request, *args, **kwargs)
+#
+#     return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
+#
+#
+# def contest_time_access_politic(view_func):
+#     """
+#     Проверка по времени доступа к контесту.
+#     Пользователь проходит по политике, когда он или администратор, или соревнование идет сейчас
+#     """
+#
+#     def _wrapped_view(request, *args, **kwargs):
+#         contest_id = kwargs.get('contest_id')
+#         if contest_id:
+#             contest = Contest.objects.filter(id=contest_id).first()
+#             if not contest:
+#                 return redirect('/contests/')
+#
+#             user = request.user
+#             if user.is_staff:
+#                 return view_func(request, *args, **kwargs)
+#
+#             current_time_utc7 = now().astimezone(timezone_utc7)
+#             time_start = contest.time_start.astimezone(timezone_utc7)
+#             time_end = contest.time_end.astimezone(timezone_utc7)
+#
+#             logger.debug(f"Current time: {current_time_utc7}, Start: {time_start}, End: {time_end}")
+#             if current_time_utc7 < time_start or current_time_utc7 > time_end:
+#                 logger.debug(f"Access denied: Current time {current_time_utc7} is outside [{time_start}, {time_end}]")
+#                 return redirect('/contests/')
+#
+#         return view_func(request, *args, **kwargs)
+#
+#     return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
+#
+#
+# def contest_preview_time_access_politic(view_func):
+#     """
+#     Проверка по времени доступа к превью контеста.
+#     """
+#
+#     def _wrapped_view(request, *args, **kwargs):
+#         contest_id = kwargs.get('contest_id')
+#         if contest_id:
+#             contest = Contest.objects.filter(id=contest_id).first()
+#             if not contest:
+#                 return redirect('/contests/')
+#
+#             user = request.user
+#             if user.is_staff:
+#                 return view_func(request, *args, **kwargs)
+#
+#             current_time_utc7 = now().astimezone(timezone_utc7)
+#             time_start = contest.time_start.astimezone(timezone_utc7)
+#             time_end = contest.time_end.astimezone(timezone_utc7)
+#
+#             logger.debug(f"Current time: {current_time_utc7}, Start: {time_start}, End: {time_end}")
+#             if contest.is_open_preview:
+#                 # Ok. Доступ на просмотр разрешен
+#                 return view_func(request, *args, **kwargs)
+#
+#             if current_time_utc7 < time_start or current_time_utc7 > time_end:
+#                 logger.debug(f"Access denied: Current time {current_time_utc7} is outside [{time_start}, {time_end}]")
+#                 return redirect('/contests/')
+#
+#         return view_func(request, *args, **kwargs)
+#
+#     return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
+#
+#
+# def contest_results_access_politic(view_func):
+#     """
+#     Проверка по времени доступа к результатам контеста.
+#     """
+#
+#     def _wrapped_view(request, *args, **kwargs):
+#         contest_id = kwargs.get('contest_id')
+#         if contest_id:
+#             contest = Contest.objects.filter(id=contest_id).first()
+#             if not contest:
+#                 return redirect('/contests/')
+#
+#             user = request.user
+#             if user.is_staff:
+#                 return view_func(request, *args, **kwargs)
+#
+#             if contest.is_open_results:
+#                 # Ok. Доступ на просмотр разрешен
+#                 return view_func(request, *args, **kwargs)
+#
+#             return redirect('/contests/')
+#
+#         return view_func(request, *args, **kwargs)
+#
+#     return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
 
 
 def logout_view(request):
@@ -132,8 +198,11 @@ def register(request):
 
     }
 
-
     return render(request, 'register.html', context)
+
+
+def blank_page(request):
+    return render(request, 'blank_page.html', {})
 
 
 def user_login(request):
@@ -334,7 +403,7 @@ def contests_view(request):
         .prefetch_related('tag')  # Предзагрузка связанных тегов
         .order_by('-created_at')  # Сортировка по дате создания
     )
-    #contests = Contest.objects.all().prefetch_related('tag').order_by('-created_at')
+    # contests = Contest.objects.all().prefetch_related('tag').order_by('-created_at')
 
     if request.user.is_authenticated:
         user_profile = request.user.profile
@@ -437,6 +506,8 @@ def admin_panel(request):
     return render(request, 'admin_panel.html', context)
 
 
+@login_required
+@Politics.contest_results_access_politic(redirect_path='/contests/')
 def contest_detail_results(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
     contest_thresholds = contest.thresholds.all()
@@ -625,8 +696,8 @@ def delete_contest_page(request, page_id):
     return redirect('contest_detail_admin', contest_id=contest_id)
 
 
-@contest_user_access_politic
-@contest_time_access_politic
+@Politics.contest_user_access_politic(redirect_path='/contests/')
+@Politics.contest_preview_time_access_politic(redirect_path='/contests/')
 def contest_detail_view(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
 

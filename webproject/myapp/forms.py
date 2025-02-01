@@ -21,10 +21,23 @@ from django.forms import modelformset_factory
 TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1)
 
 from .models import UploadedImage
-class ImageUploadForm(forms.ModelForm):
-    class Meta:
-        model = UploadedImage
-        fields = ['image']
+
+class FileUploadForm(forms.Form):
+    image = forms.ImageField(label='Choose an image')
+
+# class ImageUploadForm(forms.ModelForm):
+#     class Meta:
+#         model = UploadedImage
+#         fields = ['image']
+#
+#     def save(self, commit=True):
+#         instance = super().save(commit=False)
+#         # Устанавливаем пользователя перед сохранением
+#         if not instance.user and hasattr(self, 'request'):
+#             instance.user = self.request.user  # Устанавливаем текущего пользователя
+#         if commit:
+#             instance.save()
+#         return instance
 
 
 from .models import AppConfig
@@ -99,7 +112,7 @@ class ContestUserProfileForm(forms.ModelForm):
 class ContestForm(forms.ModelForm):
     class Meta:
         model = Contest
-        fields = ['name', 'time_start', 'time_end', 'is_open', 'color']  # Добавляем 'color'
+        fields = ['name', 'time_start', 'time_end', 'is_open', 'is_open_preview', 'is_open_results', 'color']  # Добавляем 'color'
         widgets = {
             'time_start': forms.DateTimeInput(
                 attrs={
@@ -124,6 +137,16 @@ class ContestForm(forms.ModelForm):
                     'class': 'form-check-input',
                 }
             ),
+            'is_open_preview': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input',
+                }
+            ),
+            'is_open_results': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input',
+                }
+            ),
             'color': forms.Select(
                 attrs={
                     'class': 'form-control',
@@ -135,6 +158,7 @@ class ContestForm(forms.ModelForm):
             'time_start': 'Время начала соревнования',
             'time_end': 'Время завершения соревнования',
             'is_open': 'Открытое соревнование',  # Подпись для чекбокса
+            'is_open_preview': 'Доступен предпросмотр',
             'color': 'Цвет плашки',  # Подпись для выбора цвета
         }
 

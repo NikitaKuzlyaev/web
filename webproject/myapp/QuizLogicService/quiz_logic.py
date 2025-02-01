@@ -33,6 +33,7 @@ import pytz
 import time
 import logging
 import json
+from ..politics import Politics
 
 # Имя логгера из настроек
 logger = logging.getLogger('myapp')
@@ -120,6 +121,7 @@ def quiz_view(request):
     return render(request, 'quizzes.html', context)
 
 
+@Politics.contest_time_access_politic(redirect_path='/quizzes/')
 def quiz_field_view(request, contest_id):
     # Очистка сообщений. временное решение/заглушка
     storage = messages.get_messages(request)
@@ -244,6 +246,7 @@ def edit_quiz_problem(request, quiz_problem_id):
     return render(request, 'edit_quiz_problem.html', context=context)
 
 
+@Politics.contest_time_access_politic(redirect_path='/quizzes/')
 def quiz_buy_problem(request, quiz_problem_id):
     # Очистка сообщений. временное решение/заглушка
     storage = messages.get_messages(request)
@@ -297,6 +300,7 @@ def quiz_buy_problem(request, quiz_problem_id):
     return quiz_field_view(request, contest_id=contest.id)
 
 
+@Politics.contest_time_access_politic(redirect_path='/quizzes/')
 def quiz_check_answer(request, contest):
     # Очистка сообщений. временное решение/заглушка
     storage = messages.get_messages(request)
@@ -379,6 +383,7 @@ def quiz_check_answer(request, contest):
     return redirect('quiz_field', contest_id=contest.id)
 
 
+@Politics.contest_results_access_politic(redirect_path='/quizzes/')
 def quiz_results(request, contest_id):
     # Очистка сообщений. временное решение/заглушка
     storage = messages.get_messages(request)
@@ -409,7 +414,6 @@ def quiz_results(request, contest_id):
 
     bronze_place_name = None
     bronze_place_score = None
-
 
     # 200 iq moment
     if len(user_and_score) > 0:

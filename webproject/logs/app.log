@@ -17321,3 +17321,1522 @@ INFO 2025-01-31 21:33:45,016 basehttp "GET /contests/ HTTP/1.1" 200 16127
 INFO 2025-01-31 21:33:45,529 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
 INFO 2025-01-31 21:33:46,104 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
 INFO 2025-01-31 21:33:47,256 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-01-31 21:40:28,545 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-01-31 21:40:28,570 basehttp "GET /static/contest_logo.png HTTP/1.1" 304 0
+INFO 2025-01-31 21:44:50,305 autoreload Watching for file changes with StatReloader
+INFO 2025-01-31 21:44:52,206 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:45:21,153 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-01-31 21:45:23,261 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-01-31 21:45:25,947 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-01-31 21:45:26,537 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:45:27,110 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:45:27,595 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-01-31 21:45:28,247 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-01-31 21:45:28,937 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-01-31 21:45:32,816 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
+INFO 2025-01-31 21:45:34,183 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-01-31 21:45:49,068 basehttp "GET /contests/18/ HTTP/1.1" 200 14892
+INFO 2025-02-01 13:33:12,961 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 13:33:21,730 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:33:21,805 basehttp "GET /static/contest_logo.png HTTP/1.1" 200 4197
+WARNING 2025-02-01 13:33:23,013 log Not Found: /favicon.ico
+WARNING 2025-02-01 13:33:23,013 basehttp "GET /favicon.ico HTTP/1.1" 404 10153
+INFO 2025-02-01 13:33:29,039 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-02-01 13:33:30,574 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-02-01 13:33:31,547 basehttp "GET /contests/ HTTP/1.1" 200 16127
+INFO 2025-02-01 13:33:32,651 basehttp "GET /contests/admin/2/ HTTP/1.1" 200 26411
+INFO 2025-02-01 13:33:35,387 basehttp "POST /contests/admin/2/ HTTP/1.1" 302 0
+INFO 2025-02-01 13:33:35,400 basehttp "GET /contests/ HTTP/1.1" 200 14709
+INFO 2025-02-01 13:33:47,124 basehttp "GET /contests/admin/9/ HTTP/1.1" 200 23768
+INFO 2025-02-01 13:33:56,631 basehttp "POST /contests/admin/9/ HTTP/1.1" 200 23770
+INFO 2025-02-01 13:33:57,370 basehttp "GET /contests/ HTTP/1.1" 200 14709
+INFO 2025-02-01 13:34:04,204 basehttp "GET /contests/admin/9/ HTTP/1.1" 200 23770
+INFO 2025-02-01 13:34:07,675 basehttp "POST /contests/admin/9/ HTTP/1.1" 200 22258
+INFO 2025-02-01 13:34:09,689 basehttp "POST /contests/admin/9/ HTTP/1.1" 200 20406
+INFO 2025-02-01 13:34:15,733 basehttp "POST /contests/admin/9/ HTTP/1.1" 200 20069
+INFO 2025-02-01 13:34:16,972 basehttp "GET /contests/ HTTP/1.1" 200 14380
+INFO 2025-02-01 13:34:25,978 basehttp "GET /contests/admin/1/ HTTP/1.1" 200 30736
+INFO 2025-02-01 13:34:29,157 basehttp "POST /contests/admin/1/ HTTP/1.1" 200 29224
+INFO 2025-02-01 13:34:30,496 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:39,340 basehttp "GET /quizzes/ HTTP/1.1" 200 11127
+INFO 2025-02-01 13:34:41,448 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 23968
+INFO 2025-02-01 13:34:45,249 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 23968
+INFO 2025-02-01 13:34:46,425 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:34:50,919 basehttp "GET /admin_panel/ HTTP/1.1" 200 5876
+INFO 2025-02-01 13:34:51,625 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:34:53,318 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:54,069 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:34:55,338 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:55,789 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:34:56,085 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:56,413 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:34:56,801 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:57,160 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:34:57,505 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:57,825 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:34:58,202 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:34:58,501 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:18,376 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:19,720 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:20,187 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:20,389 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:20,577 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:20,764 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:21,197 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:21,638 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:22,039 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:22,491 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:22,948 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:23,646 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:24,109 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:24,500 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:24,996 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:25,486 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:25,794 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:26,135 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:26,598 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:26,863 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:27,149 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:27,408 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:28,102 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:28,606 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:28,926 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:29,192 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:29,440 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:29,685 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:29,831 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:29,989 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:30,136 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:30,294 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:30,430 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:30,580 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:30,711 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:30,863 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,004 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,139 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,286 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,410 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,576 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,747 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:31,970 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,093 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,265 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,379 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,474 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,705 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,819 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:32,971 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:33,208 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:33,376 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:33,510 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:34,577 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:35,026 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:35,405 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:35,742 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:36,046 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:36,303 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:36,601 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:37,180 basehttp "GET /admin_panel/ HTTP/1.1" 200 5876
+INFO 2025-02-01 13:46:37,544 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:38,149 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:38,531 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:38,897 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:39,216 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:39,484 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:39,764 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:40,043 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:40,296 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:40,591 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:40,902 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:41,193 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:41,481 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:41,781 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:42,036 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:42,368 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:42,632 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:42,779 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:42,921 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:43,152 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:43,452 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:43,687 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:44,014 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:44,283 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:44,548 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:44,823 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:45,123 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:45,395 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:45,657 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:45,928 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:46,259 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:46,493 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 13:46:46,814 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 13:46:47,089 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 13:46:47,352 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:00:52,257 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:02:03,695 autoreload D:\django_proj\ml-jam\webproject\webproject\settings.py changed, reloading.
+INFO 2025-02-01 14:02:04,354 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:02:07,420 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:02:12,179 basehttp "GET /editblog/new/ HTTP/1.1" 200 5719
+INFO 2025-02-01 14:02:14,888 basehttp "POST /editblog/new/ HTTP/1.1" 200 8138
+INFO 2025-02-01 14:02:23,376 autoreload D:\django_proj\ml-jam\webproject\webproject\settings.py changed, reloading.
+INFO 2025-02-01 14:02:23,993 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:02:25,113 basehttp "POST /editblog/new/ HTTP/1.1" 200 9602
+INFO 2025-02-01 14:02:27,976 basehttp "POST /editblog/new/ HTTP/1.1" 200 11066
+INFO 2025-02-01 14:02:31,857 basehttp "GET /editblog/delete/17/ HTTP/1.1" 200 9602
+INFO 2025-02-01 14:02:35,581 basehttp "GET /editblog/delete/15/ HTTP/1.1" 200 8138
+INFO 2025-02-01 14:02:37,024 basehttp "GET /editblog/delete/16/ HTTP/1.1" 200 6674
+INFO 2025-02-01 14:02:42,624 autoreload D:\django_proj\ml-jam\webproject\webproject\settings.py changed, reloading.
+INFO 2025-02-01 14:02:43,222 autoreload Watching for file changes with StatReloader
+WARNING 2025-02-01 14:02:44,504 log Not Found: /editblog/delete/16/
+WARNING 2025-02-01 14:02:44,504 basehttp "GET /editblog/delete/16/ HTTP/1.1" 404 8787
+WARNING 2025-02-01 14:02:45,443 log Not Found: /editblog/delete/16/
+WARNING 2025-02-01 14:02:45,443 basehttp "GET /editblog/delete/16/ HTTP/1.1" 404 8787
+WARNING 2025-02-01 14:02:46,306 log Not Found: /editblog/delete/16/
+WARNING 2025-02-01 14:02:46,306 basehttp "GET /editblog/delete/16/ HTTP/1.1" 404 8787
+INFO 2025-02-01 14:02:47,946 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:02:49,151 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:02:50,018 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:02:52,366 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:03:31,863 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:05:16,108 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:05:18,380 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 23948
+INFO 2025-02-01 14:05:44,330 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 23959
+INFO 2025-02-01 14:05:46,122 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:05:48,297 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:05:53,550 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:05:54,620 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:05:55,774 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:05:58,399 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-02-01 14:06:07,084 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:06:09,655 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:06:10,882 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:06:11,763 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 23941
+INFO 2025-02-01 14:06:15,273 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:06:29,088 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:06:31,277 basehttp "GET /contests/admin/16/ HTTP/1.1" 200 28370
+INFO 2025-02-01 14:06:43,788 basehttp "POST /contests/admin/16/ HTTP/1.1" 200 28368
+INFO 2025-02-01 14:06:45,100 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:06:46,839 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:06:49,723 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:06:55,613 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:07:48,412 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:07:51,200 basehttp "GET /contests/admin/9/ HTTP/1.1" 200 20070
+INFO 2025-02-01 14:07:55,369 basehttp "POST /contests/admin/9/ HTTP/1.1" 200 20071
+INFO 2025-02-01 14:07:57,195 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:07:58,707 basehttp "GET /contests/admin/8/ HTTP/1.1" 200 17438
+INFO 2025-02-01 14:08:03,647 basehttp "POST /contests/admin/8/ HTTP/1.1" 200 17439
+INFO 2025-02-01 14:08:04,471 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:08:07,471 basehttp "GET /contests/admin/7/ HTTP/1.1" 200 17364
+INFO 2025-02-01 14:08:16,912 basehttp "POST /contests/admin/7/ HTTP/1.1" 200 17365
+INFO 2025-02-01 14:08:17,980 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:08:29,233 basehttp "GET /contests/admin/7/ HTTP/1.1" 200 17365
+INFO 2025-02-01 14:08:59,456 basehttp "POST /contests/admin/7/ HTTP/1.1" 200 17365
+INFO 2025-02-01 14:09:50,579 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:09:53,594 basehttp "GET /contests/admin/8/ HTTP/1.1" 200 17439
+INFO 2025-02-01 14:10:09,713 basehttp "POST /contests/admin/8/ HTTP/1.1" 200 17439
+INFO 2025-02-01 14:10:12,004 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:10:23,336 basehttp "GET /contests/admin/5/ HTTP/1.1" 200 23341
+INFO 2025-02-01 14:10:55,903 basehttp "POST /contests/admin/5/ HTTP/1.1" 200 23337
+INFO 2025-02-01 14:10:57,015 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:10:58,785 basehttp "GET /contests/admin/1/ HTTP/1.1" 200 28887
+INFO 2025-02-01 14:11:18,823 basehttp "POST /contests/admin/1/ HTTP/1.1" 200 28888
+INFO 2025-02-01 14:11:19,770 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:12:06,545 basehttp "GET /contests/admin/9/ HTTP/1.1" 200 20071
+INFO 2025-02-01 14:12:22,657 basehttp "POST /contests/admin/9/ HTTP/1.1" 200 20067
+INFO 2025-02-01 14:13:01,999 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:13:10,348 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:13:13,458 basehttp "GET /contests/admin/16/ HTTP/1.1" 200 28368
+INFO 2025-02-01 14:13:37,134 basehttp "POST /contests/admin/16/ HTTP/1.1" 200 28362
+INFO 2025-02-01 14:13:38,643 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:13:39,976 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:13:41,963 basehttp "GET /contests/16/ HTTP/1.1" 200 20597
+INFO 2025-02-01 14:13:43,618 basehttp "GET /quiz_field/16/ HTTP/1.1" 200 39086
+INFO 2025-02-01 14:13:50,847 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:13:57,436 basehttp "GET /contests/16/ HTTP/1.1" 200 20597
+INFO 2025-02-01 14:13:58,297 basehttp "GET /quiz_results/16/ HTTP/1.1" 200 12229
+INFO 2025-02-01 14:14:04,480 basehttp "GET /contests/16/ HTTP/1.1" 200 20597
+INFO 2025-02-01 14:14:05,645 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:14:06,637 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 23941
+INFO 2025-02-01 14:14:08,498 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:14:09,199 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 14439
+INFO 2025-02-01 14:14:35,718 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:14:39,060 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:14:40,366 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:14:40,781 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:16:46,460 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 14:17:04,190 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:17:05,925 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:17:07,826 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:17:09,109 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:17:10,371 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-02-01 14:17:12,240 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:24:18,615 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:24:19,091 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:24:19,731 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:24:20,139 basehttp "GET /contests/ HTTP/1.1" 200 14218
+INFO 2025-02-01 14:24:20,485 basehttp "GET /quizzes/ HTTP/1.1" 200 11118
+INFO 2025-02-01 14:24:21,143 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 23941
+INFO 2025-02-01 14:25:39,369 autoreload D:\django_proj\ml-jam\webproject\myapp\forms.py changed, reloading.
+INFO 2025-02-01 14:25:39,940 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:26:06,136 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:26:07,833 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:26:09,240 basehttp "GET /quizzes/ HTTP/1.1" 200 11332
+INFO 2025-02-01 14:26:10,079 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24155
+INFO 2025-02-01 14:26:12,783 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24181
+INFO 2025-02-01 14:26:15,868 basehttp "GET /quizzes/ HTTP/1.1" 200 11332
+INFO 2025-02-01 14:26:16,474 basehttp "GET /contests/admin/16/ HTTP/1.1" 200 28576
+INFO 2025-02-01 14:26:18,399 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24163
+INFO 2025-02-01 14:27:34,610 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 14:27:35,201 autoreload Watching for file changes with StatReloader
+ERROR 2025-02-01 14:27:36,628 log Internal Server Error: /contests/admin/18/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: myapp_contest.is_open_results
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 373, in contest_detail_view_admin
+    contest = get_object_or_404(Contest, id=contest_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 86, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: myapp_contest.is_open_results
+ERROR 2025-02-01 14:27:36,634 basehttp "GET /contests/admin/18/ HTTP/1.1" 500 148749
+INFO 2025-02-01 14:27:56,067 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:27:57,717 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:27:59,224 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 14:27:59,961 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24351
+INFO 2025-02-01 14:28:03,824 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24377
+INFO 2025-02-01 14:28:06,024 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24369
+INFO 2025-02-01 14:28:13,738 basehttp "GET /contests/ HTTP/1.1" 200 14620
+INFO 2025-02-01 14:32:21,990 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:32:22,876 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:35:05,256 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:35:05,884 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:36:07,719 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:36:08,303 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:36:10,581 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:36:12,373 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:36:13,847 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 14:36:15,017 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24351
+INFO 2025-02-01 14:36:19,345 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24216
+INFO 2025-02-01 14:36:36,655 basehttp "GET / HTTP/1.1" 200 5873
+INFO 2025-02-01 14:36:36,701 basehttp "GET /static/contest_logo.png HTTP/1.1" 200 4197
+WARNING 2025-02-01 14:36:38,408 log Not Found: /favicon.ico
+WARNING 2025-02-01 14:36:38,408 basehttp "GET /favicon.ico HTTP/1.1" 404 10153
+INFO 2025-02-01 14:36:41,901 basehttp "GET /login/ HTTP/1.1" 200 5862
+INFO 2025-02-01 14:36:50,333 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:36:50,341 basehttp "GET / HTTP/1.1" 200 5846
+INFO 2025-02-01 14:36:53,190 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:36:56,696 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:36:56,707 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:36:58,465 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:38:11,646 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:38:12,327 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:38:17,288 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:38:18,128 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:38:18,889 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:38:18,900 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:38:20,215 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:38:26,029 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:38:26,635 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:38:30,192 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:38:31,271 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:38:31,281 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:39:05,617 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:39:06,205 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:39:47,048 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:39:47,627 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:39:50,324 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:39:51,962 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+ERROR 2025-02-01 14:39:53,233 log Internal Server Error: /contests/18/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 67, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 128, in _wrapped_view
+    if current_time_utc7 < time_start or current_time_utc7 > time_end:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: can't compare offset-naive and offset-aware datetimes
+ERROR 2025-02-01 14:39:53,235 basehttp "GET /contests/18/ HTTP/1.1" 500 82342
+INFO 2025-02-01 14:42:18,010 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:42:18,616 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:42:21,158 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:42:24,418 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:42:26,111 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:42:26,919 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:42:28,077 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:42:32,934 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24224
+INFO 2025-02-01 14:42:45,495 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24216
+INFO 2025-02-01 14:42:47,362 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:42:48,987 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:42:48,998 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:42:50,332 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:42:51,069 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:42:51,079 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:44:00,159 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 14:44:01,807 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:44:03,471 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47685
+INFO 2025-02-01 14:44:11,600 basehttp "POST /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:44:12,119 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 47179
+INFO 2025-02-01 14:44:23,442 basehttp "POST /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:44:23,945 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45179
+INFO 2025-02-01 14:44:33,274 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 14:44:40,702 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 14:44:48,449 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 14:44:53,100 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:44:54,084 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:44:54,094 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:15,236 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24216
+INFO 2025-02-01 14:45:22,686 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24216
+INFO 2025-02-01 14:45:25,137 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:27,557 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:28,079 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:28,647 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:45:32,932 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:37,148 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24219
+INFO 2025-02-01 14:45:37,712 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:38,269 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:38,278 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:40,036 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:43,448 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:43,457 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:44,665 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:45,237 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:45,247 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:46,512 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:47,118 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:47,127 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:48,328 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:49,124 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:49,132 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:50,004 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:50,472 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:50,481 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:45:51,320 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:45:51,899 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:45:51,908 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:46:01,678 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:46:02,458 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:46:02,956 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:18,368 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24219
+INFO 2025-02-01 14:46:20,867 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:24,903 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24219
+INFO 2025-02-01 14:46:25,940 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:26,430 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:26,954 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:27,355 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:27,753 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:46:28,136 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:47:00,651 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:47:00,661 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:47:01,274 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:47:01,719 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:47:02,302 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:47:03,986 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 14:47:03,995 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 14:47:06,475 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24227
+INFO 2025-02-01 14:47:07,644 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 14:47:08,169 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:47:09,456 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42245
+INFO 2025-02-01 14:47:37,001 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 14:47:37,926 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:47:48,736 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 14:47:49,590 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:47:50,037 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 14:47:51,294 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 14:52:29,452 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:52:30,041 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:55:41,930 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:55:42,713 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:58:02,428 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:58:33,353 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 14:58:33,955 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 14:58:51,616 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:00:02,353 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 15:00:02,912 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:00:18,951 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 15:00:19,572 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:00:33,557 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 15:00:34,120 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:00:47,016 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 15:00:47,569 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:01:32,076 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 15:01:32,621 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:01:34,900 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:01:37,381 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 15:01:38,709 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 15:01:39,539 basehttp "GET /contests/18/ HTTP/1.1" 200 14883
+INFO 2025-02-01 15:01:40,745 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 44444
+INFO 2025-02-01 15:01:45,854 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42245
+INFO 2025-02-01 15:01:47,916 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42245
+INFO 2025-02-01 15:01:49,559 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:01:50,367 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:02:13,222 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 15:02:13,821 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:03:22,106 autoreload D:\django_proj\ml-jam\webproject\myapp\QuizLogicService\quiz_logic.py changed, reloading.
+INFO 2025-02-01 15:03:22,712 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:03:26,450 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:03:27,427 basehttp "GET /quiz_results/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:03:27,438 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 15:03:28,693 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:03:30,198 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:03:37,550 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24227
+INFO 2025-02-01 15:03:39,614 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24235
+INFO 2025-02-01 15:03:40,838 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:03:41,855 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:04:50,307 autoreload D:\django_proj\ml-jam\webproject\myapp\QuizLogicService\quiz_logic.py changed, reloading.
+INFO 2025-02-01 15:04:50,864 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:04:52,587 basehttp "GET / HTTP/1.1" 200 6674
+INFO 2025-02-01 15:04:55,554 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:04:56,200 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:04:57,006 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:04:59,180 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24227
+INFO 2025-02-01 15:04:59,792 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:05:00,703 basehttp "GET /quiz_results/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:05:00,712 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:05:03,243 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:05:05,567 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24235
+INFO 2025-02-01 15:05:07,481 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:05:08,227 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:05:08,848 basehttp "GET /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:05:08,856 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:05:13,773 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:05:23,328 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24235
+INFO 2025-02-01 15:05:24,855 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42245
+INFO 2025-02-01 15:05:44,302 autoreload D:\django_proj\ml-jam\webproject\myapp\QuizLogicService\quiz_logic.py changed, reloading.
+INFO 2025-02-01 15:05:44,887 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 15:05:48,215 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42245
+INFO 2025-02-01 15:05:51,046 basehttp "GET /buy_quiz_problem/61/ HTTP/1.1" 200 46752
+INFO 2025-02-01 15:05:55,157 basehttp "POST /buy_quiz_problem/61/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:05:55,656 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 44998
+INFO 2025-02-01 15:06:32,704 basehttp "GET /contests/ HTTP/1.1" 200 14620
+INFO 2025-02-01 15:06:35,064 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:36,134 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:06:36,755 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 15:06:37,370 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:06:38,685 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 15:06:39,076 basehttp "GET / HTTP/1.1" 200 5846
+INFO 2025-02-01 15:06:39,515 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 15:06:40,008 basehttp "GET / HTTP/1.1" 200 5846
+INFO 2025-02-01 15:06:41,686 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 15:06:42,077 basehttp "GET / HTTP/1.1" 200 5846
+INFO 2025-02-01 15:06:42,381 basehttp "GET /contests/ HTTP/1.1" 200 10640
+INFO 2025-02-01 15:06:42,762 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:06:44,012 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:45,552 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42275
+INFO 2025-02-01 15:06:46,772 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:47,425 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:06:48,761 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:49,775 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42275
+INFO 2025-02-01 15:06:51,091 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:51,836 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:06:53,536 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:54,638 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:06:56,093 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:06:56,960 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:06:57,561 basehttp "GET /contests/16/ HTTP/1.1" 200 20443
+INFO 2025-02-01 15:07:01,259 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 15:07:02,362 basehttp "GET /contests/admin/16/ HTTP/1.1" 200 28764
+INFO 2025-02-01 15:07:05,514 basehttp "GET /quizzes/ HTTP/1.1" 200 8087
+INFO 2025-02-01 15:07:06,449 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:07:07,946 basehttp "GET /contests/ HTTP/1.1" 200 14620
+INFO 2025-02-01 15:07:09,101 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 15:07:09,757 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24235
+INFO 2025-02-01 15:07:11,997 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24380
+INFO 2025-02-01 15:07:13,664 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:07:15,436 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 42275
+INFO 2025-02-01 15:07:17,038 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13645
+INFO 2025-02-01 15:07:17,895 basehttp "GET /contests/18/ HTTP/1.1" 200 14729
+INFO 2025-02-01 15:07:20,026 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:07:20,032 basehttp "GET / HTTP/1.1" 200 5873
+INFO 2025-02-01 15:07:20,553 basehttp "GET /login/ HTTP/1.1" 200 5862
+INFO 2025-02-01 15:07:26,465 basehttp "GET /contests/participants_admin/18/ HTTP/1.1" 200 10096
+INFO 2025-02-01 15:07:36,888 basehttp "POST /contests/participants_admin/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:07:36,900 basehttp "GET /contests/participants_admin/18/ HTTP/1.1" 200 10935
+INFO 2025-02-01 15:07:39,233 basehttp "POST /contests/participants_admin/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:07:39,244 basehttp "GET /contests/participants_admin/18/ HTTP/1.1" 200 10096
+INFO 2025-02-01 15:07:44,443 basehttp "POST /login/ HTTP/1.1" 200 6002
+INFO 2025-02-01 15:07:50,710 basehttp "GET /register/ HTTP/1.1" 200 4610
+INFO 2025-02-01 15:07:52,299 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24362
+INFO 2025-02-01 15:07:56,451 basehttp "GET /admin_panel/ HTTP/1.1" 200 5876
+INFO 2025-02-01 15:07:58,585 basehttp "POST /admin_panel/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:07:58,592 basehttp "GET /admin_panel/ HTTP/1.1" 200 5884
+INFO 2025-02-01 15:08:00,036 basehttp "GET /register/ HTTP/1.1" 200 5315
+INFO 2025-02-01 15:08:07,449 basehttp "POST /register/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:08:07,456 basehttp "GET / HTTP/1.1" 200 5839
+INFO 2025-02-01 15:08:09,384 basehttp "GET /quizzes/ HTTP/1.1" 200 8078
+INFO 2025-02-01 15:08:14,913 basehttp "GET /contests/ HTTP/1.1" 200 14620
+INFO 2025-02-01 15:08:15,346 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 15:08:16,354 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 24362
+INFO 2025-02-01 15:08:18,527 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24235
+INFO 2025-02-01 15:08:19,542 basehttp "GET /quizzes/ HTTP/1.1" 200 8080
+INFO 2025-02-01 15:08:20,364 basehttp "GET /contests/18/ HTTP/1.1" 200 14722
+INFO 2025-02-01 15:08:21,065 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 13638
+INFO 2025-02-01 15:08:22,435 basehttp "GET /contests/18/ HTTP/1.1" 200 14722
+INFO 2025-02-01 15:08:23,388 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 38897
+INFO 2025-02-01 15:08:28,159 basehttp "GET /buy_quiz_problem/51/ HTTP/1.1" 200 42502
+INFO 2025-02-01 15:08:30,254 basehttp "POST /buy_quiz_problem/51/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:08:30,753 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 41849
+INFO 2025-02-01 15:08:32,334 basehttp "POST /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:08:32,823 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 40971
+INFO 2025-02-01 15:08:34,367 basehttp "GET /contests/18/ HTTP/1.1" 200 14722
+INFO 2025-02-01 15:08:35,589 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 38927
+INFO 2025-02-01 15:08:36,445 basehttp "GET /contests/18/ HTTP/1.1" 200 14722
+INFO 2025-02-01 15:08:36,975 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 14224
+INFO 2025-02-01 15:08:50,449 basehttp "GET /contests/18/ HTTP/1.1" 200 14722
+INFO 2025-02-01 15:08:55,754 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 24380
+INFO 2025-02-01 15:08:57,291 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 14224
+INFO 2025-02-01 15:08:58,247 basehttp "GET /contests/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 15:08:58,256 basehttp "GET /contests/ HTTP/1.1" 200 10638
+INFO 2025-02-01 15:09:00,733 basehttp "GET /quizzes/ HTTP/1.1" 200 8078
+INFO 2025-02-01 17:37:58,425 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 17:38:01,840 basehttp "GET /quizzes/ HTTP/1.1" 200 8078
+INFO 2025-02-01 17:38:01,850 basehttp "GET /static/contest_logo.png HTTP/1.1" 304 0
+INFO 2025-02-01 17:38:02,458 basehttp "GET /quizzes/ HTTP/1.1" 200 8078
+INFO 2025-02-01 17:38:03,325 basehttp "GET /quizzes/ HTTP/1.1" 200 8078
+INFO 2025-02-01 17:38:03,717 basehttp "GET /quizzes/ HTTP/1.1" 200 8078
+INFO 2025-02-01 17:39:12,415 basehttp "GET /quizzes/ HTTP/1.1" 200 11520
+INFO 2025-02-01 17:39:12,477 basehttp "GET /static/contest_logo.png HTTP/1.1" 304 0
+INFO 2025-02-01 17:40:21,103 basehttp "GET /quizzes/ HTTP/1.1" 200 11611
+INFO 2025-02-01 17:40:35,764 basehttp "GET /quizzes/ HTTP/1.1" 200 11611
+INFO 2025-02-01 17:40:43,513 basehttp "GET /quizzes/ HTTP/1.1" 200 11609
+INFO 2025-02-01 17:40:50,749 basehttp "GET /quizzes/ HTTP/1.1" 200 11609
+INFO 2025-02-01 17:40:52,443 basehttp "GET /quizzes/ HTTP/1.1" 200 11609
+INFO 2025-02-01 17:40:55,360 basehttp "GET /quizzes/ HTTP/1.1" 200 8167
+INFO 2025-02-01 17:41:02,616 basehttp "GET /quizzes/ HTTP/1.1" 200 8167
+INFO 2025-02-01 17:41:07,182 basehttp "GET /quizzes/ HTTP/1.1" 200 8167
+INFO 2025-02-01 17:41:07,902 basehttp "GET /quizzes/ HTTP/1.1" 200 8167
+INFO 2025-02-01 17:41:08,067 basehttp "GET /quizzes/ HTTP/1.1" 200 8167
+INFO 2025-02-01 17:41:39,621 basehttp "GET /quizzes/ HTTP/1.1" 200 11609
+INFO 2025-02-01 17:42:45,343 basehttp "GET /quizzes/ HTTP/1.1" 200 11691
+INFO 2025-02-01 17:42:46,813 basehttp "GET /quizzes/ HTTP/1.1" 200 11691
+INFO 2025-02-01 17:43:23,568 basehttp "GET /quizzes/ HTTP/1.1" 200 11691
+INFO 2025-02-01 17:43:37,297 basehttp "GET /quizzes/ HTTP/1.1" 200 11766
+INFO 2025-02-01 17:43:37,859 basehttp "GET /quizzes/ HTTP/1.1" 200 11766
+INFO 2025-02-01 17:43:38,825 basehttp "GET /quizzes/ HTTP/1.1" 200 11766
+INFO 2025-02-01 17:43:40,157 basehttp "GET /quizzes/ HTTP/1.1" 200 11766
+INFO 2025-02-01 17:43:41,152 basehttp "GET /quizzes/ HTTP/1.1" 200 11766
+INFO 2025-02-01 17:44:39,704 basehttp "GET /quizzes/ HTTP/1.1" 200 11804
+INFO 2025-02-01 17:44:41,373 basehttp "GET /quizzes/ HTTP/1.1" 200 11804
+INFO 2025-02-01 17:44:52,577 basehttp "GET /quizzes/ HTTP/1.1" 200 11804
+INFO 2025-02-01 17:44:54,785 basehttp "GET /quizzes/ HTTP/1.1" 200 11808
+INFO 2025-02-01 17:44:55,345 basehttp "GET /quizzes/ HTTP/1.1" 200 11808
+INFO 2025-02-01 17:45:21,913 basehttp "GET /quizzes/ HTTP/1.1" 200 11837
+INFO 2025-02-01 17:45:23,031 basehttp "GET /quizzes/ HTTP/1.1" 200 11837
+INFO 2025-02-01 17:45:23,889 basehttp "GET /admin_panel/ HTTP/1.1" 200 6201
+INFO 2025-02-01 17:45:24,724 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:25,545 basehttp "GET /contests/ HTTP/1.1" 200 14937
+INFO 2025-02-01 17:45:25,980 basehttp "GET /quizzes/ HTTP/1.1" 200 11837
+INFO 2025-02-01 17:45:26,615 basehttp "GET /contests/ HTTP/1.1" 200 14937
+INFO 2025-02-01 17:45:27,397 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:28,858 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:30,188 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:35,932 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:36,318 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:36,911 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:45:37,921 basehttp "GET /contests/ HTTP/1.1" 200 14937
+INFO 2025-02-01 17:45:38,259 basehttp "GET /quizzes/ HTTP/1.1" 200 11837
+INFO 2025-02-01 17:45:39,184 basehttp "GET /contests/18/ HTTP/1.1" 200 15200
+INFO 2025-02-01 17:45:40,460 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 44761
+INFO 2025-02-01 17:45:49,775 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 44761
+INFO 2025-02-01 17:45:57,938 basehttp "GET / HTTP/1.1" 200 6991
+INFO 2025-02-01 17:46:30,972 basehttp "GET / HTTP/1.1" 200 6992
+INFO 2025-02-01 17:46:31,584 basehttp "GET / HTTP/1.1" 200 6992
+ERROR 2025-02-01 17:47:21,155 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 177, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'blank_page' not found. 'blank_page' is not a valid view function or pattern name.
+ERROR 2025-02-01 17:47:21,158 basehttp "GET / HTTP/1.1" 500 136195
+INFO 2025-02-01 17:47:50,175 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 17:47:50,770 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 17:49:34,334 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 17:49:34,881 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 17:50:10,134 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 17:50:10,902 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 17:50:15,060 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 17:50:19,816 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 17:50:21,742 basehttp "GET / HTTP/1.1" 200 7133
+ERROR 2025-02-01 17:50:23,162 log Internal Server Error: /blank_page/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'endif'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 204, in blank_page
+    return render(request, 'blank_page.html', {})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 79, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 563, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 31: 'endif', expected 'endblock'. Did you forget to register or load this tag?
+ERROR 2025-02-01 17:50:23,165 basehttp "GET /blank_page/ HTTP/1.1" 500 165828
+INFO 2025-02-01 17:50:33,690 basehttp "GET / HTTP/1.1" 200 7133
+INFO 2025-02-01 17:50:34,583 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:41,152 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:50:41,863 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:42,339 basehttp "GET /quizzes/ HTTP/1.1" 200 11979
+INFO 2025-02-01 17:50:43,526 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:43,986 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:50:44,407 basehttp "GET / HTTP/1.1" 200 7133
+INFO 2025-02-01 17:50:45,501 basehttp "GET / HTTP/1.1" 200 7133
+INFO 2025-02-01 17:50:46,233 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:50:49,305 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:53,219 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:53,862 basehttp "GET /quizzes/ HTTP/1.1" 200 11979
+INFO 2025-02-01 17:50:55,953 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:56,486 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:50:57,937 basehttp "GET / HTTP/1.1" 200 7133
+INFO 2025-02-01 17:50:58,338 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:50:58,812 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:50:59,368 basehttp "GET /quizzes/ HTTP/1.1" 200 11979
+INFO 2025-02-01 17:50:59,820 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:51:00,197 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:51:00,516 basehttp "GET / HTTP/1.1" 200 7133
+INFO 2025-02-01 17:51:00,924 basehttp "GET /contests/ HTTP/1.1" 200 15079
+INFO 2025-02-01 17:51:01,221 basehttp "GET /blank_page/ HTTP/1.1" 200 5176
+INFO 2025-02-01 17:51:02,094 basehttp "GET / HTTP/1.1" 200 7133
+INFO 2025-02-01 17:51:26,244 basehttp "GET / HTTP/1.1" 200 7272
+INFO 2025-02-01 17:51:27,724 basehttp "GET /blank_page/ HTTP/1.1" 200 5315
+INFO 2025-02-01 17:51:28,647 basehttp "GET /contests/ HTTP/1.1" 200 15218
+INFO 2025-02-01 17:51:29,501 basehttp "GET /blank_page/ HTTP/1.1" 200 5315
+INFO 2025-02-01 17:51:30,148 basehttp "GET /quizzes/ HTTP/1.1" 200 12118
+INFO 2025-02-01 17:51:31,922 basehttp "GET / HTTP/1.1" 200 7272
+INFO 2025-02-01 17:51:32,517 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 17:51:32,523 basehttp "GET / HTTP/1.1" 200 6471
+INFO 2025-02-01 17:51:35,237 basehttp "GET / HTTP/1.1" 200 6471
+INFO 2025-02-01 17:51:36,332 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:37,381 basehttp "GET /contests/ HTTP/1.1" 200 11100
+INFO 2025-02-01 17:51:37,863 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:38,525 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:38,894 basehttp "GET / HTTP/1.1" 200 6471
+INFO 2025-02-01 17:51:39,356 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:39,816 basehttp "GET / HTTP/1.1" 200 6471
+INFO 2025-02-01 17:51:40,216 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:42,880 basehttp "GET /contests/ HTTP/1.1" 200 11100
+INFO 2025-02-01 17:51:43,426 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:43,776 basehttp "GET / HTTP/1.1" 200 6471
+INFO 2025-02-01 17:51:44,501 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:44,795 basehttp "GET /contests/ HTTP/1.1" 200 11100
+INFO 2025-02-01 17:51:45,897 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:48,440 basehttp "GET /contests/ HTTP/1.1" 200 11100
+INFO 2025-02-01 17:51:48,890 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:49,187 basehttp "GET / HTTP/1.1" 200 6471
+INFO 2025-02-01 17:51:49,598 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:51:49,947 basehttp "GET /contests/ HTTP/1.1" 200 11100
+INFO 2025-02-01 17:51:52,920 basehttp "GET /blank_page/ HTTP/1.1" 200 5188
+INFO 2025-02-01 17:55:01,596 basehttp "GET / HTTP/1.1" 200 6494
+INFO 2025-02-01 17:55:08,342 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:09,607 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:10,109 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:12,328 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:13,063 basehttp "GET / HTTP/1.1" 200 6494
+INFO 2025-02-01 17:55:14,041 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:14,467 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:14,901 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:15,351 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:16,292 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:16,971 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:19,746 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:20,165 basehttp "GET / HTTP/1.1" 200 6494
+INFO 2025-02-01 17:55:20,791 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:21,096 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:21,423 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:21,795 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:23,594 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:24,415 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:25,916 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:26,378 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:26,748 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:27,196 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:27,515 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:27,797 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:28,050 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:28,379 basehttp "GET / HTTP/1.1" 200 6494
+INFO 2025-02-01 17:55:28,754 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:29,248 basehttp "GET / HTTP/1.1" 200 6494
+INFO 2025-02-01 17:55:29,626 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:29,861 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:30,306 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:30,960 basehttp "GET /quizzes/ HTTP/1.1" 200 8665
+INFO 2025-02-01 17:55:32,644 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:33,042 basehttp "GET /contests/ HTTP/1.1" 200 11123
+INFO 2025-02-01 17:55:33,326 basehttp "GET /blank_page/ HTTP/1.1" 200 5211
+INFO 2025-02-01 17:55:33,635 basehttp "GET / HTTP/1.1" 200 6494
+INFO 2025-02-01 17:56:32,779 basehttp "GET / HTTP/1.1" 200 6556
+INFO 2025-02-01 17:56:33,619 basehttp "GET / HTTP/1.1" 200 6556
+INFO 2025-02-01 17:56:34,690 basehttp "GET / HTTP/1.1" 200 6556
+INFO 2025-02-01 17:57:09,979 basehttp "GET / HTTP/1.1" 200 6580
+INFO 2025-02-01 17:57:10,705 basehttp "GET / HTTP/1.1" 200 6580
+INFO 2025-02-01 17:58:49,892 basehttp "GET / HTTP/1.1" 200 6580
+INFO 2025-02-01 17:58:59,267 basehttp "GET / HTTP/1.1" 200 6534
+INFO 2025-02-01 17:59:00,587 basehttp "GET / HTTP/1.1" 200 6534
+INFO 2025-02-01 17:59:01,458 basehttp "GET / HTTP/1.1" 200 6534
+INFO 2025-02-01 17:59:01,749 basehttp "GET / HTTP/1.1" 200 6534
+INFO 2025-02-01 18:02:01,546 basehttp "GET / HTTP/1.1" 200 6772
+INFO 2025-02-01 18:02:22,516 basehttp "GET / HTTP/1.1" 200 6772
+INFO 2025-02-01 18:02:23,423 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:02:34,008 basehttp "GET / HTTP/1.1" 200 6686
+INFO 2025-02-01 18:02:34,652 basehttp "GET / HTTP/1.1" 200 6686
+INFO 2025-02-01 18:02:35,153 basehttp "GET / HTTP/1.1" 200 6686
+INFO 2025-02-01 18:02:35,294 basehttp "GET / HTTP/1.1" 200 6686
+INFO 2025-02-01 18:02:35,445 basehttp "GET / HTTP/1.1" 200 6686
+INFO 2025-02-01 18:02:39,785 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:02:40,411 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:02:40,534 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:02:47,665 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:02:48,162 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:02:49,719 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:02:50,863 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:02:58,114 basehttp "GET /contests/ HTTP/1.1" 200 11325
+INFO 2025-02-01 18:02:58,689 basehttp "GET /blank_page/ HTTP/1.1" 200 5413
+INFO 2025-02-01 18:02:59,525 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:03:00,064 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:03:04,788 basehttp "GET /blank_page/ HTTP/1.1" 200 5413
+INFO 2025-02-01 18:03:05,231 basehttp "GET /contests/ HTTP/1.1" 200 11325
+INFO 2025-02-01 18:03:05,542 basehttp "GET /blank_page/ HTTP/1.1" 200 5413
+INFO 2025-02-01 18:03:05,840 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:03:10,999 basehttp "GET / HTTP/1.1" 200 6696
+INFO 2025-02-01 18:03:11,394 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:03:32,589 basehttp "GET / HTTP/1.1" 200 6684
+INFO 2025-02-01 18:03:42,003 basehttp "GET / HTTP/1.1" 200 6679
+INFO 2025-02-01 18:03:54,979 basehttp "GET / HTTP/1.1" 200 6685
+INFO 2025-02-01 18:05:02,152 basehttp "GET / HTTP/1.1" 200 6689
+INFO 2025-02-01 18:05:44,639 basehttp "GET / HTTP/1.1" 200 6694
+INFO 2025-02-01 18:06:22,796 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:29,579 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:30,324 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:30,694 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:30,845 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:32,396 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:38,131 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:39,465 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:42,628 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:43,391 basehttp "GET / HTTP/1.1" 200 6705
+INFO 2025-02-01 18:06:45,340 basehttp "GET /contests/ HTTP/1.1" 200 11334
+INFO 2025-02-01 18:06:47,776 basehttp "GET /blank_page/ HTTP/1.1" 200 5422
+INFO 2025-02-01 18:06:49,467 basehttp "GET /quizzes/ HTTP/1.1" 200 8876
+INFO 2025-02-01 18:06:50,529 basehttp "GET /login/ HTTP/1.1" 200 6694
+INFO 2025-02-01 18:06:52,433 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:06:52,440 basehttp "GET / HTTP/1.1" 200 7506
+INFO 2025-02-01 18:06:53,769 basehttp "GET /quizzes/ HTTP/1.1" 200 12352
+INFO 2025-02-01 18:06:55,089 basehttp "GET /contests/18/ HTTP/1.1" 200 15715
+INFO 2025-02-01 18:06:57,025 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45276
+INFO 2025-02-01 18:07:07,021 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45266
+INFO 2025-02-01 18:08:14,061 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:08:15,594 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:08:16,540 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:08:17,618 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:08:18,468 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:08:19,373 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:08:20,247 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45998
+INFO 2025-02-01 18:09:03,599 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45964
+INFO 2025-02-01 18:09:04,831 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45964
+INFO 2025-02-01 18:09:05,707 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45964
+INFO 2025-02-01 18:09:07,091 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45964
+INFO 2025-02-01 18:09:08,378 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45964
+INFO 2025-02-01 18:09:10,308 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 45964
+INFO 2025-02-01 18:09:11,551 basehttp "GET / HTTP/1.1" 200 8194
+INFO 2025-02-01 18:09:13,376 basehttp "GET / HTTP/1.1" 200 8194
+INFO 2025-02-01 18:09:14,729 basehttp "GET / HTTP/1.1" 200 8194
+INFO 2025-02-01 18:11:46,327 basehttp "GET / HTTP/1.1" 200 8288
+INFO 2025-02-01 18:11:53,451 basehttp "GET / HTTP/1.1" 200 8261
+INFO 2025-02-01 18:11:54,513 basehttp "GET / HTTP/1.1" 200 8261
+INFO 2025-02-01 18:12:04,880 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:05,638 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:06,374 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:07,486 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:08,130 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:08,774 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:09,407 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:10,295 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:10,964 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:11,620 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:14,160 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:14,732 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:15,368 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:16,159 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:16,699 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:17,285 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:17,978 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:18,523 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:19,039 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:19,652 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:20,709 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:21,340 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:21,853 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:12:22,517 basehttp "GET / HTTP/1.1" 200 8233
+INFO 2025-02-01 18:13:23,358 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:23,801 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:24,274 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:24,719 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:25,121 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:25,797 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:26,368 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:26,872 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:27,303 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:27,746 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:28,194 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:28,621 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:29,125 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:29,517 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:29,990 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:32,186 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:33,952 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:34,632 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:35,571 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:36,590 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:37,167 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:39,290 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:40,061 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:41,097 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:41,831 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:42,613 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:43,125 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:43,994 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:44,609 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:45,896 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:46,317 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:46,690 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:47,104 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:47,625 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:47,835 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:48,161 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:48,602 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:48,798 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:49,214 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:49,713 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:50,307 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:50,792 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:51,410 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:51,809 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:52,091 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:52,273 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:13:52,435 basehttp "GET / HTTP/1.1" 200 8276
+INFO 2025-02-01 18:15:35,283 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:39,586 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:41,343 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:42,690 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:44,193 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:44,580 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:44,989 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:45,337 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:45,694 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:46,022 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:46,321 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:46,648 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:47,023 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:47,519 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:47,963 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:48,510 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:48,843 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:49,121 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:49,401 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:49,644 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:49,786 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:49,974 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:50,398 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:50,724 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:51,031 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:51,275 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:51,483 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:51,726 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:52,132 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:52,496 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:52,736 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:53,085 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:53,353 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:53,558 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:53,714 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:53,884 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:54,045 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:54,274 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:54,561 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:54,753 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:54,915 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:55,258 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:55,565 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:55,871 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:56,167 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:56,329 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:56,498 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:56,756 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:57,170 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:15:57,423 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:17:03,999 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:17:04,646 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:17:05,183 basehttp "GET /blank_page/ HTTP/1.1" 200 6377
+INFO 2025-02-01 18:17:06,683 basehttp "GET /blank_page/ HTTP/1.1" 200 6377
+INFO 2025-02-01 18:17:08,940 basehttp "GET /blank_page/ HTTP/1.1" 200 6377
+INFO 2025-02-01 18:17:10,267 basehttp "GET /blank_page/ HTTP/1.1" 200 6377
+INFO 2025-02-01 18:17:11,545 basehttp "GET /blank_page/ HTTP/1.1" 200 6377
+INFO 2025-02-01 18:17:12,698 basehttp "GET /quizzes/ HTTP/1.1" 200 13180
+INFO 2025-02-01 18:17:13,695 basehttp "GET /contests/18/ HTTP/1.1" 200 16543
+INFO 2025-02-01 18:17:14,981 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 46104
+INFO 2025-02-01 18:17:19,612 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 49747
+INFO 2025-02-01 18:17:22,482 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:24,067 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:25,747 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:27,364 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:29,752 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:32,065 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:37,182 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:38,557 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:40,016 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:41,796 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:43,268 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:44,341 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:45,352 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:46,511 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:47,534 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:49,545 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:50,862 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:51,907 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:53,048 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:54,262 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:55,546 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:57,105 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:58,587 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:17:59,690 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:18:00,938 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:18:02,323 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:18:03,616 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:18:05,717 basehttp "GET /buy_quiz_problem/56/ HTTP/1.1" 200 48357
+INFO 2025-02-01 18:18:08,802 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:11,498 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:12,655 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:13,890 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:14,730 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:16,149 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:17,800 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:19,323 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:20,057 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:20,627 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:21,103 basehttp "GET / HTTP/1.1" 200 8334
+INFO 2025-02-01 18:18:27,216 basehttp "GET /admin_panel/ HTTP/1.1" 200 7544
+INFO 2025-02-01 18:18:28,312 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:19:37,596 basehttp "GET /admin_panel/ HTTP/1.1" 200 7544
+INFO 2025-02-01 18:19:38,482 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:19:40,006 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:19:40,450 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:19:40,586 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:19:40,720 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:19:47,641 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:20:00,389 basehttp "GET /upload_image/ HTTP/1.1" 200 6453
+ERROR 2025-02-01 18:20:06,685 log Internal Server Error: /upload_image/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: myapp_uploadedimage.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py", line 53, in upload_image
+    form.save()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\forms\models.py", line 554, in save
+    self.instance.save()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 891, in save
+    self.save_base(
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: myapp_uploadedimage.user_id
+ERROR 2025-02-01 18:20:06,689 basehttp "POST /upload_image/ HTTP/1.1" 500 151679
+INFO 2025-02-01 18:20:18,755 basehttp "GET /quizzes/ HTTP/1.1" 200 13180
+INFO 2025-02-01 18:20:19,335 basehttp "GET /admin_panel/ HTTP/1.1" 200 7544
+INFO 2025-02-01 18:20:20,128 basehttp "GET /image_list/ HTTP/1.1" 200 235
+INFO 2025-02-01 18:20:46,558 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:47,249 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:47,761 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:47,916 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:48,096 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:48,530 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:48,673 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:48,826 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:48,996 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:49,170 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:49,318 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:49,510 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:49,676 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:49,825 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:50,017 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:50,271 basehttp "GET /image_list/ HTTP/1.1" 200 6114
+INFO 2025-02-01 18:20:51,821 basehttp "GET /blank_page/ HTTP/1.1" 200 6377
+INFO 2025-02-01 18:20:52,566 basehttp "GET /quizzes/ HTTP/1.1" 200 13180
+INFO 2025-02-01 18:20:53,235 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:20:53,242 basehttp "GET / HTTP/1.1" 200 7533
+INFO 2025-02-01 18:20:54,898 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 18:20:59,213 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:20:59,222 basehttp "GET / HTTP/1.1" 200 7506
+INFO 2025-02-01 18:21:32,318 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:32,908 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:33,076 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:33,233 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:40,709 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:56,408 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:57,000 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:21:57,495 basehttp "GET / HTTP/1.1" 200 7529
+INFO 2025-02-01 18:22:05,651 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:22:06,877 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:22:12,959 basehttp "GET /blank_page/ HTTP/1.1" 200 6232
+INFO 2025-02-01 18:22:25,763 basehttp "GET /blank_page/ HTTP/1.1" 200 6232
+INFO 2025-02-01 18:22:42,371 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:22:44,574 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:22:45,023 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:22:45,555 basehttp "GET /contests/ HTTP/1.1" 200 12309
+INFO 2025-02-01 18:22:46,068 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:22:50,231 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:22:51,174 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:22:52,340 basehttp "GET /contests/ HTTP/1.1" 200 12309
+INFO 2025-02-01 18:22:53,180 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:23:06,437 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:23:07,346 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:23:12,876 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:23:13,623 basehttp "GET /contests/ HTTP/1.1" 200 12309
+INFO 2025-02-01 18:23:15,676 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:23:16,290 basehttp "GET /contests/ HTTP/1.1" 200 12309
+INFO 2025-02-01 18:23:16,640 basehttp "GET /quizzes/ HTTP/1.1" 200 9756
+INFO 2025-02-01 18:23:17,307 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:23:17,596 basehttp "GET /quizzes/ HTTP/1.1" 200 9756
+INFO 2025-02-01 18:23:24,068 basehttp "GET /contests/ HTTP/1.1" 200 12309
+INFO 2025-02-01 18:23:27,001 basehttp "GET /quizzes/ HTTP/1.1" 200 9756
+INFO 2025-02-01 18:23:28,084 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:23:28,459 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:23:28,977 basehttp "GET / HTTP/1.1" 200 7515
+INFO 2025-02-01 18:23:35,361 basehttp "GET /blank_page/ HTTP/1.1" 200 6256
+INFO 2025-02-01 18:23:36,249 basehttp "GET /quizzes/ HTTP/1.1" 200 9756
+INFO 2025-02-01 18:23:37,118 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:23:37,125 basehttp "GET / HTTP/1.1" 200 7533
+INFO 2025-02-01 18:23:37,919 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 18:23:41,051 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:23:41,058 basehttp "GET / HTTP/1.1" 200 8343
+INFO 2025-02-01 18:23:41,640 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 18:23:42,377 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 18:23:43,114 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 18:23:44,467 basehttp "GET /image_list/ HTTP/1.1" 200 6123
+INFO 2025-02-01 18:23:48,200 basehttp "GET /image_list/ HTTP/1.1" 200 6123
+INFO 2025-02-01 18:23:49,733 basehttp "GET /upload_image/ HTTP/1.1" 200 6462
+ERROR 2025-02-01 18:23:53,908 log Internal Server Error: /upload_image/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: NOT NULL constraint failed: myapp_uploadedimage.user_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py", line 53, in upload_image
+    form.save()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\forms\models.py", line 554, in save
+    self.instance.save()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 891, in save
+    self.save_base(
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 997, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 1160, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\base.py", line 1201, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: NOT NULL constraint failed: myapp_uploadedimage.user_id
+ERROR 2025-02-01 18:23:53,910 basehttp "POST /upload_image/ HTTP/1.1" 500 151679
+INFO 2025-02-01 18:25:36,508 autoreload D:\django_proj\ml-jam\webproject\myapp\forms.py changed, reloading.
+INFO 2025-02-01 18:25:37,113 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:26:09,567 autoreload D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py changed, reloading.
+INFO 2025-02-01 18:26:10,152 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:26:16,219 autoreload D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py changed, reloading.
+INFO 2025-02-01 18:26:16,810 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:26:18,900 basehttp "GET / HTTP/1.1" 200 8343
+INFO 2025-02-01 18:26:20,409 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 18:26:21,689 basehttp "GET /image_list/ HTTP/1.1" 200 6123
+INFO 2025-02-01 18:26:22,651 basehttp "GET /upload_image/ HTTP/1.1" 200 6462
+ERROR 2025-02-01 18:26:25,613 log Internal Server Error: /upload_image/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py", line 54, in upload_image
+    uploaded_image = form.save(commit=False)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\forms.py", line 31, in save
+    if not instance.user:
+           ^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 267, in __get__
+    raise self.RelatedObjectDoesNotExist(
+myapp.models.UploadedImage.user.RelatedObjectDoesNotExist: UploadedImage has no user.
+ERROR 2025-02-01 18:26:25,615 basehttp "POST /upload_image/ HTTP/1.1" 500 75584
+INFO 2025-02-01 18:27:52,881 autoreload D:\django_proj\ml-jam\webproject\myapp\forms.py changed, reloading.
+INFO 2025-02-01 18:27:53,495 autoreload Watching for file changes with StatReloader
+ERROR 2025-02-01 18:27:58,756 log Internal Server Error: /upload_image/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py", line 54, in upload_image
+    uploaded_image = form.save(commit=False)
+                     ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\forms.py", line 32, in save
+    if not instance.user and hasattr(self, 'request'):
+           ^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 267, in __get__
+    raise self.RelatedObjectDoesNotExist(
+myapp.models.UploadedImage.user.RelatedObjectDoesNotExist: UploadedImage has no user.
+ERROR 2025-02-01 18:27:58,758 basehttp "POST /upload_image/ HTTP/1.1" 500 75718
+INFO 2025-02-01 18:29:36,851 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 18:29:37,467 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:29:57,206 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 18:29:57,811 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:30:10,178 autoreload D:\django_proj\ml-jam\webproject\myapp\forms.py changed, reloading.
+INFO 2025-02-01 18:30:10,769 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:31:30,117 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:31:55,765 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 18:31:56,328 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:32:15,606 autoreload D:\django_proj\ml-jam\webproject\myapp\politics.py changed, reloading.
+INFO 2025-02-01 18:32:16,188 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:32:18,330 basehttp "GET / HTTP/1.1" 200 8343
+INFO 2025-02-01 18:32:19,789 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 18:32:20,636 basehttp "GET /image_list/ HTTP/1.1" 200 6123
+INFO 2025-02-01 18:32:21,351 basehttp "GET /upload_image/ HTTP/1.1" 200 6514
+ERROR 2025-02-01 18:32:23,714 log Internal Server Error: /upload_image/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py", line 59, in upload_image
+    return redirect('success_page')  # Перенаправляем на успешную страницу
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'success_page' not found. 'success_page' is not a valid view function or pattern name.
+ERROR 2025-02-01 18:32:23,786 basehttp "POST /upload_image/ HTTP/1.1" 500 85778
+INFO 2025-02-01 18:32:43,742 autoreload D:\django_proj\ml-jam\webproject\myapp\ImageProcessingService\image_logic.py changed, reloading.
+INFO 2025-02-01 18:32:44,372 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 18:32:48,085 basehttp "POST /upload_image/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:32:48,096 basehttp "GET /image_list/ HTTP/1.1" 200 6389
+WARNING 2025-02-01 18:32:48,126 log Not Found: /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png
+WARNING 2025-02-01 18:32:48,130 log Not Found: /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png
+WARNING 2025-02-01 18:32:48,130 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:48,130 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 404 10545
+INFO 2025-02-01 18:32:49,042 basehttp "GET /image_list/ HTTP/1.1" 200 6389
+WARNING 2025-02-01 18:32:49,064 log Not Found: /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png
+WARNING 2025-02-01 18:32:49,068 log Not Found: /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png
+WARNING 2025-02-01 18:32:49,068 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:49,068 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 404 10545
+INFO 2025-02-01 18:32:52,822 basehttp "GET /upload_image/ HTTP/1.1" 200 6514
+INFO 2025-02-01 18:32:55,081 basehttp "POST /upload_image/ HTTP/1.1" 302 0
+INFO 2025-02-01 18:32:55,088 basehttp "GET /image_list/ HTTP/1.1" 200 6522
+WARNING 2025-02-01 18:32:55,114 log Not Found: /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png
+WARNING 2025-02-01 18:32:55,118 log Not Found: /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png
+WARNING 2025-02-01 18:32:55,119 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:55,122 log Not Found: /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png
+WARNING 2025-02-01 18:32:55,123 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:55,123 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 404 10545
+INFO 2025-02-01 18:32:56,690 basehttp "GET /image_list/ HTTP/1.1" 200 6522
+WARNING 2025-02-01 18:32:56,714 log Not Found: /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png
+WARNING 2025-02-01 18:32:56,718 log Not Found: /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png
+WARNING 2025-02-01 18:32:56,719 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:56,722 log Not Found: /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png
+WARNING 2025-02-01 18:32:56,722 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:56,723 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 404 10545
+INFO 2025-02-01 18:32:57,079 basehttp "GET /image_list/ HTTP/1.1" 200 6522
+WARNING 2025-02-01 18:32:57,101 log Not Found: /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png
+WARNING 2025-02-01 18:32:57,108 log Not Found: /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png
+WARNING 2025-02-01 18:32:57,112 log Not Found: /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png
+WARNING 2025-02-01 18:32:57,112 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:57,112 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:57,113 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 404 10545
+INFO 2025-02-01 18:32:57,212 basehttp "GET /image_list/ HTTP/1.1" 200 6522
+WARNING 2025-02-01 18:32:57,236 log Not Found: /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png
+WARNING 2025-02-01 18:32:57,240 log Not Found: /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png
+WARNING 2025-02-01 18:32:57,240 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:57,240 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 404 10545
+WARNING 2025-02-01 18:32:57,244 log Not Found: /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png
+WARNING 2025-02-01 18:32:57,245 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 404 10545
+INFO 2025-02-01 18:34:10,897 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 18:34:11,522 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 19:01:48,171 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 19:01:48,788 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 19:03:03,497 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 19:03:04,053 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 19:04:51,587 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 19:04:52,271 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 19:05:11,499 autoreload D:\django_proj\ml-jam\webproject\myapp\urls.py changed, reloading.
+INFO 2025-02-01 19:05:12,071 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 19:05:14,173 basehttp "GET / HTTP/1.1" 200 8343
+INFO 2025-02-01 19:05:15,510 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:05:15,975 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 19:05:16,671 basehttp "GET /image_list/ HTTP/1.1" 200 6522
+INFO 2025-02-01 19:05:16,752 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 200 4340
+INFO 2025-02-01 19:05:16,752 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 200 4340
+INFO 2025-02-01 19:05:16,753 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 200 4340
+INFO 2025-02-01 19:05:19,675 basehttp "GET / HTTP/1.1" 200 8343

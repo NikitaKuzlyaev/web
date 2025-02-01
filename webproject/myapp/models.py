@@ -8,6 +8,7 @@ def upload_to(instance, filename):
     new_filename = f"{uuid.uuid4()}.{ext}"  # Уникальное имя
     return os.path.join("uploads", new_filename)
 
+
 class UploadedImage(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который загрузил картинку
     image = models.ImageField(upload_to=upload_to)
@@ -66,7 +67,11 @@ class Contest(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # Дата создания
     time_start = models.DateTimeField()  # Время начала
     time_end = models.DateTimeField()  # Время окончания
+
     is_open = models.BooleanField(default=True)  # Флаг, открыт ли конкурс
+    is_open_preview = models.BooleanField(default=False)  # Флаг, открыто ли превью
+    is_open_results = models.BooleanField(default=False)  # Флаг, открыта ли таблица для участников
+
     color = models.CharField(max_length=7, choices=COLOR_CHOICES, default="#0000FF")  # Цвет
 
     def __str__(self):

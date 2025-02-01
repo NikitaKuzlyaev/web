@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import main, register, user_login, contests, logout_view, contests_view, contest_detail_view_admin, contest_detail_view, \
     contest_detail_view_admin_checker, contest_detail_results, contest_participants_admin, contest_detail_submissions, \
-    admin_panel
+    admin_panel, blank_page
 
 
 from django.contrib.auth import views as auth_views
@@ -13,6 +13,9 @@ from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_fiel
 from .ImageProcessingService.image_logic import upload_image, image_list
 
 from . import views
+#from webproject import *
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .forms import CustomAuthenticationForm  # Импортируем кастомную форму входа
 
@@ -22,6 +25,8 @@ urlpatterns = [
 
     path('image_list/', image_list, name="image_list"),
     path('upload_image/', upload_image, name="upload_image"),
+
+    path('blank_page/', blank_page, name="blank_page"),
 
     path('contests/', contests_view, name='contests'),
     path('quizzes/', quiz_view, name='quizzes'),
@@ -56,3 +61,7 @@ urlpatterns = [
     path('contests/participants_admin/<int:contest_id>/', contest_participants_admin, name='contest_participants_admin'),
 
 ]
+
+# Для разработки, чтобы сервер мог обслуживать медиа файлы
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
