@@ -177,12 +177,13 @@ class BlogPage(models.Model):
     content = models.TextField()  # Содержимое вкладки
     author = models.ForeignKey(User, on_delete=models.CASCADE)  # Внешний ключ к пользователю
     created_at = models.DateTimeField(auto_now_add=True)  # Время создания
+    priority = models.IntegerField(default=1000)
 
     def __str__(self):
         return self.title
 
     class Meta:
-        ordering = ['created_at']  # Сортируем страницы по времени создания
+        ordering = ['priority', 'created_at']
 
 
 class SubmissionFile(models.Model):

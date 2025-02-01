@@ -26,9 +26,12 @@
 <a href="{% url 'upload_image' %}">Upload New Image</a>
 <ul>
     {% for image in images %}
+    <div class="d-flex">
     <li>
-        <img src="{{ image.image.url }}" alt="Uploaded Image" width="200">
+        <img src="{{ image.image.url }}" alt="Uploaded Image" width="60">
     </li>
+    <li>{{ image.image.url }}</li>
+    </div>
     {% endfor %}
 </ul>
 

@@ -26,7 +26,7 @@ from .models import (
     QuizAttempt, QuizProblem, QuizUser
 )
 from .models import UploadedImage
-#from .forms import ImageUploadForm
+# from .forms import ImageUploadForm
 from .forms import FileUploadForm
 
 from .utils import have_access
@@ -172,10 +172,13 @@ def logout_view(request):
 
 
 def main(request):
-    blogs = BlogPage.objects.all().order_by('-created_at')
+    #blogs = BlogPage.objects.all().order_by('-created_at')
+    blogs = BlogPage.objects.all()
+
     context = {
         'blogs': blogs,
     }
+
     return render(request, 'main.html', context)
 
 
@@ -222,9 +225,11 @@ def main_blog_edit(request, blog_id=None):
         if 'create_blog' in request.POST:
             BlogPage.objects.create(title=request.POST.get('title'),
                                     content=request.POST.get('content'),
+                                    priority=request.POST.get('priority'),
                                     author=request.user,
                                     created_at=now())
             print('новость создана')
+            return redirect('main')
 
         elif 'save_blog' in request.POST:
 
@@ -234,40 +239,49 @@ def main_blog_edit(request, blog_id=None):
             if blog != None:
                 title = request.POST.get('title')
                 content = request.POST.get('content')
+                priority = request.POST.get('priority')
 
                 # Обновление данных вкладки
                 blog.title = title
                 blog.content = content
+                blog.priority = priority
                 blog.save()
+                return redirect('main')
 
         elif 'delete_blog' in request.POST:
             pass
+            return redirect('main')
 
-        blogs = BlogPage.objects.all().order_by('created_at')
+
+        #blogs = BlogPage.objects.all().order_by('priority', 'created_at')
+        blogs = BlogPage.objects.all()
+        logger.debug('hehe')
         context = {
             'blogs': blogs,
         }
 
         return render(request, 'main.html', context)
 
+
+    if blog_id:
+        # Получаем существующую новость для редактирования
+        blog = get_object_or_404(BlogPage, id=blog_id)
+        message = f"Редактируется новость с ID {blog_id}"
+
+        context = {
+            'blog': blog,
+        }
+        logger.debug('hehe2')
+
+        return render(request, 'main_blog_edit.html', context)
+
     else:
-        if blog_id:
-            # Получаем существующую новость для редактирования
-            blog = get_object_or_404(BlogPage, id=blog_id)
-            message = f"Редактируется новость с ID {blog_id}"
+        context = {
+            'blog': None,
+        }
+        logger.debug('hehe3')
 
-            context = {
-                'blog': blog,
-            }
-
-            return render(request, 'main_blog_edit.html', context)
-
-        else:
-            context = {
-                'blog': None,
-            }
-
-            return render(request, 'main_blog_edit.html', context)
+        return render(request, 'main_blog_edit.html', context)
 
 
 @user_passes_test(is_admin)

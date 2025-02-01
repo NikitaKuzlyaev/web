@@ -18840,3 +18840,1453 @@ INFO 2025-02-01 19:05:16,752 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b46
 INFO 2025-02-01 19:05:16,752 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 200 4340
 INFO 2025-02-01 19:05:16,753 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 200 4340
 INFO 2025-02-01 19:05:19,675 basehttp "GET / HTTP/1.1" 200 8343
+INFO 2025-02-01 19:11:51,681 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 19:12:05,502 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 19:12:06,559 basehttp "GET /image_list/ HTTP/1.1" 200 6729
+INFO 2025-02-01 19:12:06,587 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:12:06,587 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:12:06,587 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:12:17,945 basehttp "GET /image_list/ HTTP/1.1" 200 6729
+INFO 2025-02-01 19:12:18,547 basehttp "GET /image_list/ HTTP/1.1" 200 6729
+INFO 2025-02-01 19:12:25,385 basehttp "GET /image_list/ HTTP/1.1" 200 6726
+INFO 2025-02-01 19:13:28,401 basehttp "GET /image_list/ HTTP/1.1" 200 6834
+INFO 2025-02-01 19:13:29,003 basehttp "GET /image_list/ HTTP/1.1" 200 6834
+INFO 2025-02-01 19:13:49,368 basehttp "GET /upload_image/ HTTP/1.1" 200 6514
+INFO 2025-02-01 19:15:34,739 basehttp "POST /upload_image/ HTTP/1.1" 302 0
+INFO 2025-02-01 19:15:34,749 basehttp "GET /image_list/ HTTP/1.1" 200 7071
+INFO 2025-02-01 19:15:34,951 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 200 13467382
+INFO 2025-02-01 19:15:53,848 basehttp "GET /upload_image/ HTTP/1.1" 200 6514
+INFO 2025-02-01 19:16:42,100 basehttp "GET / HTTP/1.1" 200 9599
+INFO 2025-02-01 19:16:44,759 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 19:16:46,082 basehttp "GET /image_list/ HTTP/1.1" 200 7071
+INFO 2025-02-01 19:16:46,108 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:16:46,109 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:16:46,109 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:16:46,110 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:16:51,250 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8291
+INFO 2025-02-01 19:17:11,402 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9739
+INFO 2025-02-01 19:17:18,046 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:17:19,507 basehttp "GET /contests/18/ HTTP/1.1" 200 16552
+INFO 2025-02-01 19:17:20,980 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48366
+INFO 2025-02-01 19:17:26,252 basehttp "GET /edit_quiz_problem/56/ HTTP/1.1" 200 8799
+INFO 2025-02-01 19:17:29,124 basehttp "POST /edit_quiz_problem/56/ HTTP/1.1" 200 8917
+INFO 2025-02-01 19:17:32,120 basehttp "GET / HTTP/1.1" 200 9739
+INFO 2025-02-01 19:17:33,406 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8431
+INFO 2025-02-01 19:17:38,475 basehttp "POST /edit_quiz_problem/56/ HTTP/1.1" 200 9041
+INFO 2025-02-01 19:17:38,491 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:17:55,350 basehttp "POST /edit_quiz_problem/56/ HTTP/1.1" 200 8801
+INFO 2025-02-01 19:17:57,518 basehttp "POST /edit_quiz_problem/56/ HTTP/1.1" 200 8803
+INFO 2025-02-01 19:17:59,384 basehttp "POST /edit_quiz_problem/56/ HTTP/1.1" 200 8807
+INFO 2025-02-01 19:18:00,867 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48366
+INFO 2025-02-01 19:19:16,145 basehttp "GET / HTTP/1.1" 200 9673
+INFO 2025-02-01 19:19:16,167 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:19:20,449 basehttp "GET / HTTP/1.1" 200 9673
+INFO 2025-02-01 19:19:20,479 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:19:23,461 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8431
+INFO 2025-02-01 19:19:27,214 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9674
+INFO 2025-02-01 19:19:42,056 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8432
+INFO 2025-02-01 19:20:41,017 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9712
+INFO 2025-02-01 19:20:41,032 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:20:42,413 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8492
+INFO 2025-02-01 19:20:50,794 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9715
+INFO 2025-02-01 19:20:53,861 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8495
+INFO 2025-02-01 19:20:56,057 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9711
+INFO 2025-02-01 19:20:58,711 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8491
+INFO 2025-02-01 19:21:21,709 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9711
+INFO 2025-02-01 19:21:21,724 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:21:32,753 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8491
+INFO 2025-02-01 19:21:34,875 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9734
+INFO 2025-02-01 19:21:34,891 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:21:45,374 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8514
+INFO 2025-02-01 19:21:54,326 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9795
+INFO 2025-02-01 19:21:55,669 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8597
+INFO 2025-02-01 19:21:57,875 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9797
+INFO 2025-02-01 19:21:59,073 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8599
+INFO 2025-02-01 19:22:08,775 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9806
+INFO 2025-02-01 19:22:11,355 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8620
+INFO 2025-02-01 19:22:24,524 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9824
+INFO 2025-02-01 19:22:24,540 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:23:05,379 basehttp "GET / HTTP/1.1" 200 8989
+INFO 2025-02-01 19:23:05,452 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 200 13467382
+INFO 2025-02-01 19:25:16,543 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 19:25:17,338 basehttp "GET /image_list/ HTTP/1.1" 200 7071
+INFO 2025-02-01 19:25:17,367 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:25:17,369 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:25:17,371 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:25:17,372 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:25:18,343 basehttp "GET /upload_image/ HTTP/1.1" 200 6514
+INFO 2025-02-01 19:25:21,955 basehttp "POST /upload_image/ HTTP/1.1" 302 0
+INFO 2025-02-01 19:25:21,962 basehttp "GET /image_list/ HTTP/1.1" 200 7308
+INFO 2025-02-01 19:25:21,992 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 200 1278458
+INFO 2025-02-01 19:25:26,040 basehttp "GET / HTTP/1.1" 200 9824
+INFO 2025-02-01 19:25:26,934 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8638
+INFO 2025-02-01 19:25:31,931 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 9824
+INFO 2025-02-01 19:25:31,947 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:25:47,700 basehttp "GET /editblog/new/ HTTP/1.1" 200 7388
+INFO 2025-02-01 19:28:24,071 basehttp "GET / HTTP/1.1" 200 9824
+INFO 2025-02-01 19:28:24,089 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:28:26,292 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8638
+INFO 2025-02-01 19:28:36,342 basehttp "POST /editblog/new/ HTTP/1.1" 200 11913
+INFO 2025-02-01 19:28:42,054 basehttp "GET / HTTP/1.1" 200 11913
+INFO 2025-02-01 19:29:12,318 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:29:13,233 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:29:13,614 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 19:29:13,989 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:29:14,343 basehttp "GET / HTTP/1.1" 200 11913
+INFO 2025-02-01 19:29:14,364 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:29:17,006 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 19:29:24,358 basehttp "GET /image_list/ HTTP/1.1" 200 7308
+INFO 2025-02-01 19:29:24,387 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:33:29,946 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8221
+INFO 2025-02-01 19:33:55,734 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 11910
+INFO 2025-02-01 19:33:55,760 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:33:57,466 basehttp "GET / HTTP/1.1" 200 11910
+INFO 2025-02-01 19:33:59,272 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8218
+INFO 2025-02-01 19:34:03,453 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 11910
+INFO 2025-02-01 19:34:07,028 basehttp "GET /upload_image/ HTTP/1.1" 200 6514
+INFO 2025-02-01 19:34:10,360 basehttp "POST /upload_image/ HTTP/1.1" 302 0
+INFO 2025-02-01 19:34:10,368 basehttp "GET /image_list/ HTTP/1.1" 200 7545
+INFO 2025-02-01 19:34:10,390 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:34:10,392 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:34:10,395 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:34:10,396 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:34:10,398 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:34:10,430 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 200 5900224
+INFO 2025-02-01 19:34:20,858 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8218
+INFO 2025-02-01 19:34:26,672 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 11910
+INFO 2025-02-01 19:34:26,689 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:34:36,704 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8218
+INFO 2025-02-01 19:36:12,339 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12140
+INFO 2025-02-01 19:36:12,357 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:36:12,357 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:36:41,181 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8544
+INFO 2025-02-01 19:37:36,493 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12167
+INFO 2025-02-01 19:37:36,509 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:37:36,509 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:37:47,940 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8571
+INFO 2025-02-01 19:37:57,799 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12167
+INFO 2025-02-01 19:37:57,819 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:38:00,799 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8571
+INFO 2025-02-01 19:38:12,016 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12165
+INFO 2025-02-01 19:38:18,829 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8569
+INFO 2025-02-01 19:38:24,197 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12165
+INFO 2025-02-01 19:38:24,215 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:38:42,036 basehttp "GET / HTTP/1.1" 200 12165
+INFO 2025-02-01 19:38:54,065 basehttp "GET / HTTP/1.1" 200 10716
+INFO 2025-02-01 19:38:54,083 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 200 1278458
+INFO 2025-02-01 19:38:54,104 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 200 5900224
+INFO 2025-02-01 19:39:54,464 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8569
+INFO 2025-02-01 19:41:01,264 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12222
+INFO 2025-02-01 19:41:01,280 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:41:01,281 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:41:24,320 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8626
+INFO 2025-02-01 19:41:28,182 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12222
+INFO 2025-02-01 19:41:33,311 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 8626
+INFO 2025-02-01 19:44:39,242 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12616
+INFO 2025-02-01 19:44:39,261 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:44:39,262 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:45:16,489 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9020
+INFO 2025-02-01 19:46:06,302 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12822
+INFO 2025-02-01 19:46:06,320 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:46:14,495 basehttp "GET / HTTP/1.1" 200 12822
+INFO 2025-02-01 19:46:17,570 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9226
+INFO 2025-02-01 19:46:23,909 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:24,966 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:35,217 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:35,236 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:46:36,358 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:36,708 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:37,032 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:37,217 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:37,381 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:37,552 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:37,743 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:37,910 basehttp "GET / HTTP/1.1" 200 12838
+INFO 2025-02-01 19:46:46,559 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9242
+INFO 2025-02-01 19:46:50,069 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:46:51,934 basehttp "GET /contests/18/ HTTP/1.1" 200 16552
+INFO 2025-02-01 19:46:53,636 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48366
+INFO 2025-02-01 19:46:58,832 basehttp "POST /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 19:46:59,340 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 49091
+INFO 2025-02-01 19:47:02,313 basehttp "POST /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 19:47:02,830 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 49081
+INFO 2025-02-01 19:47:04,652 basehttp "POST /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 19:47:05,167 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48192
+INFO 2025-02-01 19:47:07,298 basehttp "GET /buy_quiz_problem/54/ HTTP/1.1" 200 49736
+INFO 2025-02-01 19:47:10,572 basehttp "GET /edit_quiz_problem/59/ HTTP/1.1" 200 9859
+INFO 2025-02-01 19:47:33,275 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 12896
+INFO 2025-02-01 19:47:33,294 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:47:34,534 basehttp "GET / HTTP/1.1" 200 12896
+INFO 2025-02-01 19:48:04,866 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9332
+INFO 2025-02-01 19:49:52,353 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13310
+INFO 2025-02-01 19:49:52,376 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:49:52,379 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:49:53,724 basehttp "GET / HTTP/1.1" 200 13310
+INFO 2025-02-01 19:50:27,880 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9746
+INFO 2025-02-01 19:50:27,903 basehttp "GET /static/contest_logo.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:51:07,443 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13387
+INFO 2025-02-01 19:51:08,361 basehttp "GET / HTTP/1.1" 200 13387
+INFO 2025-02-01 19:51:10,699 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9845
+INFO 2025-02-01 19:51:13,146 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13388
+INFO 2025-02-01 19:51:14,412 basehttp "GET / HTTP/1.1" 200 13388
+INFO 2025-02-01 19:51:19,606 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9846
+INFO 2025-02-01 19:51:22,511 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13390
+INFO 2025-02-01 19:51:23,738 basehttp "GET / HTTP/1.1" 200 13390
+INFO 2025-02-01 19:51:24,906 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9848
+INFO 2025-02-01 19:51:44,593 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13419
+INFO 2025-02-01 19:51:44,613 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:51:45,439 basehttp "GET / HTTP/1.1" 200 13419
+INFO 2025-02-01 19:51:51,616 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9889
+INFO 2025-02-01 19:51:59,452 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13419
+INFO 2025-02-01 19:52:02,988 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9889
+INFO 2025-02-01 19:52:26,313 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 13314
+INFO 2025-02-01 19:52:26,330 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:52:27,088 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:06,880 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:08,518 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:09,458 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:10,189 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:10,552 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:11,027 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:11,463 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:11,879 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:12,261 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:12,671 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:13,021 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:13,421 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:13,803 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:14,583 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:15,269 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:15,946 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:16,575 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:17,071 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:17,520 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:17,910 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:18,309 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:19,038 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:19,242 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:19,685 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:20,163 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:20,529 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:23,896 basehttp "GET /admin_panel/ HTTP/1.1" 200 7553
+INFO 2025-02-01 19:53:24,718 basehttp "GET /image_list/ HTTP/1.1" 200 7545
+INFO 2025-02-01 19:53:24,741 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:53:24,741 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:53:24,743 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 19:53:24,744 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:53:25,622 basehttp "GET / HTTP/1.1" 200 13314
+INFO 2025-02-01 19:53:56,006 basehttp "GET /editblog/new/ HTTP/1.1" 200 7388
+INFO 2025-02-01 19:55:29,725 basehttp "POST /editblog/new/ HTTP/1.1" 200 14951
+INFO 2025-02-01 19:55:29,743 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:55:29,743 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:55:31,204 basehttp "GET / HTTP/1.1" 200 14951
+INFO 2025-02-01 19:55:40,006 basehttp "GET / HTTP/1.1" 200 14951
+INFO 2025-02-01 19:55:42,778 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:55:43,689 basehttp "GET /contests/18/ HTTP/1.1" 200 16552
+INFO 2025-02-01 19:55:45,034 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48346
+INFO 2025-02-01 19:55:49,776 basehttp "GET /contests/18/ HTTP/1.1" 200 16552
+INFO 2025-02-01 19:55:50,430 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:55:52,850 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:55:53,331 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 19:55:54,075 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 19:55:55,062 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 19:55:55,371 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:55:58,873 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:55:59,391 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:56:00,046 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:56:00,498 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 19:56:00,805 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:56:01,178 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 19:56:02,182 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:56:08,471 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 19:56:08,908 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:56:09,668 basehttp "GET /blank_page/ HTTP/1.1" 200 6410
+INFO 2025-02-01 19:56:10,015 basehttp "GET / HTTP/1.1" 200 14951
+INFO 2025-02-01 19:56:12,506 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 7771
+INFO 2025-02-01 19:56:28,689 basehttp "GET / HTTP/1.1" 200 14951
+INFO 2025-02-01 19:56:30,924 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 9750
+INFO 2025-02-01 19:59:32,917 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15681
+INFO 2025-02-01 19:59:32,936 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:59:32,936 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 19:59:37,833 basehttp "GET / HTTP/1.1" 200 15681
+INFO 2025-02-01 19:59:41,576 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8533
+INFO 2025-02-01 19:59:48,712 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15695
+INFO 2025-02-01 19:59:51,756 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8547
+INFO 2025-02-01 20:00:10,918 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15699
+INFO 2025-02-01 20:00:14,111 basehttp "GET /editblog/new/ HTTP/1.1" 200 7388
+INFO 2025-02-01 20:00:17,145 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8557
+INFO 2025-02-01 20:00:30,016 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15713
+INFO 2025-02-01 20:00:31,047 basehttp "GET / HTTP/1.1" 200 15713
+INFO 2025-02-01 20:00:36,193 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8613
+INFO 2025-02-01 20:01:30,542 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:01:34,959 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8705
+INFO 2025-02-01 20:01:42,278 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15772
+INFO 2025-02-01 20:01:43,487 basehttp "GET / HTTP/1.1" 200 15772
+INFO 2025-02-01 20:01:45,416 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8704
+INFO 2025-02-01 20:01:48,145 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:01:49,515 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:03:56,930 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 20:03:57,706 autoreload Watching for file changes with StatReloader
+ERROR 2025-02-01 20:14:13,204 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: myapp_blogpage.priority
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 179, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: myapp_blogpage.priority
+ERROR 2025-02-01 20:14:13,209 basehttp "GET / HTTP/1.1" 500 198899
+ERROR 2025-02-01 20:15:19,748 log Internal Server Error: /editblog/edit/18/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: myapp_blogpage.priority
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 256, in main_blog_edit
+    blog = get_object_or_404(BlogPage, id=blog_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 86, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: myapp_blogpage.priority
+ERROR 2025-02-01 20:15:19,750 basehttp "GET /editblog/edit/18/ HTTP/1.1" 500 141800
+ERROR 2025-02-01 20:15:41,170 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: myapp_blogpage.priority
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 179, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: myapp_blogpage.priority
+ERROR 2025-02-01 20:15:41,172 basehttp "GET / HTTP/1.1" 500 198594
+INFO 2025-02-01 20:20:12,140 autoreload Watching for file changes with StatReloader
+ERROR 2025-02-01 20:20:14,229 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: myapp_blogpage.priority
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 179, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\defaulttags.py", line 199, in render
+    len_values = len(values)
+                 ^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 354, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: myapp_blogpage.priority
+ERROR 2025-02-01 20:20:14,234 basehttp "GET / HTTP/1.1" 500 198594
+INFO 2025-02-01 20:20:24,578 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:20:26,316 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:26,350 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:20:26,379 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:20:30,496 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:20:34,894 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8891
+INFO 2025-02-01 20:20:38,671 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:40,242 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:43,303 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:20:46,996 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:48,565 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:51,806 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:20:54,764 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:57,465 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:20:59,848 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8891
+INFO 2025-02-01 20:21:02,541 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:03,918 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:05,813 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:08,139 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8890
+INFO 2025-02-01 20:21:12,196 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:13,513 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:14,978 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:15,693 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:21:57,689 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:21:58,272 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:22:00,150 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:22:03,059 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8891
+ERROR 2025-02-01 20:22:08,746 log Internal Server Error: /editblog/edit/14/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 249, in main_blog_edit
+    blogs = BlogPage.objects.all().order_by(['priority','created_at'])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1701, in order_by
+    obj.query.add_ordering(*field_names)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\query.py", line 2258, in add_ordering
+    raise FieldError("Invalid order_by arguments: %s" % errors)
+django.core.exceptions.FieldError: Invalid order_by arguments: [['priority', 'created_at']]
+ERROR 2025-02-01 20:22:08,755 basehttp "POST /editblog/edit/14/ HTTP/1.1" 500 84506
+INFO 2025-02-01 20:22:19,753 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:22:25,931 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:22:25,939 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:22:25,939 basehttp "GET /static/contest_logo.png HTTP/1.1" 304 0
+INFO 2025-02-01 20:22:25,941 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:22:38,909 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:22:41,166 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8892
+INFO 2025-02-01 20:22:44,066 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:22:45,087 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:22:50,124 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:22:53,088 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:22:54,297 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:22:57,097 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8961
+INFO 2025-02-01 20:23:03,871 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8961
+INFO 2025-02-01 20:23:06,715 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:23:11,393 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:12,346 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:14,204 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10001
+INFO 2025-02-01 20:23:30,488 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:23:31,184 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:23:32,310 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:33,334 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:34,094 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:34,448 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:34,995 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:23:36,215 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8961
+INFO 2025-02-01 20:24:01,522 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:24:02,117 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:24:25,997 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:24:26,624 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:24:29,268 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:24:30,824 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:24:31,661 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8961
+ERROR 2025-02-01 20:24:37,516 log Internal Server Error: /editblog/edit/19/
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\contrib\auth\decorators.py", line 60, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 249, in main_blog_edit
+    blogs = BlogPage.objects.all().order_by('-priority', 'created_at')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\query.py", line 1701, in order_by
+    obj.query.add_ordering(*field_names)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\query.py", line 2249, in add_ordering
+    self.names_to_path(item.split(LOOKUP_SEP), self.model._meta)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1768, in names_to_path
+    raise FieldError(
+django.core.exceptions.FieldError: Cannot resolve keyword '-priority' into field. Choices are: author, author_id, content, created_at, id, priority, title
+ERROR 2025-02-01 20:24:37,518 basehttp "POST /editblog/edit/19/ HTTP/1.1" 500 90870
+INFO 2025-02-01 20:25:01,567 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:25:02,142 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:25:04,031 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:25:04,064 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:25:05,818 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8960
+INFO 2025-02-01 20:25:07,177 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:25:08,036 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8960
+INFO 2025-02-01 20:25:11,976 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:25:16,440 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10001
+INFO 2025-02-01 20:25:19,040 basehttp "POST /editblog/edit/18/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:25:22,099 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8961
+INFO 2025-02-01 20:25:25,494 basehttp "POST /editblog/edit/19/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:25:26,768 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:25:32,920 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8957
+INFO 2025-02-01 20:26:00,941 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 20:26:01,524 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:26:19,304 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:26:21,317 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:26:21,380 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:26:23,524 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8957
+INFO 2025-02-01 20:26:26,369 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8892
+INFO 2025-02-01 20:26:30,805 basehttp "POST /editblog/edit/14/ HTTP/1.1" 200 15773
+INFO 2025-02-01 20:26:32,034 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:26:44,290 autoreload D:\django_proj\ml-jam\webproject\myapp\models.py changed, reloading.
+INFO 2025-02-01 20:26:44,912 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:28:27,652 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:28:28,263 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:28:29,656 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:28:31,400 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8957
+INFO 2025-02-01 20:28:32,135 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:28:32,145 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:28:32,505 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:28:33,104 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:28:33,434 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:28:33,600 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:28:36,959 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8890
+INFO 2025-02-01 20:28:38,517 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:29:22,285 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:29:23,649 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10004
+INFO 2025-02-01 20:29:25,735 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:29:25,743 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:29:27,274 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:29:29,161 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10004
+INFO 2025-02-01 20:29:30,479 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:31:08,702 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:31:09,298 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:31:10,984 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:31:11,021 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:31:12,646 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:31:15,856 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:31:15,864 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:31:17,544 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10004
+INFO 2025-02-01 20:31:21,555 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:31:21,565 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:31:22,709 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:31:23,551 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:31:25,613 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:31:27,317 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8891
+INFO 2025-02-01 20:31:29,511 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:31:30,049 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:31:43,846 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 20:31:46,482 basehttp "GET /contests/18/ HTTP/1.1" 200 16552
+INFO 2025-02-01 20:31:47,870 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48346
+INFO 2025-02-01 20:31:49,201 basehttp "GET /contests/18/ HTTP/1.1" 200 16552
+INFO 2025-02-01 20:31:49,602 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:32:16,565 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:32:17,176 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:32:19,320 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:32:19,924 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:32:20,404 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:32:20,613 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:33:11,832 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:33:12,544 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:33:15,632 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:33:15,647 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:33:28,334 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:33:28,927 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:33:56,287 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:33:57,070 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:33:59,527 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:33:59,884 autoreload D:\django_proj\ml-jam\webproject\myapp\views.py changed, reloading.
+INFO 2025-02-01 20:34:00,491 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 20:34:03,807 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8891
+INFO 2025-02-01 20:34:08,704 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:34:08,720 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:34:09,511 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:34:12,754 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:34:12,763 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:34:15,125 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:34:17,600 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:34:17,608 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:34:39,668 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:34:39,675 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:34:39,675 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:35:09,000 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:09,454 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:09,858 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:10,227 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:10,597 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:11,278 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:11,844 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:12,307 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:12,807 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:15,190 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:15,587 basehttp "GET /blank_page/ HTTP/1.1" 200 6249
+INFO 2025-02-01 20:35:18,402 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:20,495 basehttp "GET /contests/8/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:20,503 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:21,670 basehttp "GET /contests/8/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:21,679 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:22,695 basehttp "GET /contests/9/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:22,704 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:23,616 basehttp "GET /contests/8/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:23,625 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:24,253 basehttp "GET /contests/9/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:24,263 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:24,809 basehttp "GET /contests/9/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:24,819 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:25,177 basehttp "GET /contests/9/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:25,186 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:25,838 basehttp "GET /blank_page/ HTTP/1.1" 200 6249
+INFO 2025-02-01 20:35:28,949 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:35:29,828 basehttp "GET / HTTP/1.1" 200 13710
+INFO 2025-02-01 20:35:32,165 basehttp "GET /blank_page/ HTTP/1.1" 200 6249
+INFO 2025-02-01 20:35:32,772 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:33,545 basehttp "GET /contests/9/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:33,555 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:33,899 basehttp "GET /contests/8/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:33,909 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:34,191 basehttp "GET /contests/8/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:35:34,201 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:35:34,912 basehttp "GET /blank_page/ HTTP/1.1" 200 6249
+INFO 2025-02-01 20:35:35,752 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:35:37,991 basehttp "GET /contests/16/ HTTP/1.1" 200 22105
+INFO 2025-02-01 20:35:43,634 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 20:35:44,277 basehttp "GET /contests/admin/16/ HTTP/1.1" 200 30433
+INFO 2025-02-01 20:35:47,847 basehttp "POST /contests/admin/16/ HTTP/1.1" 200 30578
+INFO 2025-02-01 20:35:48,878 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 20:35:50,333 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 20:35:51,183 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 26031
+INFO 2025-02-01 20:35:55,011 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 25904
+INFO 2025-02-01 20:35:58,638 basehttp "GET /contests/ HTTP/1.1" 200 16289
+INFO 2025-02-01 20:36:02,456 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:36:03,274 basehttp "GET /contests/18/ HTTP/1.1" 200 16391
+INFO 2025-02-01 20:36:04,936 basehttp "GET /contests/ HTTP/1.1" 200 12307
+INFO 2025-02-01 20:36:06,357 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:36:07,105 basehttp "GET /contests/18/ HTTP/1.1" 200 16391
+INFO 2025-02-01 20:36:08,342 basehttp "GET /quiz_field/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:36:08,351 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:36:11,337 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 15893
+INFO 2025-02-01 20:36:22,743 basehttp "GET /contests/18/ HTTP/1.1" 200 16391
+INFO 2025-02-01 20:36:25,422 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:36:28,589 basehttp "GET /quizzes/ HTTP/1.1" 200 13189
+INFO 2025-02-01 20:36:34,835 basehttp "GET / HTTP/1.1" 200 15773
+INFO 2025-02-01 20:36:36,503 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 8891
+INFO 2025-02-01 20:36:39,171 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:36:39,180 basehttp "GET / HTTP/1.1" 200 15811
+INFO 2025-02-01 20:36:53,519 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 8958
+INFO 2025-02-01 20:37:27,201 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:37:27,210 basehttp "GET / HTTP/1.1" 200 15921
+INFO 2025-02-01 20:37:27,241 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:37:37,097 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 9068
+INFO 2025-02-01 20:37:44,966 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:37:51,445 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 9068
+INFO 2025-02-01 20:38:00,146 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:38:00,155 basehttp "GET / HTTP/1.1" 200 15975
+INFO 2025-02-01 20:38:03,037 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 9154
+INFO 2025-02-01 20:38:08,717 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:38:08,726 basehttp "GET / HTTP/1.1" 200 15983
+INFO 2025-02-01 20:38:14,189 basehttp "GET / HTTP/1.1" 200 15983
+INFO 2025-02-01 20:38:48,368 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10003
+INFO 2025-02-01 20:38:56,287 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:38:56,296 basehttp "GET / HTTP/1.1" 200 15998
+INFO 2025-02-01 20:39:05,335 basehttp "GET /quizzes/ HTTP/1.1" 200 9747
+INFO 2025-02-01 20:39:06,087 basehttp "GET / HTTP/1.1" 200 13935
+INFO 2025-02-01 20:39:25,120 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10018
+INFO 2025-02-01 20:39:29,857 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:39:29,866 basehttp "GET / HTTP/1.1" 200 15998
+INFO 2025-02-01 20:39:31,756 basehttp "GET / HTTP/1.1" 200 13935
+INFO 2025-02-01 20:39:47,398 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10018
+INFO 2025-02-01 20:40:17,846 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:40:17,855 basehttp "GET / HTTP/1.1" 200 16021
+INFO 2025-02-01 20:40:17,886 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:40:20,132 basehttp "GET / HTTP/1.1" 200 13958
+INFO 2025-02-01 20:42:31,074 basehttp "GET / HTTP/1.1" 200 16342
+INFO 2025-02-01 20:42:31,097 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:42:31,097 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:42:32,723 basehttp "GET / HTTP/1.1" 200 16342
+INFO 2025-02-01 20:43:02,706 basehttp "GET / HTTP/1.1" 200 16336
+INFO 2025-02-01 20:43:03,202 basehttp "GET / HTTP/1.1" 200 16336
+INFO 2025-02-01 20:43:03,535 basehttp "GET / HTTP/1.1" 200 16336
+INFO 2025-02-01 20:43:03,690 basehttp "GET / HTTP/1.1" 200 16336
+INFO 2025-02-01 20:44:18,756 basehttp "GET / HTTP/1.1" 200 16288
+INFO 2025-02-01 20:44:19,373 basehttp "GET / HTTP/1.1" 200 16288
+INFO 2025-02-01 20:44:19,894 basehttp "GET / HTTP/1.1" 200 16288
+INFO 2025-02-01 20:45:10,229 basehttp "GET / HTTP/1.1" 200 16573
+INFO 2025-02-01 20:45:13,985 basehttp "GET / HTTP/1.1" 200 14474
+INFO 2025-02-01 20:45:13,992 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:45:13,992 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:45:34,538 basehttp "GET / HTTP/1.1" 200 16573
+INFO 2025-02-01 20:45:35,069 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:45:43,789 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:45:44,164 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:45:44,697 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:45:45,244 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:11,065 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:11,675 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:12,287 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:12,709 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:12,925 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:19,338 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:49,392 basehttp "GET / HTTP/1.1" 200 16633
+INFO 2025-02-01 20:46:49,913 basehttp "GET / HTTP/1.1" 200 16653
+INFO 2025-02-01 20:46:50,627 basehttp "GET / HTTP/1.1" 200 16653
+INFO 2025-02-01 20:46:51,122 basehttp "GET / HTTP/1.1" 200 16653
+INFO 2025-02-01 20:47:13,349 basehttp "GET / HTTP/1.1" 200 16652
+INFO 2025-02-01 20:47:13,853 basehttp "GET / HTTP/1.1" 200 16652
+INFO 2025-02-01 20:47:20,904 basehttp "GET / HTTP/1.1" 200 16653
+INFO 2025-02-01 20:47:23,316 basehttp "GET / HTTP/1.1" 200 14554
+INFO 2025-02-01 20:47:39,548 basehttp "GET / HTTP/1.1" 200 16653
+INFO 2025-02-01 20:47:42,053 basehttp "GET / HTTP/1.1" 200 14554
+INFO 2025-02-01 20:48:06,909 basehttp "GET / HTTP/1.1" 200 14554
+INFO 2025-02-01 20:48:07,948 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:51,913 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:52,511 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:52,952 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:53,334 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:53,776 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:54,304 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:54,671 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:55,015 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:55,357 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:55,665 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:55,971 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:56,220 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:56,400 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:56,603 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:56,793 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:56,975 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:57,187 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:57,360 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:57,574 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:57,976 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:58,350 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:58,607 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:58,888 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:59,159 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:59,609 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:48:59,972 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:00,416 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:00,782 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:01,092 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:01,336 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:01,540 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:01,716 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:02,256 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:02,474 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:02,642 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:02,820 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:02,996 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:03,166 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:03,357 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:03,555 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:03,947 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:04,386 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:04,738 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:05,027 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:05,307 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:05,879 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:06,293 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:06,793 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:07,301 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:07,678 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:08,103 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:08,297 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:08,541 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:09,078 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:09,317 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:09,465 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:09,653 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:09,817 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:09,984 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:16,055 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:16,655 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:17,464 basehttp "GET /contests/ HTTP/1.1" 200 12306
+INFO 2025-02-01 20:49:18,163 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:19,380 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:19,791 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:49:20,535 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:20,878 basehttp "GET /contests/ HTTP/1.1" 200 12306
+INFO 2025-02-01 20:49:21,222 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:21,684 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:22,125 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:22,530 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:23,022 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:23,399 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:49:24,668 basehttp "GET /contests/ HTTP/1.1" 200 12306
+INFO 2025-02-01 20:49:25,050 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:25,548 basehttp "GET /contests/ HTTP/1.1" 200 12306
+INFO 2025-02-01 20:49:26,868 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:49:27,131 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:51:39,089 basehttp "GET / HTTP/1.1" 200 16652
+INFO 2025-02-01 20:51:39,113 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:51:39,117 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:51:39,949 basehttp "GET /contests/ HTTP/1.1" 200 16564
+INFO 2025-02-01 20:51:43,150 basehttp "GET /blank_page/ HTTP/1.1" 200 6409
+INFO 2025-02-01 20:51:43,617 basehttp "GET /contests/ HTTP/1.1" 200 16564
+INFO 2025-02-01 20:51:44,130 basehttp "GET / HTTP/1.1" 200 16652
+INFO 2025-02-01 20:51:46,882 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:48,088 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:51:48,567 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:51:49,082 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:50,670 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:51:51,692 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:52,761 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:51:53,541 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:54,745 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:51:55,249 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:55,881 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:51:56,301 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:51:56,708 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:57,214 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:51:57,777 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:51:58,493 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:51:58,956 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:51:59,674 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:52:00,358 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:52:00,880 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:52:01,582 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:52:01,965 basehttp "GET /contests/ HTTP/1.1" 200 12582
+INFO 2025-02-01 20:52:27,039 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:52:27,048 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:52:54,979 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:52:55,825 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:52:56,335 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:52:56,687 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:52:57,072 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:52:57,456 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:52:58,318 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:52:58,732 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:52:59,875 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:53:00,316 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:53:00,768 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:53:02,067 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:53:10,765 basehttp "GET /quizzes/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:53:11,335 basehttp "GET /quizzes/ HTTP/1.1" 200 9969
+INFO 2025-02-01 20:53:11,976 basehttp "GET /quizzes/ HTTP/1.1" 200 9969
+INFO 2025-02-01 20:53:12,356 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:53:12,719 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:53:13,395 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:53:13,756 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:53:13,762 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:53:15,185 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:53:16,001 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:53:40,397 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:53:41,007 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:53:41,641 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:53:42,553 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:53:43,158 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:53:44,478 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:53:49,321 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:54:05,597 basehttp "GET / HTTP/1.1" 200 14553
+INFO 2025-02-01 20:54:06,034 basehttp "GET / HTTP/1.1" 200 14579
+INFO 2025-02-01 20:54:08,289 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:54:09,693 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:54:10,549 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 20:54:11,143 basehttp "GET / HTTP/1.1" 200 14579
+INFO 2025-02-01 20:54:11,527 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 20:54:12,276 basehttp "GET /quizzes/ HTTP/1.1" 200 9969
+INFO 2025-02-01 20:55:44,637 basehttp "GET / HTTP/1.1" 200 16678
+INFO 2025-02-01 20:55:45,707 basehttp "GET / HTTP/1.1" 200 16678
+INFO 2025-02-01 20:55:46,359 basehttp "GET /blank_page/ HTTP/1.1" 200 6409
+INFO 2025-02-01 20:55:46,784 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 20:55:47,577 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 20:55:47,872 basehttp "GET /blank_page/ HTTP/1.1" 200 6409
+INFO 2025-02-01 20:55:48,123 basehttp "GET / HTTP/1.1" 200 16678
+INFO 2025-02-01 20:55:48,672 basehttp "GET /blank_page/ HTTP/1.1" 200 6409
+INFO 2025-02-01 20:55:49,096 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 20:55:52,533 basehttp "GET /admin_panel/ HTTP/1.1" 200 7552
+INFO 2025-02-01 20:55:53,989 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 20:55:56,132 basehttp "GET / HTTP/1.1" 200 14579
+INFO 2025-02-01 20:56:01,485 basehttp "GET / HTTP/1.1" 200 16678
+INFO 2025-02-01 20:56:21,274 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9004
+INFO 2025-02-01 20:57:19,556 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:57:19,565 basehttp "GET / HTTP/1.1" 200 17282
+INFO 2025-02-01 20:57:23,377 basehttp "GET / HTTP/1.1" 200 15183
+INFO 2025-02-01 20:57:33,621 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9768
+INFO 2025-02-01 20:57:44,052 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:57:44,061 basehttp "GET / HTTP/1.1" 200 17264
+INFO 2025-02-01 20:57:49,408 basehttp "GET / HTTP/1.1" 200 15165
+INFO 2025-02-01 20:58:00,239 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9750
+INFO 2025-02-01 20:58:17,617 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:58:17,625 basehttp "GET / HTTP/1.1" 200 17263
+INFO 2025-02-01 20:58:18,838 basehttp "GET / HTTP/1.1" 200 15164
+INFO 2025-02-01 20:58:19,563 basehttp "GET / HTTP/1.1" 200 15164
+INFO 2025-02-01 20:58:21,757 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9749
+INFO 2025-02-01 20:58:39,776 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:58:39,785 basehttp "GET / HTTP/1.1" 200 17262
+INFO 2025-02-01 20:58:40,907 basehttp "GET / HTTP/1.1" 200 15163
+INFO 2025-02-01 20:58:43,248 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9748
+INFO 2025-02-01 20:58:55,217 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:58:55,226 basehttp "GET / HTTP/1.1" 200 17262
+INFO 2025-02-01 20:58:56,388 basehttp "GET / HTTP/1.1" 200 15163
+INFO 2025-02-01 20:58:59,730 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9748
+INFO 2025-02-01 20:59:05,517 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:59:05,526 basehttp "GET / HTTP/1.1" 200 17260
+INFO 2025-02-01 20:59:07,154 basehttp "GET / HTTP/1.1" 200 15161
+INFO 2025-02-01 20:59:17,256 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:59:31,896 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:59:31,905 basehttp "GET / HTTP/1.1" 200 17260
+INFO 2025-02-01 20:59:31,938 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 20:59:33,135 basehttp "GET / HTTP/1.1" 200 15161
+INFO 2025-02-01 20:59:38,885 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9746
+INFO 2025-02-01 20:59:46,514 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 20:59:46,524 basehttp "GET / HTTP/1.1" 200 17260
+INFO 2025-02-01 20:59:47,303 basehttp "GET / HTTP/1.1" 200 15161
+INFO 2025-02-01 20:59:54,976 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 9746
+INFO 2025-02-01 21:02:39,511 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:02:39,521 basehttp "GET / HTTP/1.1" 200 17687
+INFO 2025-02-01 21:02:39,554 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:02:40,464 basehttp "GET / HTTP/1.1" 200 15588
+INFO 2025-02-01 21:02:40,471 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:02:40,471 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:02:43,333 basehttp "GET / HTTP/1.1" 200 15588
+INFO 2025-02-01 21:02:44,613 basehttp "GET / HTTP/1.1" 200 15588
+INFO 2025-02-01 21:03:11,699 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10209
+INFO 2025-02-01 21:03:19,416 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:03:19,424 basehttp "GET / HTTP/1.1" 200 17687
+INFO 2025-02-01 21:03:20,356 basehttp "GET / HTTP/1.1" 200 15588
+INFO 2025-02-01 21:03:22,487 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10209
+INFO 2025-02-01 21:03:54,513 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:03:54,522 basehttp "GET / HTTP/1.1" 200 17644
+INFO 2025-02-01 21:04:02,566 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10156
+INFO 2025-02-01 21:04:20,149 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:04:20,158 basehttp "GET / HTTP/1.1" 200 17646
+INFO 2025-02-01 21:04:24,413 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10148
+INFO 2025-02-01 21:04:36,712 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:04:36,721 basehttp "GET / HTTP/1.1" 200 17646
+INFO 2025-02-01 21:04:51,617 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10148
+INFO 2025-02-01 21:04:55,365 basehttp "GET / HTTP/1.1" 200 15547
+INFO 2025-02-01 21:04:58,089 basehttp "GET / HTTP/1.1" 200 15547
+INFO 2025-02-01 21:05:19,243 basehttp "GET / HTTP/1.1" 200 17646
+INFO 2025-02-01 21:05:22,289 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10040
+INFO 2025-02-01 21:06:09,238 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:06:09,248 basehttp "GET / HTTP/1.1" 200 17678
+INFO 2025-02-01 21:06:12,258 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10254
+INFO 2025-02-01 21:06:21,827 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:06:21,836 basehttp "GET / HTTP/1.1" 200 17680
+INFO 2025-02-01 21:06:23,223 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10256
+INFO 2025-02-01 21:06:37,137 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 9167
+INFO 2025-02-01 21:06:44,141 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:06:44,151 basehttp "GET / HTTP/1.1" 200 17722
+INFO 2025-02-01 21:06:47,633 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10308
+INFO 2025-02-01 21:06:53,833 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:06:53,841 basehttp "GET / HTTP/1.1" 200 17722
+INFO 2025-02-01 21:07:02,965 basehttp "GET / HTTP/1.1" 200 15623
+INFO 2025-02-01 21:07:09,534 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10308
+INFO 2025-02-01 21:07:26,905 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:07:26,913 basehttp "GET / HTTP/1.1" 200 17756
+INFO 2025-02-01 21:07:29,886 basehttp "GET / HTTP/1.1" 200 15657
+INFO 2025-02-01 21:07:34,255 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10342
+INFO 2025-02-01 21:07:48,936 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:07:48,945 basehttp "GET / HTTP/1.1" 200 17773
+INFO 2025-02-01 21:07:51,090 basehttp "GET / HTTP/1.1" 200 15674
+INFO 2025-02-01 21:08:29,054 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 21:08:29,968 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 21:08:30,391 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 21:08:31,051 basehttp "GET /quizzes/ HTTP/1.1" 200 10235
+INFO 2025-02-01 21:08:33,685 basehttp "GET / HTTP/1.1" 200 15674
+INFO 2025-02-01 21:09:08,384 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10359
+INFO 2025-02-01 21:09:42,603 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:09:42,611 basehttp "GET / HTTP/1.1" 200 17849
+INFO 2025-02-01 21:09:42,645 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:09:43,712 basehttp "GET / HTTP/1.1" 200 15750
+INFO 2025-02-01 21:09:53,906 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10435
+INFO 2025-02-01 21:10:00,589 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:10:00,598 basehttp "GET / HTTP/1.1" 200 17779
+INFO 2025-02-01 21:10:02,709 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10365
+INFO 2025-02-01 21:10:04,435 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:10:04,444 basehttp "GET / HTTP/1.1" 200 17845
+INFO 2025-02-01 21:10:05,492 basehttp "GET / HTTP/1.1" 200 15746
+INFO 2025-02-01 21:10:16,809 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10431
+INFO 2025-02-01 21:10:25,663 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:10:25,672 basehttp "GET / HTTP/1.1" 200 17907
+INFO 2025-02-01 21:10:29,826 basehttp "GET / HTTP/1.1" 200 15808
+INFO 2025-02-01 21:10:30,724 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10525
+INFO 2025-02-01 21:13:11,854 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:13:11,875 basehttp "GET / HTTP/1.1" 200 18246
+INFO 2025-02-01 21:13:11,909 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:13:13,276 basehttp "GET / HTTP/1.1" 200 16147
+INFO 2025-02-01 21:13:13,283 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:13:13,283 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:13:18,562 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10904
+INFO 2025-02-01 21:13:41,691 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:13:41,700 basehttp "GET / HTTP/1.1" 200 18263
+INFO 2025-02-01 21:13:43,015 basehttp "GET / HTTP/1.1" 200 16164
+INFO 2025-02-01 21:13:46,445 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10921
+INFO 2025-02-01 21:13:57,517 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:13:57,526 basehttp "GET / HTTP/1.1" 200 18276
+INFO 2025-02-01 21:13:58,714 basehttp "GET / HTTP/1.1" 200 16177
+INFO 2025-02-01 21:14:01,687 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10934
+INFO 2025-02-01 21:14:14,254 basehttp "POST /editblog/edit/14/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:14:14,262 basehttp "GET / HTTP/1.1" 200 18276
+INFO 2025-02-01 21:14:15,561 basehttp "GET / HTTP/1.1" 200 16177
+INFO 2025-02-01 21:15:26,434 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10040
+INFO 2025-02-01 21:15:42,673 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:15:42,682 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:15:44,004 basehttp "GET / HTTP/1.1" 200 16194
+INFO 2025-02-01 21:16:02,587 basehttp "GET /quizzes/ HTTP/1.1" 200 10235
+INFO 2025-02-01 21:16:03,642 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 21:16:04,032 basehttp "GET /contests/ HTTP/1.1" 200 12805
+INFO 2025-02-01 21:16:04,462 basehttp "GET /blank_page/ HTTP/1.1" 200 6248
+INFO 2025-02-01 21:16:05,049 basehttp "GET / HTTP/1.1" 200 16194
+INFO 2025-02-01 21:16:06,918 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:16:06,925 basehttp "GET / HTTP/1.1" 200 16220
+INFO 2025-02-01 21:16:07,969 basehttp "GET / HTTP/1.1" 200 16220
+INFO 2025-02-01 21:16:08,676 basehttp "GET /register/ HTTP/1.1" 200 6975
+INFO 2025-02-01 21:16:12,293 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 21:16:22,734 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:16:22,742 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:16:23,557 basehttp "GET /admin_panel/ HTTP/1.1" 200 7552
+INFO 2025-02-01 21:16:25,745 basehttp "POST /admin_panel/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:16:25,752 basehttp "GET /admin_panel/ HTTP/1.1" 200 7544
+INFO 2025-02-01 21:16:26,849 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:16:28,775 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:16:28,783 basehttp "GET / HTTP/1.1" 200 16220
+INFO 2025-02-01 21:16:29,766 basehttp "GET /register/ HTTP/1.1" 200 6270
+INFO 2025-02-01 21:16:34,053 basehttp "GET /quizzes/ HTTP/1.1" 200 10193
+INFO 2025-02-01 21:16:34,532 basehttp "GET /blank_page/ HTTP/1.1" 200 6274
+INFO 2025-02-01 21:16:35,547 basehttp "GET /contests/ HTTP/1.1" 200 12661
+INFO 2025-02-01 21:16:35,891 basehttp "GET /blank_page/ HTTP/1.1" 200 6274
+INFO 2025-02-01 21:16:36,160 basehttp "GET /quizzes/ HTTP/1.1" 200 10193
+INFO 2025-02-01 21:16:37,780 basehttp "GET /contests/ HTTP/1.1" 200 12661
+INFO 2025-02-01 21:16:38,165 basehttp "GET /blank_page/ HTTP/1.1" 200 6274
+INFO 2025-02-01 21:16:38,690 basehttp "GET / HTTP/1.1" 200 16220
+INFO 2025-02-01 21:17:37,167 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 21:17:46,036 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:47,456 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:48,265 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:17:48,273 basehttp "GET / HTTP/1.1" 200 16220
+INFO 2025-02-01 21:17:48,822 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 21:17:49,341 basehttp "GET /register/ HTTP/1.1" 200 6270
+INFO 2025-02-01 21:17:50,186 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 21:17:53,010 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:17:53,019 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:53,722 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:54,623 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:55,227 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:55,656 basehttp "GET /blank_page/ HTTP/1.1" 200 6409
+INFO 2025-02-01 21:17:56,041 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:17:56,770 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 21:17:57,342 basehttp "GET /admin_panel/ HTTP/1.1" 200 7544
+INFO 2025-02-01 21:17:58,203 basehttp "GET /image_list/ HTTP/1.1" 200 7544
+INFO 2025-02-01 21:17:58,233 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 21:17:58,236 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 21:17:58,236 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:17:58,237 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 21:18:01,688 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:19:37,573 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:19:37,594 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:19:46,970 basehttp "GET / HTTP/1.1" 200 18293
+INFO 2025-02-01 21:20:26,751 basehttp "GET /editblog/edit/18/ HTTP/1.1" 200 10057
+INFO 2025-02-01 21:20:41,302 basehttp "POST /editblog/edit/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:20:41,312 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:47,872 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:48,897 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:49,932 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:50,512 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:51,061 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:51,625 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:52,086 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:20:52,425 basehttp "GET / HTTP/1.1" 200 18243
+INFO 2025-02-01 21:21:00,520 basehttp "GET /editblog/edit/19/ HTTP/1.1" 200 9167
+INFO 2025-02-01 21:21:23,837 basehttp "POST /editblog/edit/19/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:21:23,847 basehttp "GET / HTTP/1.1" 200 18333
+INFO 2025-02-01 21:21:29,900 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:21:29,907 basehttp "GET / HTTP/1.1" 200 16260
+INFO 2025-02-01 21:21:31,337 basehttp "GET / HTTP/1.1" 200 16260
+INFO 2025-02-01 21:21:54,081 basehttp "GET /quizzes/ HTTP/1.1" 200 10193
+INFO 2025-02-01 21:21:55,344 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 21:21:59,013 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:21:59,024 basehttp "GET / HTTP/1.1" 200 18333
+INFO 2025-02-01 21:22:00,592 basehttp "GET /admin_panel/ HTTP/1.1" 200 7544
+INFO 2025-02-01 21:22:02,175 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:22:03,687 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 25903
+INFO 2025-02-01 21:22:08,548 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 26048
+INFO 2025-02-01 21:22:10,168 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 21:22:11,971 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:22:12,686 basehttp "GET /contests/18/ HTTP/1.1" 200 16551
+INFO 2025-02-01 21:22:14,119 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:15,342 basehttp "GET /quiz_results/18/ HTTP/1.1" 200 16693
+INFO 2025-02-01 21:22:21,148 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:23,485 basehttp "GET /edit_quiz_problem/49/ HTTP/1.1" 200 8719
+INFO 2025-02-01 21:22:25,583 basehttp "POST /edit_quiz_problem/49/ HTTP/1.1" 200 8716
+INFO 2025-02-01 21:22:28,257 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:29,602 basehttp "GET /edit_quiz_problem/50/ HTTP/1.1" 200 8474
+INFO 2025-02-01 21:22:31,419 basehttp "POST /edit_quiz_problem/50/ HTTP/1.1" 200 8474
+INFO 2025-02-01 21:22:32,643 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:34,095 basehttp "GET /edit_quiz_problem/51/ HTTP/1.1" 200 8694
+INFO 2025-02-01 21:22:36,305 basehttp "POST /edit_quiz_problem/51/ HTTP/1.1" 200 8694
+INFO 2025-02-01 21:22:37,663 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:39,005 basehttp "GET /edit_quiz_problem/52/ HTTP/1.1" 200 9064
+INFO 2025-02-01 21:22:39,923 basehttp "POST /edit_quiz_problem/52/ HTTP/1.1" 200 9064
+INFO 2025-02-01 21:22:41,482 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:42,632 basehttp "GET /edit_quiz_problem/53/ HTTP/1.1" 200 8474
+INFO 2025-02-01 21:22:44,913 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:46,386 basehttp "GET /edit_quiz_problem/54/ HTTP/1.1" 200 8753
+INFO 2025-02-01 21:22:48,161 basehttp "POST /edit_quiz_problem/54/ HTTP/1.1" 200 8750
+INFO 2025-02-01 21:22:50,553 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:52,172 basehttp "GET /edit_quiz_problem/55/ HTTP/1.1" 200 9064
+INFO 2025-02-01 21:22:54,043 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:22:55,573 basehttp "GET /edit_quiz_problem/56/ HTTP/1.1" 200 8798
+INFO 2025-02-01 21:22:57,577 basehttp "POST /edit_quiz_problem/56/ HTTP/1.1" 200 8796
+INFO 2025-02-01 21:22:58,986 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:00,833 basehttp "GET /edit_quiz_problem/57/ HTTP/1.1" 200 9686
+INFO 2025-02-01 21:23:02,620 basehttp "POST /edit_quiz_problem/57/ HTTP/1.1" 200 9686
+INFO 2025-02-01 21:23:03,896 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:05,586 basehttp "GET /edit_quiz_problem/58/ HTTP/1.1" 200 9003
+INFO 2025-02-01 21:23:07,566 basehttp "POST /edit_quiz_problem/58/ HTTP/1.1" 200 9002
+INFO 2025-02-01 21:23:09,040 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:10,767 basehttp "GET /edit_quiz_problem/59/ HTTP/1.1" 200 9858
+INFO 2025-02-01 21:23:12,755 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:14,213 basehttp "GET /edit_quiz_problem/60/ HTTP/1.1" 200 10042
+INFO 2025-02-01 21:23:16,119 basehttp "POST /edit_quiz_problem/60/ HTTP/1.1" 200 10042
+INFO 2025-02-01 21:23:17,338 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:19,146 basehttp "GET /edit_quiz_problem/61/ HTTP/1.1" 200 10497
+INFO 2025-02-01 21:23:20,631 basehttp "POST /edit_quiz_problem/61/ HTTP/1.1" 200 10496
+INFO 2025-02-01 21:23:21,703 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:23,521 basehttp "GET /edit_quiz_problem/62/ HTTP/1.1" 200 9835
+INFO 2025-02-01 21:23:28,282 basehttp "POST /edit_quiz_problem/62/ HTTP/1.1" 200 9832
+INFO 2025-02-01 21:23:29,479 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:31,068 basehttp "GET /edit_quiz_problem/63/ HTTP/1.1" 200 10790
+INFO 2025-02-01 21:23:32,818 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:34,322 basehttp "GET /edit_quiz_problem/64/ HTTP/1.1" 200 9568
+INFO 2025-02-01 21:23:35,902 basehttp "POST /edit_quiz_problem/64/ HTTP/1.1" 200 9568
+INFO 2025-02-01 21:23:37,147 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:38,686 basehttp "GET /edit_quiz_problem/65/ HTTP/1.1" 200 9423
+INFO 2025-02-01 21:23:40,867 basehttp "POST /edit_quiz_problem/65/ HTTP/1.1" 200 9422
+INFO 2025-02-01 21:23:42,531 basehttp "POST /edit_quiz_problem/65/ HTTP/1.1" 200 9422
+INFO 2025-02-01 21:23:44,007 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:45,852 basehttp "GET /edit_quiz_problem/66/ HTTP/1.1" 200 10051
+INFO 2025-02-01 21:23:47,234 basehttp "POST /edit_quiz_problem/66/ HTTP/1.1" 200 10050
+INFO 2025-02-01 21:23:48,707 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:50,314 basehttp "GET /edit_quiz_problem/66/ HTTP/1.1" 200 10050
+INFO 2025-02-01 21:23:52,237 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:53,795 basehttp "GET /edit_quiz_problem/67/ HTTP/1.1" 200 9500
+INFO 2025-02-01 21:23:55,375 basehttp "POST /edit_quiz_problem/67/ HTTP/1.1" 200 9498
+INFO 2025-02-01 21:23:56,790 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:23:58,492 basehttp "GET /edit_quiz_problem/68/ HTTP/1.1" 200 9231
+INFO 2025-02-01 21:24:00,355 basehttp "POST /edit_quiz_problem/68/ HTTP/1.1" 200 9230
+INFO 2025-02-01 21:24:02,024 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:24:03,211 basehttp "GET /contests/18/ HTTP/1.1" 200 16551
+INFO 2025-02-01 21:24:05,806 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:24:07,171 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 26030
+INFO 2025-02-01 21:24:10,763 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 26092
+INFO 2025-02-01 21:24:12,265 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 26052
+INFO 2025-02-01 21:24:49,474 basehttp "POST /contests/admin/18/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:24:49,525 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 26444
+INFO 2025-02-01 21:24:50,569 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 21:24:51,917 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:24:53,117 basehttp "GET /contests/18/ HTTP/1.1" 200 16739
+INFO 2025-02-01 21:24:59,591 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:25:00,738 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 26062
+INFO 2025-02-01 21:25:02,742 basehttp "GET /move_contest_page/31/up/ HTTP/1.1" 200 19286
+INFO 2025-02-01 21:25:06,355 basehttp "POST /move_contest_page/31/up/ HTTP/1.1" 200 19286
+INFO 2025-02-01 21:25:07,084 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 21:25:08,335 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:25:08,915 basehttp "GET /contests/18/ HTTP/1.1" 200 16739
+INFO 2025-02-01 21:25:14,609 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 48345
+INFO 2025-02-01 21:25:16,599 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:25:17,514 basehttp "GET /contests/admin/18/ HTTP/1.1" 200 26062
+INFO 2025-02-01 21:25:43,662 basehttp "POST /contests/admin/18/ HTTP/1.1" 200 26080
+INFO 2025-02-01 21:25:44,931 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 21:25:47,800 basehttp "GET /contests/admin/9/ HTTP/1.1" 200 22137
+INFO 2025-02-01 21:26:19,262 basehttp "GET /contests/ HTTP/1.1" 200 16787
+INFO 2025-02-01 21:26:20,820 basehttp "GET /quizzes/ HTTP/1.1" 200 13677
+INFO 2025-02-01 21:26:23,285 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:26:23,293 basehttp "GET / HTTP/1.1" 200 16260
+INFO 2025-02-01 21:26:23,323 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 21:26:24,043 basehttp "GET /login/ HTTP/1.1" 200 7522
+INFO 2025-02-01 21:26:34,127 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:26:34,135 basehttp "GET / HTTP/1.1" 200 16241
+INFO 2025-02-01 21:26:35,914 basehttp "GET /quizzes/ HTTP/1.1" 200 10242
+INFO 2025-02-01 21:26:36,836 basehttp "GET /contests/18/ HTTP/1.1" 200 16585
+INFO 2025-02-01 21:26:39,149 basehttp "GET /quiz_field/18/ HTTP/1.1" 200 43943
+INFO 2025-02-01 21:26:51,861 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:26:52,367 basehttp "GET /quizzes/ HTTP/1.1" 200 10242
+INFO 2025-02-01 21:26:53,300 basehttp "GET /contests/ HTTP/1.1" 200 12807
+INFO 2025-02-01 21:26:53,707 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:26:54,276 basehttp "GET / HTTP/1.1" 200 16241
+INFO 2025-02-01 21:26:56,407 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:26:57,282 basehttp "GET /quizzes/ HTTP/1.1" 200 10242
+INFO 2025-02-01 21:26:57,838 basehttp "GET /contests/ HTTP/1.1" 200 12807
+INFO 2025-02-01 21:26:58,385 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:26:58,781 basehttp "GET / HTTP/1.1" 200 16241
+INFO 2025-02-01 21:26:59,274 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:26:59,708 basehttp "GET / HTTP/1.1" 200 16241
+INFO 2025-02-01 21:27:00,131 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:27:00,987 basehttp "GET /contests/ HTTP/1.1" 200 12807
+INFO 2025-02-01 21:27:01,337 basehttp "GET /blank_page/ HTTP/1.1" 200 6255
+INFO 2025-02-01 21:27:01,703 basehttp "GET /contests/ HTTP/1.1" 200 12807
+INFO 2025-02-01 21:27:02,088 basehttp "GET / HTTP/1.1" 200 16241
+INFO 2025-02-01 21:27:04,196 basehttp "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-02-01 21:27:04,203 basehttp "GET / HTTP/1.1" 200 16260
