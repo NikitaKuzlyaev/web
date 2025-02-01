@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - static_volume:/app/webproject/staticfiles  # Монтируем volume в контейнер с Django
+      - static_volume:/app/webproject/static  # Монтируем volume в контейнер с Django
       - media_volume:/app/webproject/media
       - uwsgi_socket:/tmp  # Общий volume для сокета
     expose:
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: Dockerfile.nginx
     volumes:
-      - static_volume:/app/webproject/staticfiles  # Монтируем тот же volume в контейнер с Nginx
+      - static_volume:/app/webproject/static  # Монтируем тот же volume в контейнер с Nginx
       - media_volume:/app/webproject/media
       - uwsgi_socket:/tmp  # Монтируем тот же сокет
     ports:

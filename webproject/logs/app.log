@@ -20290,3 +20290,378 @@ INFO 2025-02-01 21:27:01,703 basehttp "GET /contests/ HTTP/1.1" 200 12807
 INFO 2025-02-01 21:27:02,088 basehttp "GET / HTTP/1.1" 200 16241
 INFO 2025-02-01 21:27:04,196 basehttp "GET /logout/ HTTP/1.1" 302 0
 INFO 2025-02-01 21:27:04,203 basehttp "GET / HTTP/1.1" 200 16260
+INFO 2025-02-01 21:54:44,141 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 21:54:52,610 basehttp "GET / HTTP/1.1" 200 16265
+INFO 2025-02-01 21:54:52,642 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+WARNING 2025-02-01 21:54:52,655 basehttp "GET /staticfiles/contest_logo.png HTTP/1.1" 404 1872
+INFO 2025-02-01 21:54:52,679 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+WARNING 2025-02-01 21:54:52,841 log Not Found: /favicon.ico
+WARNING 2025-02-01 21:54:52,842 basehttp "GET /favicon.ico HTTP/1.1" 404 10675
+ERROR 2025-02-01 21:56:12,716 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 182, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 573, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 87: 'staticfiles'. Did you forget to register or load this tag?
+ERROR 2025-02-01 21:56:12,720 basehttp "GET / HTTP/1.1" 500 180722
+ERROR 2025-02-01 21:56:34,500 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 182, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 573, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 87: 'staticfiles'. Did you forget to register or load this tag?
+ERROR 2025-02-01 21:56:34,502 basehttp "GET / HTTP/1.1" 500 180722
+ERROR 2025-02-01 21:56:35,058 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 182, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 573, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 87: 'staticfiles'. Did you forget to register or load this tag?
+ERROR 2025-02-01 21:56:35,059 basehttp "GET / HTTP/1.1" 500 180722
+INFO 2025-02-01 21:56:39,719 basehttp "GET / HTTP/1.1" 200 16265
+WARNING 2025-02-01 21:56:39,742 basehttp "GET /staticfiles/contest_logo.png HTTP/1.1" 404 1872
+INFO 2025-02-01 21:56:40,578 basehttp "GET / HTTP/1.1" 200 16265
+WARNING 2025-02-01 21:56:40,600 basehttp "GET /staticfiles/contest_logo.png HTTP/1.1" 404 1872
+INFO 2025-02-01 21:57:06,350 autoreload D:\django_proj\ml-jam\webproject\webproject\settings.py changed, reloading.
+INFO 2025-02-01 21:57:06,980 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 21:57:09,926 autoreload D:\django_proj\ml-jam\webproject\webproject\settings.py changed, reloading.
+INFO 2025-02-01 21:57:10,528 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 21:57:42,535 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 21:57:46,480 basehttp "GET / HTTP/1.1" 200 16260
+INFO 2025-02-01 21:58:21,524 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 21:58:23,333 basehttp "GET / HTTP/1.1" 200 16260
+INFO 2025-02-01 22:03:13,082 autoreload Watching for file changes with StatReloader
+ERROR 2025-02-01 22:03:15,093 log Internal Server Error: /
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 510, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: "'contest_logo.png'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\webproject\myapp\views.py", line 182, in main
+    return render(request, 'main.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 512, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "D:\django_proj\ml-jam\.venv\Lib\site-packages\django\template\base.py", line 573, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 87: ''contest_logo.png''. Did you forget to register or load this tag?
+ERROR 2025-02-01 22:03:15,096 basehttp "GET / HTTP/1.1" 500 180750
+INFO 2025-02-01 22:03:29,131 basehttp "GET / HTTP/1.1" 200 16252
+WARNING 2025-02-01 22:03:29,160 log Not Found: /contest_logo.png
+WARNING 2025-02-01 22:03:29,160 basehttp "GET /contest_logo.png HTTP/1.1" 404 10690
+INFO 2025-02-01 22:03:29,862 basehttp "GET / HTTP/1.1" 200 16252
+WARNING 2025-02-01 22:03:29,884 log Not Found: /contest_logo.png
+WARNING 2025-02-01 22:03:29,884 basehttp "GET /contest_logo.png HTTP/1.1" 404 10690
+INFO 2025-02-01 22:03:30,311 basehttp "GET / HTTP/1.1" 200 16252
+WARNING 2025-02-01 22:03:30,334 log Not Found: /contest_logo.png
+WARNING 2025-02-01 22:03:30,335 basehttp "GET /contest_logo.png HTTP/1.1" 404 10690
+INFO 2025-02-01 22:03:30,434 basehttp "GET / HTTP/1.1" 200 16252
+WARNING 2025-02-01 22:03:30,457 log Not Found: /contest_logo.png
+WARNING 2025-02-01 22:03:30,458 basehttp "GET /contest_logo.png HTTP/1.1" 404 10690
+INFO 2025-02-01 22:04:50,372 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 22:04:52,199 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:17:08,852 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 22:17:10,557 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:17:10,590 basehttp "GET /static/contest_logo.png HTTP/1.1" 304 0
+INFO 2025-02-01 22:17:10,592 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 22:17:10,620 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+INFO 2025-02-01 22:17:39,088 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 22:17:40,803 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:18:47,844 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:18:48,388 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:18:48,630 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:18:48,801 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:18:50,234 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:19:37,045 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 22:19:38,790 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:19:53,977 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:19:58,605 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:19:58,617 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 22:19:58,619 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+WARNING 2025-02-01 22:19:58,795 log Not Found: /favicon.ico
+WARNING 2025-02-01 22:19:58,795 basehttp "GET /favicon.ico HTTP/1.1" 404 10675
+INFO 2025-02-01 22:20:23,533 basehttp "GET / HTTP/1.1" 200 16272
+WARNING 2025-02-01 22:20:23,543 basehttp "GET /static/contest_logo.png HTTP/1.1" 404 1862
+INFO 2025-02-01 22:20:23,590 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 200 1278458
+INFO 2025-02-01 22:20:23,608 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 200 5900224
+INFO 2025-02-01 22:20:26,301 basehttp "GET / HTTP/1.1" 200 16272
+WARNING 2025-02-01 22:20:26,309 basehttp "GET /static/contest_logo.png HTTP/1.1" 404 1862
+INFO 2025-02-01 22:21:31,714 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 22:21:38,838 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:21:38,877 basehttp "GET /static/contest_logo.png HTTP/1.1" 200 4197
+INFO 2025-02-01 22:51:14,721 autoreload Watching for file changes with StatReloader
+INFO 2025-02-01 22:51:16,500 basehttp "GET / HTTP/1.1" 200 16272
+INFO 2025-02-01 22:51:17,277 basehttp "GET /media/uploads/64a1078e-1c67-4a5f-ba7b-46d5aa755d0e.gif HTTP/1.1" 304 0
+INFO 2025-02-01 22:51:17,278 basehttp "GET /media/uploads/bccc04b9-3979-4292-9e52-7657bffd1d0f.gif HTTP/1.1" 304 0
+WARNING 2025-02-01 22:51:17,489 log Not Found: /favicon.ico
+WARNING 2025-02-01 22:51:17,489 basehttp "GET /favicon.ico HTTP/1.1" 404 10675
+INFO 2025-02-01 22:51:19,695 basehttp "GET /login/ HTTP/1.1" 200 7534
+INFO 2025-02-01 22:51:22,772 basehttp "POST /login/ HTTP/1.1" 302 0
+INFO 2025-02-01 22:51:22,783 basehttp "GET / HTTP/1.1" 200 18345
+INFO 2025-02-01 22:51:23,792 basehttp "GET /admin_panel/ HTTP/1.1" 200 7556
+INFO 2025-02-01 22:51:24,426 basehttp "GET /image_list/ HTTP/1.1" 200 7556
+INFO 2025-02-01 22:51:24,455 basehttp "GET /media/uploads/9aacc595-9c84-42ae-bc1e-b11944bbabdb.png HTTP/1.1" 304 0
+INFO 2025-02-01 22:51:24,456 basehttp "GET /media/uploads/4f5ab0db-4cbc-4fde-b468-746233b7faef.png HTTP/1.1" 304 0
+INFO 2025-02-01 22:51:24,457 basehttp "GET /media/uploads/fe023179-3f5e-4512-adb6-4ad607cc0479.png HTTP/1.1" 304 0
+INFO 2025-02-01 22:51:24,457 basehttp "GET /media/uploads/de80c6a5-c455-439e-bfad-6688529c508b.gif HTTP/1.1" 304 0
+INFO 2025-02-01 22:51:25,488 basehttp "GET /upload_image/ HTTP/1.1" 200 6525
+INFO 2025-02-01 22:51:31,077 basehttp "POST /upload_image/ HTTP/1.1" 302 0
+INFO 2025-02-01 22:51:31,084 basehttp "GET /image_list/ HTTP/1.1" 200 7793
+INFO 2025-02-01 22:51:31,133 basehttp "GET /media/uploads/4dfd7bba-645f-445f-b471-3c1bd5c95130.png HTTP/1.1" 200 4197
+INFO 2025-02-01 22:51:41,194 basehttp "GET / HTTP/1.1" 200 18345
+INFO 2025-02-01 22:51:42,233 basehttp "GET /editblog/edit/14/ HTTP/1.1" 200 10946
+INFO 2025-02-01 22:52:14,690 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:14,709 basehttp "GET /media/uploads/4dfd7bba-645f-445f-b471-3c1bd5c95130.png HTTP/1.1" 304 0
+INFO 2025-02-01 22:52:15,269 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:15,671 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:15,805 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:16,408 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:16,710 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:16,898 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:17,032 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:17,179 basehttp "GET / HTTP/1.1" 200 18469
+INFO 2025-02-01 22:52:17,328 basehttp "GET / HTTP/1.1" 200 18469

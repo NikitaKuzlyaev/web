@@ -127,9 +127,12 @@ import os
 MEDIA_URL = '/media/'  # URL для доступа к медиафайлам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Папка для хранения медиафайлов
 
+
+STATICFILES_DIRS = [BASE_DIR / 'myapp/static-myapp',]
+
 # Путь для статических файлов (CSS, JS, изображения для фронтенда)
 STATIC_URL = '/static/'  # URL для доступа к статике
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Папка для сбора статики
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Папка для сбора статики
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
