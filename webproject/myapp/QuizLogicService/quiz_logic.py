@@ -76,6 +76,53 @@ logger = logging.getLogger('myapp')
 # class LeaderboardProcessingService:
 #     pass
 
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
+@csrf_exempt
+def api_get_quiz_last_attempts(request):
+    #logger.debug('api_get_quiz_last_attempts')
+
+    contest_id = request.GET.get("contest_id")
+    if not contest_id:
+        return JsonResponse({"error": "contest_id is required"}, status=400)
+
+    #logger.debug(f'{contest_id}')
+
+    quiz_attempts = QuizAttempt.objects.filter(
+        problem__quizFieldCell__quizField__quiz__contest_id=contest_id
+    ).order_by("-created_at")
+
+    # quiz_attempts = QuizAttempt.objects.filter(
+    #     problem__quizFieldCell__quizField__quiz__contest_id=contest_id
+    # ).exclude(attempt_number=0).order_by("-created_at")
+
+    # Преобразуем QuerySet в JSON-совместимый формат
+    attempts_data = [
+        {
+            "user": attempt.user.username,  # Имя пользователя
+            "attempt_number": attempt.attempt_number,  # Номер попытки
+            "is_successful": attempt.is_successful,  # Успех попытки
+            "problem_title": attempt.problem.title,  # Название задачи
+            "problem_points": attempt.problem.points,  # Стоимость задачи
+            "created_at": attempt.created_at.strftime("%H:%M:%S %d-%m-%Y"),
+        }
+        for attempt in quiz_attempts
+    ]
+
+    return JsonResponse(attempts_data, safe=False)
+
+def quiz_realtime_log(request, contest_id):
+    contest = get_object_or_404(Contest, id=contest_id)
+
+    context = {
+        'contest': contest,
+    }
+
+    return render(request, 'quiz_realtime_log.html', context)
+
+
 def quiz_view(request):
     # Очистка сообщений. временное решение/заглушка
     storage = messages.get_messages(request)

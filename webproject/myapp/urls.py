@@ -5,15 +5,15 @@ from .views import main, register, user_login, contests, logout_view, contests_v
     contest_detail_view_admin_checker, contest_detail_results, contest_participants_admin, contest_detail_submissions, \
     admin_panel, blank_page
 
-
 from django.contrib.auth import views as auth_views
 
-from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_field_view, quiz_buy_problem, quiz_results, quiz_participants_admin
+from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_field_view, quiz_buy_problem, quiz_results, quiz_participants_admin, \
+    quiz_realtime_log, api_get_quiz_last_attempts
 
 from .ImageProcessingService.image_logic import upload_image, image_list
 
 from . import views
-#from webproject import *
+# from webproject import *
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,6 +27,9 @@ urlpatterns = [
     path('upload_image/', upload_image, name="upload_image"),
 
     path('blank_page/', blank_page, name="blank_page"),
+    path('quiz_realtime_log/<int:contest_id>', quiz_realtime_log, name="quiz_realtime_log"),
+    path("api/get_quiz_last_attempts/", api_get_quiz_last_attempts, name="api_get_quiz_last_attempts"),
+
 
     path('contests/', contests_view, name='contests'),
     path('quizzes/', quiz_view, name='quizzes'),
@@ -36,11 +39,9 @@ urlpatterns = [
     path('quiz_results/<int:contest_id>/', quiz_results, name='quiz_results'),
     path('quiz_participants_admin/<int:contest_id>/', quiz_participants_admin, name='quiz_participants_admin'),
 
-
     path('contests/admin/<int:contest_id>/', contest_detail_view_admin, name='contest_detail_admin'),
     path('admin_panel/', admin_panel, name='admin_panel'),
     path('contests/<int:contest_id>/', contest_detail_view, name='contest_detail'),
-
 
     path('register/', register, name='register'),
     path('login/',

@@ -114,6 +114,7 @@
         <a href="{% url 'quizzes' %}" class="btn btn-outline-secondary btn-sm shadow-sm">Назад к квизам</a>
         <a href="{% url 'quiz_field' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Задания</a>
         <a href="{% url 'quiz_results' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Результаты</a>
+        <a href="{% url 'quiz_realtime_log' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Статус</a>
         {% else %}
         <a href="{% url 'contests' %}" class="btn btn-outline-secondary btn-sm shadow-sm">Назад к соревнованиям</a>
         <a href="{% url 'contest_detail_submissions' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Посылки</a>
