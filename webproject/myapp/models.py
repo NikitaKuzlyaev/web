@@ -84,7 +84,7 @@ class Quiz(models.Model):
 
 
 class QuizUser(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который сделал попытку
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='quiz_user')  # Пользователь, который сделал попытку
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)  # Внешний ключ к соревнованию
     score = models.PositiveIntegerField(default=1000)
     combo_score = models.PositiveIntegerField(default=0)

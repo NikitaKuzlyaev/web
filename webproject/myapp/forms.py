@@ -22,6 +22,19 @@ TagFormSet = modelformset_factory(ContestTag, fields=('title', 'color'), extra=1
 
 from .models import UploadedImage
 
+
+class SinglePasswordChangeForm(forms.Form):
+    new_password = forms.CharField(
+        widget=forms.PasswordInput,
+        label="Новый пароль",
+        min_length=8,  # Пример минимальной длины
+    )
+
+    def save(self, user):
+        new_password = self.cleaned_data['new_password']
+        user.set_password(new_password)
+        user.save()
+
 class FileUploadForm(forms.Form):
     image = forms.ImageField(label='Choose an image')
 

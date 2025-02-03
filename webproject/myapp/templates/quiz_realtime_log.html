@@ -39,12 +39,73 @@
 <!--    </div>-->
 <!--</div>-->
 
-<div class="d-flex align-items-center" style="margin-bottom: 15px; margin-top: 15px;">
+<div class="d-flex align-items-center" style="margin-bottom: 15px; margin-top: 15px; position: relative;">
     <!-- Иконка загрузки -->
     <i class="bi bi-arrow-repeat" style="font-size: 1.4rem; margin-left: 2px; color: #f55607; animation: spin 1s linear infinite;"></i>
     <h5 class="mb-0 ms-2" style="font-size: 1.3rem; margin-left: 10px; color: #888888;">[Статус соревнования]</h5>
     <h5 class="mb-0 ms-2" style="font-size: 1.3rem; margin-left: 10px; color: #000000;">{{ contest.name }}</h5>
+
+    <!-- Таймер справа -->
+    <div id="timer" class="alert alert-info text-center shadow-sm" style="position: absolute; right: 10px; font-size: 1rem; padding: 5px 10px;">
+        <div id="timer-display"></div>
+    </div>
 </div>
+
+
+<script>
+    // Переменная для хранения идентификатора интервала
+    let intervalId;
+
+    const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
+    const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
+
+    // Функция обновления таймера
+    function updateTimer() {
+        const now = new Date().getTime();  // Текущее время
+
+        // Если текущее время меньше времени начала соревнования
+        if (now < contestStartDate) {
+            const timeLeft = contestStartDate - now;
+            displayTime("До начала соревнования осталось:", timeLeft);
+        }
+        // Если текущее время находится между началом и концом соревнования
+        else if (now >= contestStartDate && now < contestEndDate) {
+            const timeLeft = contestEndDate - now;
+            displayTime("", timeLeft);
+        }
+        // Если текущее время больше времени окончания соревнования
+        else {
+            clearInterval(intervalId);  // Останавливаем таймер
+            document.getElementById("timer-display").innerHTML = "<strong>Соревнование завершено</strong>";
+        }
+    }
+
+    // Функция отображения времени
+    function displayTime(message, timeLeft) {
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));  // Часы
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  // Минуты
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  // Секунды
+
+        // Форматируем время в HH:MM:SS
+        const formattedTime =
+            (hours < 10 ? '0' : '') + hours + ":" +
+            (minutes < 10 ? '0' : '') + minutes + ":" +
+            (seconds < 10 ? '0' : '') + seconds;
+
+        // Обновляем текст таймера
+        document.getElementById("timer-display").innerHTML = `
+            <strong>${message}</strong>
+            <h5>${formattedTime}</h5>
+        `;
+    }
+
+    // Запуск таймера при загрузке страницы
+    window.onload = function() {
+        updateTimer();  // Сразу обновляем
+        intervalId = setInterval(updateTimer, 200);  // Каждую секунду обновляем
+    }
+</script>
+
 
 <!-- Добавление анимации для иконки загрузки -->
 <style>
@@ -54,15 +115,25 @@
     }
 </style>
 
+<style>
+    .new-attempt {
+        background-color: #afeeee;
+    }
 
-<div id="cards-container" style="margin: auto; margin-top: 10px; max-width: 1200px;">
+    .new-attempt2 {
+        background-color: #e9ffff;
+    }
+</style>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+
+<div id="cards-container" style="margin: auto; margin-top: 5px; max-width: 1200px;">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
         let contestId = JSON.parse("{{ contest.id|default:'null' }}");
 
         function loadCards() {
-            if (!contestId) return; // Если ID нет, не делаем запрос
+            if (!contestId) return;
 
             $.ajax({
                 url: "/api/get_quiz_last_attempts/",
@@ -86,7 +157,7 @@
                             status_code = '<p class="m-0 me-3" style="margin-left: 10px; font-weight:bold; color:#A8E4A0">[OK]</p>';
                         } else {
                             if (attempt.attempt_number === 0){
-                                status_code = '<p class="m-0 me-3" style="margin-left: 10px; font-weight: bold; color: #120a8f">[BUY]</p>'
+                                status_code = '<p class="m-0 me-3" style="margin-left: 10px; font-weight: bold; color: #6a38ff">[BUY]</p>'
                             } else if (attempt.attempt_number < 3){
                                 status_code = '<p class="m-0 me-3" style="margin-left: 10px; font-weight: bold; color: #ff9a81">[WA]</p>'
                             } else {
@@ -94,29 +165,39 @@
                             }
                         }
 
+                        let send_icons = '';
+                        for (let i = 0; i < attempt.attempt_number; i++) {
+                            send_icons += '<i class="bi bi-send" style="opacity: 0.5;"></i>';
+                        }
+
+                        let cardClass = '';
+                        if (attempt.is_recent) {
+                            cardClass = 'new-attempt';
+                        } else if (attempt.is_recent_2) {
+                            cardClass = 'new-attempt2';
+                        }
+
                         $("#cards-container").append(
-                            `<div class="card p-2 mb-2 d-flex flex-row align-items-center shadow-sm border-light rounded">
+                            `<div class="card p-1 mb-1 ${cardClass} d-flex flex-row align-items-center shadow-sm border-light rounded">
                                 <div class="d-flex flex-row align-items-center" style="width: 100%;">
                                     <!-- Иконка и статус, занимают 20% ширины -->
-                                    <div style="flex: 0 0 20%; display: flex; align-items: center;">
+                                    <div style="flex: 0 0 15%; display: flex; align-items: center;">
                                         ${icon} <!-- Иконка успеха или провала -->
                                         ${status_code} <!-- Статус -->
                                     </div>
 
-                                    <div style="flex: 0 0 10%; display: flex; align-items: center;">
+                                    <div style="flex: 0 0 7%; display: flex; align-items: center;">
+                                        ${send_icons}
+                                    </div>
+
+                                    <div style="flex: 0 0 20%; display: flex; align-items: center;">
                                         <p class="m-0 me-3">${attempt.problem_title} за ${attempt.problem_points}</p>
                                     </div>
 
-                                    <div style="flex: 0 0 25%; display: flex; align-items: center;">
-                                        <p class="m-0 me-3">${attempt.problem_title} за ${attempt.problem_points}</p>
+                                    <div style="flex: 0 0 37%; display: flex; align-items: center; margin-left: 10px;">
+                                        <h6 class="m-0 me-3">${attempt.user}</h6>
                                     </div>
 
-                                    <!-- Текстовые данные занимают оставшиеся 80% -->
-                                    <div style="display: flex; flex-direction: row; flex-grow: 1; margin-left: 10px;">
-                                        <h5 class="m-0 me-3">${attempt.user}</h5>
-                                    </div>
-
-                                    <!-- Отдельный контейнер для времени, который выравнивается по правому краю -->
                                     <div style="flex: 0 0 20%; text-align: right;">
                                         <p class="m-0">${attempt.created_at}</p>
                                     </div>
@@ -138,9 +219,10 @@
         // Загружаем карточки сразу при загрузке страницы
         loadCards();
     });
-</script>
 
 
+    </script>
+</div>
 </body>
 </html>
 

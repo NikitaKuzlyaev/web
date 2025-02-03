@@ -34,10 +34,13 @@ import time
 import logging
 import json
 from ..politics import Politics
+from datetime import timedelta
+from django.utils import timezone
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 # Имя логгера из настроек
 logger = logging.getLogger('myapp')
-
 
 #
 #
@@ -80,38 +83,34 @@ logger = logging.getLogger('myapp')
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
+
 @csrf_exempt
 def api_get_quiz_last_attempts(request):
-    #logger.debug('api_get_quiz_last_attempts')
-
     contest_id = request.GET.get("contest_id")
     if not contest_id:
         return JsonResponse({"error": "contest_id is required"}, status=400)
-
-    #logger.debug(f'{contest_id}')
 
     quiz_attempts = QuizAttempt.objects.filter(
         problem__quizFieldCell__quizField__quiz__contest_id=contest_id
     ).order_by("-created_at")
 
-    # quiz_attempts = QuizAttempt.objects.filter(
-    #     problem__quizFieldCell__quizField__quiz__contest_id=contest_id
-    # ).exclude(attempt_number=0).order_by("-created_at")
-
     # Преобразуем QuerySet в JSON-совместимый формат
     attempts_data = [
         {
-            "user": attempt.user.username,  # Имя пользователя
-            "attempt_number": attempt.attempt_number,  # Номер попытки
-            "is_successful": attempt.is_successful,  # Успех попытки
-            "problem_title": attempt.problem.title,  # Название задачи
-            "problem_points": attempt.problem.points,  # Стоимость задачи
+            "user": attempt.user.profile.name,
+            "attempt_number": attempt.attempt_number,
+            "is_successful": attempt.is_successful,
+            "problem_title": attempt.problem.title,
+            "problem_points": attempt.problem.points,
             "created_at": attempt.created_at.strftime("%H:%M:%S %d-%m-%Y"),
+            "is_recent": attempt.created_at >= timezone.now() - timedelta(seconds=10),  # Помечаем как новые попытки
+            "is_recent_2": attempt.created_at >= timezone.now() - timedelta(seconds=30)  # Помечаем как новые попытки
         }
         for attempt in quiz_attempts
     ]
 
     return JsonResponse(attempts_data, safe=False)
+
 
 def quiz_realtime_log(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
@@ -493,23 +492,54 @@ def quiz_results(request, contest_id):
 @user_passes_test(is_admin)
 def quiz_participants_admin(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
-    participants = Profile.objects.filter(contest_access=contest)
+    profiles = Profile.objects.filter(contest_access=contest)
+
+    participants = []
+    for profile in profiles:
+        user = profile.user
+        quiz_user = QuizUser.objects.filter(user=user, quiz__contest=contest).first()
+
+        if not quiz_user:
+            quiz = Quiz.objects.filter(contest=contest).first()
+            if quiz:
+                quiz_user = QuizUser.objects.create(user=user, quiz=quiz)
+
+        participants.append({
+            "user": user,
+            "profile": profile,
+            "quiz_user": quiz_user,
+        })
+
+    # logger.debug(participants)
 
     if request.method == 'POST':
-        if 'delete_participant' in request.POST:
-            participant_id = request.POST.get('participant_id')
-            if participant_id:
-                participant = get_object_or_404(Profile, id=participant_id)
-                user = User.objects.filter(profile=participant)
-                user.delete()  # Удаляем участника
-                return redirect('quiz_participants_admin', contest_id=contest.id)  # Перенаправляем на страницу с участниками
+        participant_id = request.POST.get('participant_id')
+
+        if participant_id:
+            participant = get_object_or_404(Profile, id=participant_id)
+            user = participant.user  # Теперь получаем напрямую
+
+            if 'delete_participant' in request.POST:
+                logger.debug('delete_participant')
+                user.delete()  # Удаляем пользователя, связанный с Profile
+
+            elif 'show_attempts' in request.POST:
+                logger.debug('show_attempts')
+                # return redirect('show_attempts', user_id=user.id)
+
+            elif 'edit_info' in request.POST:
+                logger.debug('edit_info')
+                # return redirect('edit_user_info', user_id=user.id)
+
+            return redirect('quiz_participants_admin', contest_id=contest.id)
 
         form = ContestUserProfileForm(request.POST)
         if form.is_valid():
-            form.save()  # Сохраняем нового пользователя и его профиль
-            return redirect('quiz_participants_admin', contest_id=contest.id)  # Перенаправляем обратно на страницу с участниками
+            form.save()
+            return redirect('quiz_participants_admin', contest_id=contest.id)
+
     else:
-        form = ContestUserProfileForm(initial={'contest_access': contest})  # Передаем текущий contest в форму
+        form = ContestUserProfileForm(initial={'contest_access': contest})
 
     context = {
         'contest': contest,
@@ -518,6 +548,49 @@ def quiz_participants_admin(request, contest_id):
     }
 
     return render(request, 'quiz_participants_admin.html', context)
+
+
+from ..forms import SinglePasswordChangeForm
+@user_passes_test(is_admin)
+def quiz_edit_userprofile(request, quiz_user_id):
+    profile = get_object_or_404(Profile, id=quiz_user_id)
+    user = profile.user
+    quiz_user = QuizUser.objects.filter(user=user).first()
+
+    if request.method == 'POST':
+        new_name = request.POST.get('name')
+        new_score = request.POST.get('score')
+        new_combo_score = request.POST.get('combo_score')
+
+        if new_name:
+            profile.name = new_name
+            profile.save()
+
+        if quiz_user:
+            if new_score and new_score.isdigit():
+                quiz_user.score = int(new_score)
+            if new_combo_score and new_combo_score.isdigit():
+                quiz_user.combo_score = int(new_combo_score)
+            quiz_user.save()
+
+        # Обработка изменения пароля
+        password_form = SinglePasswordChangeForm(request.POST)
+        if password_form.is_valid():
+            password_form.save(user)
+            return redirect('quiz_participants_admin', contest_id=profile.contest_access.id)
+
+        return redirect('quiz_participants_admin', contest_id=profile.contest_access.id)
+
+    # Создание пустой формы для пароля
+    password_form = SinglePasswordChangeForm()
+
+    context = {
+        'profile': profile,
+        'quiz_user': quiz_user,
+        'password_form': password_form,
+    }
+
+    return render(request, 'quiz_edit_userprofile.html', context)
 
 
 def number_of_current_user_problems(quiz: Quiz, user: User):
