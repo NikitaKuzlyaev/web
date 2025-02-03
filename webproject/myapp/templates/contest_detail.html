@@ -55,6 +55,15 @@
 
 
     <style>
+        a.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        a.text-decoration-line-through {
+            text-decoration: line-through;
+        }
+
         .card {
             transition: transform 0.2s ease-in-out; /* Установите свою скорость */
         }
@@ -85,11 +94,10 @@
             margin-top: 5px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             font-size: 0.5rem;
-<!--            color: #ffc107;-->
         }
 
         .tab-button.active {
-            background-color: #ffc107;
+            background-color: #cff4fc;
             color: #000;
         }
 
@@ -126,9 +134,30 @@
     <div class="d-flex justify-content-center gap-3 mb-3">
         {% if quiz %}
         <a href="{% url 'quizzes' %}" class="btn btn-outline-secondary btn-sm shadow-sm">Назад к квизам</a>
-        <a href="{% url 'quiz_field' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Задания</a>
-        <a href="{% url 'quiz_results' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Результаты</a>
-        <a href="{% url 'quiz_realtime_log' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Статус</a>
+
+        <a href="{% url 'quiz_field' contest.id %}"
+           class="btn btn-outline-primary btn-sm shadow-sm {% if access_to_quizfield == False %}disabled text-decoration-line-through{% endif %}">
+            Задания
+        </a>
+
+
+        <a href="{% url 'quiz_results' contest.id %}"
+           class="btn btn-outline-primary btn-sm shadow-sm {% if access_to_results == False %}disabled text-decoration-line-through{% endif %}">
+            Результаты
+        </a>
+
+        <a href="{% url 'quiz_realtime_log' contest.id %}"
+           class="btn btn-outline-primary btn-sm shadow-sm {% if access_to_status == False %}disabled text-decoration-line-through{% endif %}">
+            Статус
+        </a>
+
+        {% if user.is_staff %}
+        <a href="{% url 'quiz_realtime_results' contest.id %}"
+           class="btn btn-outline-primary btn-sm shadow-sm">
+            Текущие результаты
+        </a>
+        {% endif %}
+
         {% else %}
         <a href="{% url 'contests' %}" class="btn btn-outline-secondary btn-sm shadow-sm">Назад к соревнованиям</a>
         <a href="{% url 'contest_detail_submissions' contest.id %}" class="btn btn-outline-primary btn-sm shadow-sm">Посылки</a>
@@ -151,6 +180,15 @@
                     <h5 class="card-title">Время проведения</h5>
                     <p class="card-text text-muted">
                         {{ contest.time_start|date:"d.m.Y H:i" }} — {{ contest.time_end|date:"d.m.Y H:i" }}
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:0.5rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Ваша команда:</h5>
+                    <p class="card-text text-muted">
+                        {{ user_profile }}
                     </p>
                 </div>
             </div>

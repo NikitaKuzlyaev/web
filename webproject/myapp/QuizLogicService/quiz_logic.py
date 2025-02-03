@@ -34,6 +34,7 @@ import time
 import logging
 import json
 from ..politics import Politics
+from .. import utils
 from datetime import timedelta
 from django.utils import timezone
 from django.contrib.auth.forms import PasswordChangeForm
@@ -85,14 +86,22 @@ from django.http import JsonResponse
 
 
 @csrf_exempt
+@Politics.contest_status_access_politic(redirect_path='/quizzes/')
 def api_get_quiz_last_attempts(request):
     contest_id = request.GET.get("contest_id")
     if not contest_id:
         return JsonResponse({"error": "contest_id is required"}, status=400)
 
+    # quiz_attempts = QuizAttempt.objects.filter(
+    #     problem__quizFieldCell__quizField__quiz__contest_id=contest_id
+    # ).order_by("-created_at")
+
     quiz_attempts = QuizAttempt.objects.filter(
         problem__quizFieldCell__quizField__quiz__contest_id=contest_id
-    ).order_by("-created_at")
+    ).exclude(user__is_staff=True).order_by("-created_at")  # Исключаем пользователей с is_staff=True
+
+    # Временная зона UTC+7 (Бангкок)
+    timezone_utc7 = pytz.timezone('Asia/Bangkok')
 
     # Преобразуем QuerySet в JSON-совместимый формат
     attempts_data = [
@@ -102,7 +111,7 @@ def api_get_quiz_last_attempts(request):
             "is_successful": attempt.is_successful,
             "problem_title": attempt.problem.title,
             "problem_points": attempt.problem.points,
-            "created_at": attempt.created_at.strftime("%H:%M:%S %d-%m-%Y"),
+            "created_at": attempt.created_at.astimezone(timezone_utc7).strftime("%H:%M:%S %d-%m-%Y"),
             "is_recent": attempt.created_at >= timezone.now() - timedelta(seconds=10),  # Помечаем как новые попытки
             "is_recent_2": attempt.created_at >= timezone.now() - timedelta(seconds=30)  # Помечаем как новые попытки
         }
@@ -112,6 +121,7 @@ def api_get_quiz_last_attempts(request):
     return JsonResponse(attempts_data, safe=False)
 
 
+@Politics.contest_status_access_politic(redirect_path='/quizzes/')
 def quiz_realtime_log(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
 
@@ -120,6 +130,57 @@ def quiz_realtime_log(request, contest_id):
     }
 
     return render(request, 'quiz_realtime_log.html', context)
+
+
+@csrf_exempt
+@user_passes_test(is_admin)
+def api_get_quiz_current_results(request):
+    # Извлекаем contest_id из запроса
+    contest_id = request.GET.get("contest_id")
+    if not contest_id:
+        return JsonResponse({"error": "contest_id is required"}, status=400)
+
+    # Получаем объект контеста
+    contest = get_object_or_404(Contest, id=contest_id)
+
+    # Получаем всех пользователей, которые участвуют в данном контесте
+    users = QuizUser.objects.filter(quiz__contest=contest).select_related('user', 'user__profile')
+
+    # Составляем список пользователей и их очков
+    user_and_score = []
+    for quiz_user in users:
+        user = quiz_user.user
+        if user.is_staff:
+            continue  # Пропускаем администраторов
+
+        profile = user.profile
+        user_and_score.append((profile.name, quiz_user.score))
+
+    # Сортируем по убыванию очков
+    user_and_score.sort(key=lambda x: (-x[1]))
+
+    # Преобразуем данные в формат JSON
+    data = [
+        {
+            "user": profile_name,
+            "score": score
+        }
+        for profile_name, score in user_and_score
+    ]
+
+    logger.debug(data)
+
+    return JsonResponse(data, safe=False)
+@user_passes_test(is_admin)
+def quiz_realtime_results(request, contest_id):
+    contest = get_object_or_404(Contest, id=contest_id)
+
+    context = {
+        'contest': contest,
+    }
+
+    return render(request, 'quiz_realtime_results.html', context)
+
 
 
 def quiz_view(request):
@@ -167,6 +228,7 @@ def quiz_view(request):
     return render(request, 'quizzes.html', context)
 
 
+@Politics.contest_user_access_politic(redirect_path='/quizzes/')
 @Politics.contest_time_access_politic(redirect_path='/quizzes/')
 def quiz_field_view(request, contest_id):
     # Очистка сообщений. временное решение/заглушка
@@ -241,20 +303,26 @@ def quiz_field_view(request, contest_id):
                 if quiz_problem.points > quiz_user.score:
                     can_buy = False
 
-            can_buy = can_buy or request.user.is_staff
+            can_buy = can_buy and quiz_user.score >= quiz_problem.points or request.user.is_staff
 
             quiz_field_flags[row][col] = verdict
             can_buy_flags[row][col] = can_buy
 
     tasks_ids = [[None if not task_field[j][i] else task_field[j][i].id for i in range(w)] for j in range(h)]
 
+    user_profile = Profile.objects.filter(user=request.user).first()
+
+    make_redirect = not request.user.is_staff
+
     context = {
+        'user_profile': user_profile.name,
         'columns': list(range(w)),  # Диапазон для столбцов
         'rows': list(range(h)),  # Диапазон для строк
         'task_field': task_field,  # Двумерный массив с задачами
         'tasks_ids': tasks_ids,
         'problems': problems_to_show,
         'contest': contest,
+        'make_redirect': make_redirect,
         'quiz_user': quiz_user,
         'potential_score': potential_score,
         'quiz_field_flags': quiz_field_flags,
@@ -292,6 +360,7 @@ def edit_quiz_problem(request, quiz_problem_id):
     return render(request, 'edit_quiz_problem.html', context=context)
 
 
+@Politics.contest_user_access_politic(redirect_path='/quizzes/')
 @Politics.contest_time_access_politic(redirect_path='/quizzes/')
 def quiz_buy_problem(request, quiz_problem_id):
     # Очистка сообщений. временное решение/заглушка
@@ -308,6 +377,9 @@ def quiz_buy_problem(request, quiz_problem_id):
     quiz_field = get_object_or_404(QuizField, id=quiz_field_cell.quizField.id)
     quiz = get_object_or_404(Quiz, contest=quiz_field.quiz.contest)
     contest = get_object_or_404(Contest, quiz=quiz)
+
+    if not utils.user_has_access_to_quizfield(request.user, contest.id):
+        return redirect('quizzes')
 
     quiz_user = QuizUser.objects.filter(quiz=quiz_field.quiz, user=request.user).first()
 
@@ -346,8 +418,12 @@ def quiz_buy_problem(request, quiz_problem_id):
     return quiz_field_view(request, contest_id=contest.id)
 
 
+@Politics.contest_user_access_politic(redirect_path='/quizzes/')
 @Politics.contest_time_access_politic(redirect_path='/quizzes/')
 def quiz_check_answer(request, contest):
+    if not utils.user_has_access_to_quizfield(request.user, contest.id):
+        return redirect('quizzes')
+
     # Очистка сообщений. временное решение/заглушка
     storage = messages.get_messages(request)
     for _ in storage:
@@ -357,11 +433,13 @@ def quiz_check_answer(request, contest):
     # messages.success(request, "Ответ принят!")
 
     user_answer = request.POST.get('user_answer')  # Используем get() для безопасного доступа
+    user_answer = user_answer.strip()
 
     # Обработка на случай пустого ответа. Хотя он не должен возникать, если не изменять код страницы формы отправки
     if len(user_answer) == 0:
         messages.error(request, "Поле ответа не может быть пустым!")
         return redirect('quiz_field', contest_id=contest.id)
+
 
     quiz_problem_id = request.POST.get('problem_id')  # Можно задать значение по умолчанию, если ключ не найден
 
@@ -377,6 +455,12 @@ def quiz_check_answer(request, contest):
 
     if last_attempt.is_successful:
         return redirect('quiz_field', contest_id=contest.id)
+
+    prev_answers = quiz_user_answers_set(quiz_user, quiz_problem)
+    if user_answer in prev_answers:
+        messages.add_message(request, messages.WARNING, MessageText.repeat_answer(), extra_tags='warning')
+        return redirect('quiz_field', contest_id=contest.id)
+
 
     is_correct_answer = False
     base_points = quiz_problem.points
@@ -395,6 +479,7 @@ def quiz_check_answer(request, contest):
         user=request.user,
         problem=quiz_problem,
         attempt_number=last_attempt.attempt_number + 1,
+        answer=user_answer,
         is_successful=is_correct_answer
     )
 
@@ -445,7 +530,10 @@ def quiz_results(request, contest_id):
     for quiz_user in users:
         user = quiz_user.user
 
-        if user.is_staff and not request.user.is_staff:
+        # if user.is_staff and not request.user.is_staff:
+        #     continue
+
+        if user.is_staff:
             continue
 
         profile = user.profile
@@ -551,6 +639,8 @@ def quiz_participants_admin(request, contest_id):
 
 
 from ..forms import SinglePasswordChangeForm
+
+
 @user_passes_test(is_admin)
 def quiz_edit_userprofile(request, quiz_user_id):
     profile = get_object_or_404(Profile, id=quiz_user_id)
@@ -591,6 +681,20 @@ def quiz_edit_userprofile(request, quiz_user_id):
     }
 
     return render(request, 'quiz_edit_userprofile.html', context)
+
+
+def quiz_user_answers_set(quiz_user, quiz_problem):
+    """
+    Функция возвращает уникальные ответы пользователя для заданной проблемы (quiz_problem),
+    представляя их в виде множества.
+    """
+    # Получаем все попытки пользователя для данной проблемы
+    attempts = QuizAttempt.objects.filter(user=quiz_user.user, problem=quiz_problem)
+
+    # Создаем множество уникальных ответов
+    unique_answers = set(attempt.answer for attempt in attempts)
+
+    return unique_answers
 
 
 def number_of_current_user_problems(quiz: Quiz, user: User):

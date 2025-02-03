@@ -27,7 +27,7 @@ class SinglePasswordChangeForm(forms.Form):
     new_password = forms.CharField(
         widget=forms.PasswordInput,
         label="Новый пароль",
-        min_length=8,  # Пример минимальной длины
+        min_length=4,  # Пример минимальной длины
     )
 
     def save(self, user):
@@ -125,7 +125,7 @@ class ContestUserProfileForm(forms.ModelForm):
 class ContestForm(forms.ModelForm):
     class Meta:
         model = Contest
-        fields = ['name', 'time_start', 'time_end', 'is_open', 'is_open_preview', 'is_open_results', 'color']  # Добавляем 'color'
+        fields = ['name', 'time_start', 'time_end', 'is_open', 'is_open_preview', 'is_open_results', 'is_open_status', 'color']  # Добавляем 'color'
         widgets = {
             'time_start': forms.DateTimeInput(
                 attrs={
@@ -160,6 +160,11 @@ class ContestForm(forms.ModelForm):
                     'class': 'form-check-input',
                 }
             ),
+            'is_open_status': forms.CheckboxInput(
+                attrs={
+                    'class': 'form-check-input',
+                }
+            ),
             'color': forms.Select(
                 attrs={
                     'class': 'form-control',
@@ -172,6 +177,8 @@ class ContestForm(forms.ModelForm):
             'time_end': 'Время завершения соревнования',
             'is_open': 'Открытое соревнование',  # Подпись для чекбокса
             'is_open_preview': 'Доступен предпросмотр',
+            'is_open_results': 'Участники видят результаты',
+            'is_open_status': 'Участники видят статус',
             'color': 'Цвет плашки',  # Подпись для выбора цвета
         }
 

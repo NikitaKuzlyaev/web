@@ -172,7 +172,7 @@ def logout_view(request):
 
 
 def main(request):
-    #blogs = BlogPage.objects.all().order_by('-created_at')
+    # blogs = BlogPage.objects.all().order_by('-created_at')
     blogs = BlogPage.objects.all()
 
     context = {
@@ -252,8 +252,7 @@ def main_blog_edit(request, blog_id=None):
             pass
             return redirect('main')
 
-
-        #blogs = BlogPage.objects.all().order_by('priority', 'created_at')
+        # blogs = BlogPage.objects.all().order_by('priority', 'created_at')
         blogs = BlogPage.objects.all()
         logger.debug('hehe')
         context = {
@@ -261,7 +260,6 @@ def main_blog_edit(request, blog_id=None):
         }
 
         return render(request, 'main.html', context)
-
 
     if blog_id:
         # Получаем существующую новость для редактирования
@@ -714,28 +712,37 @@ def delete_contest_page(request, page_id):
 @Politics.contest_preview_time_access_politic(redirect_path='/contests/')
 def contest_detail_view(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
-
     contest_pages = contest.pages.all()
     selected_page = None  # Для передачи выбранной вкладки в форму
 
-    if request.method == 'POST':
-        if 'select_page' in request.POST:
-            page_id = request.POST.get('select_page')
-            selected_page = get_object_or_404(ContestPage, id=page_id)
-            # return redirect('contest_detail_admin', contest_id=contest.id)
-    else:
-        pass
+    if request.method == 'POST' and 'select_page' in request.POST:
+        page_id = request.POST.get('select_page')
+        selected_page = get_object_or_404(ContestPage, id=page_id)
 
-    # Проверяем, существует ли связанный Quiz для этого contest
-    quiz = Quiz.objects.filter(contest=contest).first()  # Получаем первый найденный Quiz или None
+    # Получаем связанный Quiz (если он существует)
+    quiz = Quiz.objects.filter(contest=contest).first()
+
+    user_profile = Profile.objects.filter(user=request.user).first()
 
     context = {
+        'user_profile': user_profile.name,
         'contest': contest,
         'contest_pages': contest_pages,
         'selected_page': selected_page,
         'quiz': quiz,
     }
+
+    if quiz:
+        user = request.user
+        context.update({
+            'access_to_results': utils.user_has_access_to_results(user, contest_id),
+            'access_to_status': utils.user_has_access_to_status(user, contest_id),
+            'access_to_quizfield': utils.user_has_access_to_quizfield(user, contest_id),
+        })
+        logger.debug(f'{context['access_to_results'], context['access_to_status'], context['access_to_quizfield']}')
+
     return render(request, 'contest_detail.html', context)
+
 
 
 @user_passes_test(is_admin)

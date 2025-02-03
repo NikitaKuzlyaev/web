@@ -242,6 +242,14 @@ background-color: gray;
         font-size: 0.75rem;
     }
 
+        .alert-warning {
+        background-color: #f4a460;
+        opacity: 0.95;
+        margin-bottom: 0px;
+        transition: opacity 0.5s ease-in-out;
+        font-size: 0.75rem;
+    }
+
     </style>
 
 </head>
@@ -309,6 +317,10 @@ background-color: gray;
         <div class="right-container" style="width: 35%; padding-left: 10px; padding-top: 2rem">
 
             <!-- Таймер -->
+
+            <div class="d-flex align-items-center">
+                <p class="mb-0 ms-auto">Команда <b>{{ user_profile }}</b></p>
+            </div>
 
             <div id="timer" class="alert alert-info text-center shadow-sm" style="margin-top: 10px;">
                 <div id="timer-display" class="mt-1"></div>
@@ -418,10 +430,10 @@ background-color: gray;
     <div id="messageContainer">
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
-            {{ message|safe }}
-<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">-->
-<!--                <span aria-hidden="true">&times;</span>-->
-<!--            </button>-->
+             {{ message|safe }}
+            <!--            <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">-->
+            <!--                <span aria-hidden="true">&times;</span>-->
+            <!--            </button>-->
         </div>
         {% endfor %}
     </div>
@@ -433,6 +445,9 @@ background-color: gray;
 <script>
     // Переменная для хранения идентификатора интервала
     let intervalId;
+
+    let contestId = "{{ contest.id }}"; // Получаем ID контеста из шаблона
+    let makeRedirect = "{{ make_redirect }}"; // Получаем ID контеста из шаблона
 
     const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
     const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
@@ -455,6 +470,10 @@ background-color: gray;
         else {
             clearInterval(intervalId);  // Останавливаем таймер
             document.getElementById("timer-display").innerHTML = "<strong>Соревнование завершено</strong>";
+
+            if (makeRedirect == True){
+                window.location.href = `/contests/${contestId}/`; // Перенаправление на нужную страницу
+            }
         }
     }
 

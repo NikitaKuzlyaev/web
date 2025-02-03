@@ -8,7 +8,7 @@ from .views import main, register, user_login, contests, logout_view, contests_v
 from django.contrib.auth import views as auth_views
 
 from .QuizLogicService.quiz_logic import edit_quiz_problem, quiz_view, quiz_field_view, quiz_buy_problem, quiz_results, quiz_participants_admin, \
-    quiz_realtime_log, api_get_quiz_last_attempts, quiz_edit_userprofile
+    quiz_realtime_log, api_get_quiz_last_attempts, quiz_edit_userprofile, api_get_quiz_current_results, quiz_realtime_results
 
 from .ImageProcessingService.image_logic import upload_image, image_list
 
@@ -29,6 +29,10 @@ urlpatterns = [
     path('blank_page/', blank_page, name="blank_page"),
     path('quiz_realtime_log/<int:contest_id>', quiz_realtime_log, name="quiz_realtime_log"),
     path("api/get_quiz_last_attempts/", api_get_quiz_last_attempts, name="api_get_quiz_last_attempts"),
+    path('quiz_realtime_results/<int:contest_id>', quiz_realtime_results, name="quiz_realtime_results"),
+    path("api/get_quiz_current_results/", api_get_quiz_current_results, name="api_get_quiz_current_results"),
+
+
     path('quiz/edit_profile/<int:quiz_user_id>/', quiz_edit_userprofile, name='quiz_edit_userprofile'),
 
     path('contests/', contests_view, name='contests'),

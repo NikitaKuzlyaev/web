@@ -38,36 +38,71 @@ import logging
 # utils.py
 from .models import AppConfig
 
+# Имя логгера из настроек
+logger = logging.getLogger('myapp')
+# Получение текущего времени в UTC+7
+timezone_utc7 = pytz.timezone('Asia/Bangkok')  # UTC+7
+
+
 def get_app_config():
     return AppConfig.objects.first()  # Получаем первые настройки (предполагаем, что они будут единственными)
+
 
 def is_registration_allowed():
     return get_app_config().allow_registration  # Получаем значение флага для регистрации
 
+
 def have_access(user, contest_id):
-    # Проверка, что пользователь является администратором
     if user.is_staff:
         return True
 
-    # Получаем соревнование
-    contest = Contest.objects.filter(id=contest_id).first()
-    if not contest:
-        return False  # Если соревнования нет, доступ запрещен
+    contest = get_object_or_404(Contest, id=contest_id)
 
-    # Проверка, что соревнование открыто
     if contest.is_open:
         return True
 
-    # Проверка, что у пользователя есть доступ к этому соревнованию
     try:
-        # Проверяем, есть ли у пользователя профиль с доступом к текущему соревнованию
         profile = Profile.objects.get(user=user)
         if profile.contest_access == contest:
             return True
     except Profile.DoesNotExist:
-        return False  # У пользователя нет профиля или доступа к этому соревнованию
+        return False
 
-    return False  # Если ни одно условие не выполнено, доступ запрещен
+    return False
+
+
+def user_has_access_to_results(user, contest_id):
+    if not have_access(user, contest_id):
+        return False
+    if user.is_staff:
+        return True
+    contest = get_object_or_404(Contest, id=contest_id)
+    return contest.is_open_results
+
+def user_has_access_to_status(user, contest_id):
+    if not have_access(user, contest_id):
+        return False
+    if user.is_staff:
+        return True
+    contest = get_object_or_404(Contest, id=contest_id)
+    return contest.is_open_status
+
+
+def user_has_access_to_quizfield(user, contest_id):
+    contest = get_object_or_404(Contest, id=contest_id)
+
+    if user.is_staff:
+        return True
+
+    current_time_utc7 = now().astimezone(timezone_utc7)
+    time_start = contest.time_start.astimezone(timezone_utc7)
+    time_end = contest.time_end.astimezone(timezone_utc7)
+
+    if current_time_utc7 < time_start or current_time_utc7 > time_end:
+        logger.debug(f"Access denied: Current time {current_time_utc7} is outside [{time_start}, {time_end}]")
+        return False
+
+    return True
 
 
 def execute_checker_for_contest(contest, answer_file=None):

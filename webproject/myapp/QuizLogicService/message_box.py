@@ -29,6 +29,16 @@ class MessageText:
         return string
 
     @staticmethod
+    def repeat_answer():
+        current_time_utc7 = now().astimezone(timezone_utc7).replace(tzinfo=None)
+        string = (
+            f""" 
+                    <div style='text-align: center; font-weight: bold; color:#000000'>★ [X] Ignored ★</div>
+            <p style="color:#000000;">Ответ игнорирован, так как вы отправляли его ранее на эту задачу</p>"""
+            f"""<div style='text-align: center; font-size: 0.8rem; color:#000000'>{current_time_utc7}</div>""")
+        return string
+
+    @staticmethod
     def correct_answer():
         current_time_utc7 = now().astimezone(timezone_utc7).replace(tzinfo=None)
         string = (

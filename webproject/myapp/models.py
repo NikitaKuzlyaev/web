@@ -71,6 +71,7 @@ class Contest(models.Model):
     is_open = models.BooleanField(default=True)  # Флаг, открыт ли конкурс
     is_open_preview = models.BooleanField(default=False)  # Флаг, открыто ли превью
     is_open_results = models.BooleanField(default=False)  # Флаг, открыта ли таблица для участников
+    is_open_status = models.BooleanField(default=False)  # Флаг, открыт ли статус
 
     color = models.CharField(max_length=7, choices=COLOR_CHOICES, default="#0000FF")  # Цвет
 
@@ -155,6 +156,7 @@ class QuizAttempt(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # Пользователь, который сделал попытку
     problem = models.ForeignKey(QuizProblem, related_name='attempts', on_delete=models.CASCADE)
     attempt_number = models.PositiveIntegerField(default=1)  # Номер попытки
+    answer = models.CharField(max_length=100, default='------------------------2--2-----------#-#--1--')
     is_successful = models.BooleanField(default=False)  # Успешность попытки
     created_at = models.DateTimeField(auto_now_add=True)  # Время попытки
 

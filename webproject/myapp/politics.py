@@ -26,7 +26,7 @@ from .models import (
     QuizAttempt, QuizProblem, QuizUser
 )
 from .models import UploadedImage
-#from .forms import ImageUploadForm
+# from .forms import ImageUploadForm
 from .forms import FileUploadForm
 
 from .utils import have_access
@@ -72,6 +72,30 @@ class Politics:
                     if not have_access(user, contest_id=contest_id):
                         # return redirect('/contests/')  # Если доступа нет, редиректим на страницу с соревнованиями
                         return redirect(redirect_path)  # Если доступа нет, редиректим на страницу с соревнованиями
+                return view_func(request, *args, **kwargs)
+
+            return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
+
+        return decorator
+
+    @staticmethod
+    def contest_status_access_politic(redirect_path):
+        """
+        Кастомный декоратор, проверяющий, имеет ли пользователь доступ к контесту.
+        """
+
+        def decorator(view_func):
+
+            def _wrapped_view(request, *args, **kwargs):
+                contest_id = kwargs.get('contest_id')
+                if contest_id:
+                    user = request.user
+
+                    contest = Contest.objects.filter(id=contest_id).first()
+                    if not user.is_staff and not contest.is_open_status:
+                        # return redirect('/contests/')  # Если доступа нет, редиректим на страницу с соревнованиями
+                        return redirect(redirect_path)  # Если доступа нет, редиректим на страницу с соревнованиями
+
                 return view_func(request, *args, **kwargs)
 
             return user_passes_test(lambda u: u.is_authenticated)(_wrapped_view)
