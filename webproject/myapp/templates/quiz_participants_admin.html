@@ -42,12 +42,12 @@
                     </button>
                 </form>
 
-                <form method="post" action="{% url 'quiz_participants_admin' contest.id %}">
+                <form method="get" action="{% url 'quiz_edit_user_attempts' participant.quiz_user.id %}">
                     {% csrf_token %}
                     <input type="hidden" name="show_attempts" value="1">
-                    <input type="hidden" name="participant_id" value="{{ participant.profile.id }}">
+                    <input type="hidden" name="quiz_user_id" value="{{ participant.quiz_user.id }}">
                     <button type="submit" class="btn btn-primary btn-sm">
-                        Смотреть попытки
+                        Смотреть попытки {{ participant.quiz_user.id }}
                     </button>
                 </form>
 

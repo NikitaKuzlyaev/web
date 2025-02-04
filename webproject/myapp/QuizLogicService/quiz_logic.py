@@ -83,7 +83,8 @@ logger = logging.getLogger('myapp')
 
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-
+from django.shortcuts import redirect
+from django.urls import reverse
 
 @csrf_exempt
 @Politics.contest_status_access_politic(redirect_path='/quizzes/')
@@ -171,6 +172,8 @@ def api_get_quiz_current_results(request):
     logger.debug(data)
 
     return JsonResponse(data, safe=False)
+
+
 @user_passes_test(is_admin)
 def quiz_realtime_results(request, contest_id):
     contest = get_object_or_404(Contest, id=contest_id)
@@ -180,7 +183,6 @@ def quiz_realtime_results(request, contest_id):
     }
 
     return render(request, 'quiz_realtime_results.html', context)
-
 
 
 def quiz_view(request):
@@ -440,7 +442,6 @@ def quiz_check_answer(request, contest):
         messages.error(request, "Поле ответа не может быть пустым!")
         return redirect('quiz_field', contest_id=contest.id)
 
-
     quiz_problem_id = request.POST.get('problem_id')  # Можно задать значение по умолчанию, если ключ не найден
 
     quiz_problem = get_object_or_404(QuizProblem, id=quiz_problem_id)
@@ -460,7 +461,6 @@ def quiz_check_answer(request, contest):
     if user_answer in prev_answers:
         messages.add_message(request, messages.WARNING, MessageText.repeat_answer(), extra_tags='warning')
         return redirect('quiz_field', contest_id=contest.id)
-
 
     is_correct_answer = False
     base_points = quiz_problem.points
@@ -642,7 +642,7 @@ from ..forms import SinglePasswordChangeForm
 
 
 @user_passes_test(is_admin)
-def quiz_edit_userprofile(request, quiz_user_id):
+def quiz_edit_user_profile(request, quiz_user_id):
     profile = get_object_or_404(Profile, id=quiz_user_id)
     user = profile.user
     quiz_user = QuizUser.objects.filter(user=user).first()
@@ -681,6 +681,51 @@ def quiz_edit_userprofile(request, quiz_user_id):
     }
 
     return render(request, 'quiz_edit_userprofile.html', context)
+
+
+@user_passes_test(is_admin)
+def quiz_edit_user_attempts(request, quiz_user_id):
+    # Получаем объект QuizUser по переданному id
+    quiz_user = QuizUser.objects.filter(id=quiz_user_id).first()
+    if not quiz_user:
+        messages.error(request, "QuizUser не найден.")
+        return redirect('some_view')  # Замените на нужное представление
+
+    quiz_id = quiz_user.quiz.id  # Получаем quiz_id из QuizUser
+
+    # Фильтруем попытки по user_id, используя id связанного объекта User
+    user_attempts = QuizAttempt.objects.filter(
+        user_id=quiz_user.user.id,
+        problem__quizFieldCell__quizField__quiz__id=quiz_id
+    )
+
+    # Удаление попытки, если был отправлен запрос
+    if request.method == 'POST':
+        if 'delete_attempt' in request.POST:
+            attempt_id = request.POST.get('attempt_id')
+            attempt = QuizAttempt.objects.filter(id=attempt_id, user_id=quiz_user.user.id).first()
+            if attempt:
+                attempt.delete()
+                messages.success(request, "Попытка удалена успешно.")
+            else:
+                messages.error(request, "Попытка не найдена.")
+
+        return redirect(reverse('quiz_edit_user_attempts', args=[quiz_user_id]))
+
+    # Собираем попытки и связанные задачи для отображения
+    attempts_with_problems = []
+    for attempt in user_attempts:
+        problem = QuizProblem.objects.filter(id=attempt.problem_id).first()
+        attempts_with_problems.append({
+            'attempt': attempt,
+            'problem': problem
+        })
+
+    context = {
+        'attempts_with_problems': attempts_with_problems
+    }
+
+    return render(request, 'quiz_edit_user_attempts.html', context)
 
 
 def quiz_user_answers_set(quiz_user, quiz_problem):
