@@ -15,4 +15,6 @@ COPY ./ ./
 EXPOSE 8000
 
 # Command to run the app
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "webproject.wsgi:application"]
+#CMD ["gunicorn", "--bind", "0.0.0.0:8000", "webproject.wsgi:application"]
+CMD ["gunicorn", "--workers", "8", "--bind", "0.0.0.0:8000", "webproject.wsgi:application"]
+

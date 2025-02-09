@@ -70,3 +70,4 @@ urlpatterns = [
 # Для разработки, чтобы сервер мог обслуживать медиа файлы
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

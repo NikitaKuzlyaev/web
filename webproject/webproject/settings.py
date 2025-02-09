@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,6 +26,9 @@ SECRET_KEY = 'django-insecure-s(yk+soschnhjdf*z3p*qqib+!r$z2&_o%elg#m&b(0ro-#s(m
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+
+SESSION_COOKIE_AGE = 3600  # Время жизни сессии (в секундах)
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Закрытие сессии при закрытии браузера
 
 # Application definition
 
@@ -71,12 +75,40 @@ WSGI_APPLICATION = 'webproject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db2.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db2.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'webdb',  # Название базы данных
+        'USER': 'postgres',
+        'PASSWORD': '2476',
+        'HOST': 'localhost',  # Локальный хост для базы данных
+        'PORT': '5432',
+        'OPTIONS': {
+            'client_encoding': 'UTF8',  # Указываем кодировку для клиента
+        },
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'webdb',
+#         'USER': 'postgres',
+#         'PASSWORD': '2476',
+#         'HOST': 'db',  # имя контейнера PostgreSQL
+#         'PORT': '5432',
+#         'OPTIONS': {
+#             'client_encoding': 'UTF8',
+#         },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -104,7 +136,7 @@ LOGIN_REDIRECT_URL = 'main'  # Имя URL или прямой путь (напр
 
 LANGUAGE_CODE = 'en-us'
 
-#TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
 TIME_ZONE = 'Asia/Bangkok'  # Например, Бангкок в UTC+7
 
 USE_I18N = True
@@ -114,21 +146,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-#STATIC_URL = 'static/'
+# STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
-
 # Путь для загруженных файлов
 MEDIA_URL = '/media/'  # URL для доступа к медиафайлам
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Папка для хранения медиафайлов
 
-
-STATICFILES_DIRS = [BASE_DIR / 'myapp/static-myapp',]
+STATICFILES_DIRS = [BASE_DIR / 'myapp/static-myapp', ]
 
 # Путь для статических файлов (CSS, JS, изображения для фронтенда)
 STATIC_URL = '/static/'  # URL для доступа к статике
@@ -136,8 +165,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # Папка для сбора �
 
 DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
 FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5 MB
-
-import os
 
 LOGGING = {
     'version': 1,

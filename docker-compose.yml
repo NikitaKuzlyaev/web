@@ -1,6 +1,20 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:17  # Используем официальный образ PostgreSQL
+    container_name: my_postgres  # Имя контейнера
+    environment:
+      POSTGRES_DB: webdb  # Имя базы данных
+      POSTGRES_USER: postgres  # Имя пользователя
+      POSTGRES_PASSWORD: 2476  # Пароль пользователя
+    ports:
+      - "5432:5432"  # Прокидываем порты
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Монтируем volume для данных базы
+    networks:
+      - app-network  # Сетевое соединение с другими сервисами
+
   web:
     build:
       context: .
@@ -9,8 +23,6 @@ services:
       - static_volume:/app/webproject/static  # Монтируем volume в контейнер с Django
       - media_volume:/app/webproject/media
       - uwsgi_socket:/tmp  # Общий volume для сокета
-    expose:
-      - 8001
     command: uwsgi --ini /app/uwsgi.ini  # Запуск uWSGI
     networks:
       - app-network
@@ -24,7 +36,7 @@ services:
       - media_volume:/app/webproject/media
       - uwsgi_socket:/tmp  # Монтируем тот же сокет
     ports:
-      - 8000:8000
+      - "8000:8000"  # Лучше сразу использовать 80 для продакшна
     networks:
       - app-network
 
@@ -32,6 +44,7 @@ volumes:
   static_volume:  # Определяем общий volume для статики
   media_volume:  # Определяем общий volume для медиафайлов
   uwsgi_socket:  # Определяем volume для сокета
+  postgres_data:
 
 networks:
   app-network:
