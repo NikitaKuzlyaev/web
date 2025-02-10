@@ -1,0 +1,138 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Квизы{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Квизы</title>
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Добавляем ссылку на Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Добавляем ссылку на Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container mt-4">
+
+    <div class="d-flex align-items-center" style="margin-bottom:15px;">
+        <i class="bi bi-table" style="font-size: 1.4rem; margin-left: 2px; color:#f55607;"></i>
+        <h5 class="mb-0 ms-2" style="font-size: 1.3rem; margin-left: 10px; color:#000000;">Список квизов и викторин</h5>
+    </div>
+
+
+
+    <ul class="list-group mb-4">
+        {% for item in contests_with_tags %}
+        <li class="list-group-item d-flex justify-content-between align-items-center shadow-sm mb-3 rounded" style="--edge-color: {{ item.contest.color }}">
+            <div>
+                <h6 class="mb-1">{{ item.contest.name }}</h6>
+                <small class="text-muted">{{ item.contest.time_start|date:"d.m.Y H:i" }} - {{ item.contest.time_end|date:"d.m.Y H:i" }}</small>
+
+                <!-- Выводим теги -->
+                {% for tag in item.tags %}
+                <span class="badge badge-pill" style="background-color: {{ tag.color }}; color: white;">
+                    {{ tag.title }}
+                </span>
+                {% endfor %}
+            </div>
+
+            <div class="d-flex align-items-center">
+
+
+                {% if not user.is_authenticated %}
+                <button class="btn btn-info btn-sm" disabled>
+                    <i class="fas fa-lock"></i> Нужно войти
+                </button>
+                {% else %}
+                {% if user_profile.contest_access_id != item.contest.id and not item.contest.is_open and not user.is_staff %}
+                <button class="btn btn-info btn-sm mr-2" disabled>
+                    <i class="fas fa-lock"></i> Нет прав
+                </button>
+                {% else %}
+                <a href="{% url 'contest_detail' item.contest.id %}" class="btn btn-info btn-sm mr-2">
+                    <i class="fas fa-eye"></i> Просмотр
+                </a>
+                {% endif %}
+                {% endif %}
+
+                {% if user.is_staff %}
+                <a href="{% url 'contest_detail_admin' item.contest.id %}" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-cogs"></i> Админ
+                </a>
+                {% endif %}
+            </div>
+        </li>
+        {% empty %}
+        <li class="list-group-item text-center">Нет доступных квизов.</li>
+        {% endfor %}
+    </ul>
+
+    {% if user.is_staff %}
+    <h4>Добавить новый квиз</h4>
+    <div class="col-md-4">
+        <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="form-group">
+                <!--{{ form.name.label_tag }}
+                {{ form.name }}-->
+                {{ form.as_p }}
+                {% if form.name.errors %}
+                <div class="text-danger">
+                    {{ form.name.errors }}
+                </div>
+                {% endif %}
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить</button>
+        </form>
+        {% endif %}
+    </div>
+</div>
+
+<style>
+    .list-group-item {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.list-group-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1%;
+    height: 100%;
+    background-color: var(--edge-color);
+}
+</style>
+
+<style>
+    .badge {
+    font-size: 0.6rem;
+    padding: 0.3em 0.3em;
+    border-radius: 0.3em;
+    display: inline-block;
+}
+
+.badge-primary {
+    background-color: #007bff;
+    color: white;
+}
+</style>
+
+<!-- Подключение Bootstrap JS и зависимостей (опционально) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock %}

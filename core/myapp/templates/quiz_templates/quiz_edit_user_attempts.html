@@ -1,0 +1,108 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Добавляем ссылку на Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Добавляем ссылку на Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Конфигурация MathJax -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                packages: {'[+]': ['textmacros']}, // Подключаем дополнительные пакеты
+            },
+            options: {
+                enableHTML: true, // Включаем поддержку HTML
+            }
+        };
+    </script>
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+
+</head>
+
+
+<div class="container mt-4">
+    <h2>Попытки пользователя</h2>
+
+    {% if messages %}
+    <div class="alert alert-info">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Номер попытки</th>
+            <th>Задача</th>
+            <th>Стоимость</th>
+            <th>Успешно</th>
+            <th>Ответ</th>
+            <th>Удалить</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entry in attempts_with_problems %}
+        <tr>
+            <td>{{ entry.attempt.attempt_number }}</td>
+            <td>{{ entry.problem.title }}</td>
+            <td>{{ entry.problem.points }}</td>
+            <td>{{ entry.attempt.is_successful }}</td>
+            <td>{{ entry.attempt.answer }}</td>
+            <td>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <input type="hidden" name="attempt_id" value="{{ entry.attempt.id }}">
+                    <button type="submit" name="delete_attempt" class="btn btn-danger">
+                        <i class="fa fa-trash"></i> Удалить
+                    </button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+</div>
+
+
+{% endblock %}

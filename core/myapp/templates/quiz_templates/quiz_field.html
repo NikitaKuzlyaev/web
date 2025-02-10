@@ -1,0 +1,558 @@
+{% extends "myapp/base.html" %}
+
+{% block title %}Квиз{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Квиз</title>
+
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Добавляем ссылку на Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Подключение Font Awesome через CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Добавляем ссылку на Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Конфигурация MathJax -->
+    <script type="text/javascript">
+        MathJax = {
+            tex: {
+                packages: {'[+]': ['textmacros']}, // Подключаем дополнительные пакеты
+            },
+            options: {
+                enableHTML: true, // Включаем поддержку HTML
+            }
+        };
+    </script>
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+          },
+          svg: {
+            fontCache: 'global'
+          }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+
+
+    <style>
+        /* Уменьшаем шрифт для таблицы */
+        .table {
+            font-size: 0.8rem; /* Уменьшаем размер шрифта для всей таблицы */
+            --bs-table-color: #00000000; /* Цвет фона таблицы */
+        }
+        .table, .table th, .table td .table tr{
+            border: none;
+        }
+
+        /* Цвет кнопок */
+        .btn-full {
+            width: 92%;
+            height: 92%;
+            padding: 0;
+            text-align: center;
+            border: none; /* Убираем бордеры кнопки */
+            font-size: 0.75rem; /* Уменьшаем размер шрифта кнопок */
+            background-color: #ffecd6; /* Устанавливаем цвет фона кнопки */
+            color: #000; /* Цвет текста кнопки (если нужно) */
+        }
+
+        .btn-full:hover {
+            background-color: #ffd4a3; /* Цвет кнопки при наведении */
+        }
+
+        /* Устанавливаем фиксированную высоту для ячеек */
+        .table td {
+            height: 50px; /* Можно изменить на нужную высоту */
+            vertical-align: middle; /* Центрируем кнопку по вертикали */
+            padding: 0; /* Убираем внутренние отступы у ячеек */
+             border: none;
+        }
+        .admin-edit-form {
+            display: none;
+        }
+
+        /* Стили для модального окна */
+        .modal-content {
+            background-color: #fff;
+        }
+
+
+        /* Уменьшаем время анимации для модальных окон */
+        .modal.fade .modal-dialog {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Установите желаемую скорость */
+        }
+
+
+        /* Пример для других элементов */
+        .card {
+            transition: transform 0.2s ease-in-out; /* Установите свою скорость */
+        }
+                .task-card {
+          border: 1px solid #ccc;
+          padding: 16px;
+          margin: 10px;
+          width: 50%;
+          border-radius: 8px;
+          background-color: #f9f9f9;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .task-card h3 {
+          font-size: 1.0em;
+          color: #333;
+        }
+
+        .task-card p {
+          font-size: 0.8em;
+          color: #666;
+        }
+
+        .task-card a {
+          display: inline-block;
+          padding: 8px 16px;
+          background-color: #f0f8ff;
+          color: white;
+          text-decoration: none;
+          border-radius: 4px;
+        }
+
+        .task-card a:hover {
+          background-color: #45a049;
+        }
+
+            /* Отключаем эффект выделения кнопки при наведении */
+        .btn-outline-primary:hover {
+            background-color: transparent;
+            border-color: #007bff;
+            opacity: 1;
+        }
+
+    </style>
+
+    <style>
+        /* Стиль для неудачной попытки */
+.shop-card.failed  {
+background-color: #ff9a81;
+
+}
+
+/* Стиль для решенной задачи */
+.shop-card.solved {
+background-color: #A8E4A0;
+
+}
+
+/* Стиль для задачи, которая в процессе */
+.shop-card.in-progress {
+
+border: 2px solid #000; /* Черная обводка толщиной 2px */
+}
+
+/* Стиль для задачи, которая не была попытана */
+.shop-card.not-attempted {
+background-color: gray;
+
+}
+
+.shop-card {
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.05s;
+    background-color: #f0f8ff;
+}
+
+.shop-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.shop-card-body {
+    text-align: center;
+}
+
+.shop-card-title {
+    margin-top: 8px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.shop-card-text {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+.score-card {
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: transform 0.05s;
+    background-color: #f0f8ff;
+}
+
+
+    </style>
+
+    <style>
+        #messageContainer {
+     position: fixed;
+     bottom: 10px;
+     right: 10px;
+     z-index: 1050; /* Поверх других элементов */
+     width: 250px; /* Ограничиваем ширину */
+     display: flex;
+     flex-direction: column-reverse; /* Новые сообщения идут вниз */
+     gap: 5px; /* Расстояние между сообщениями */
+ }
+
+/* Стиль для ошибочного сообщения */
+ .alert {
+     opacity: 0.95;
+     margin-bottom: 0px;
+     transition: opacity 0.5s ease-in-out;
+     font-size: 0.75rem;
+     background-color: #ff9a81;
+ }
+        /* Стиль для успешного сообщения */
+    .alert-success {
+        background-color: #A8E4A0;
+        opacity: 0.95;
+        margin-bottom: 0px;
+        transition: opacity 0.5s ease-in-out;
+        font-size: 0.75rem;
+    }
+         /* Стиль для информационного сообщения */
+    .alert-info {
+        background-color: #f0f8ff;
+        opacity: 0.95;
+        margin-bottom: 0px;
+        transition: opacity 0.5s ease-in-out;
+        font-size: 0.75rem;
+    }
+
+        .alert-warning {
+        background-color: #f4a460;
+        opacity: 0.95;
+        margin-bottom: 0px;
+        transition: opacity 0.5s ease-in-out;
+        font-size: 0.75rem;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container mt-1">
+
+    <a href="{% url 'contest_detail' contest.id %}" class="btn btn-warning">
+        Вернуться назад
+    </a>
+
+    {% load custom_filters %}
+
+    <div class="container my-2 d-flex" style="width: 100%;">
+
+        <!-- Левый контейнер (65% ширины) -->
+        <div class="left-container" style="width: 65%; padding-right: 10px;">
+            <div class="d-flex align-items-center" style="margin-bottom: 10px;">
+                <h4 class="mb-0">Игровое поле</h4>
+                <i class="bi bi-fire" style="font-size: 1.5rem; margin-left: 10px; vertical-align: middle; color:#f55607;"></i>
+            </div>
+
+            <div class="d-flex flex-wrap" style="width: 65%; gap: 10px;">
+                {% for row in rows %}
+                <div class="d-flex" style="gap: 10px;">
+                    {% for col in columns %}
+
+                    {% with can_buy=can_buy_flags|get_item:row %}
+                    {% with can_buy=can_buy|get_item:col %}
+
+                    {% with verdict=quiz_field_flags|get_item:row|get_item:col %}
+                    <div class="{{ verdict|default:'not-attempted' }} shop-card"
+                         style="width: 120px; {% if not can_buy %} cursor: not-allowed; pointer-events: none; {% else %} cursor: pointer; {% endif %}"
+                         data-bs-toggle="modal"
+                         data-bs-target="#confirmationModal"
+                         data-row="{{ row }}" data-col="{{ col }}"
+                         data-task-id="{{ tasks_ids|get_item:row|get_item:col }}"
+                         id="task-{{ row }}-{{ col }}">
+
+                        {% with task=task_field|get_item:row %}
+                        {% with task=task|get_item:col %}
+                        {% if task %}
+                        <div class="shop-card-body">
+                            <h5 class="shop-card-title">{{ task.title }}</h5>
+                            <p class="shop-card-text">Очки: {{ task.points }}</p>
+                        </div>
+                        {% else %}
+                        <div class="shop-card-body text-center">
+                            <h5 class="shop-card-title">Кнопка {{ row }}-{{ col }}</h5>
+                        </div>
+                        {% endif %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                        {% endwith %}
+                    </div>
+                    {% endwith %}
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </div>
+        <div class="right-container" style="width: 35%; padding-left: 10px; padding-top: 2rem">
+
+            <!-- Таймер -->
+
+            <div class="d-flex align-items-center">
+                <p class="mb-0 ms-auto">Команда <b>{{ user_profile }}</b></p>
+            </div>
+
+            <div id="timer" class="alert alert-info text-center shadow-sm" style="margin-top: 10px;">
+                <div id="timer-display" class="mt-1"></div>
+            </div>
+
+            <div class="score-card d-flex align-items-center justify-content-between" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <div class="d-flex align-items-center" style="">
+                    <i class="bi bi-award" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                    <h5 class="mb-0 ms-auto" style="padding-left: 10px; vertical-align: middle;">Ваш счет:</h5>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h5 class="mb-0 ms-auto">{{ quiz_user.score }}</h5>
+                </div>
+            </div>
+
+
+            <div class="score-card d-flex align-items-center justify-content-between" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <div class="d-flex align-items-center" style="">
+                    <i class="bi bi-clipboard2-check" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                    <h5 class="mb-0 ms-auto" style="padding-left: 10px; vertical-align: middle;">Задач в работе:</h5>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h5 class="mb-0 ms-auto">{{ number_of_current_user_problems }}/3</h5>
+                </div>
+            </div>
+
+            <div class="score-card d-flex align-items-center justify-content-between" style="padding-left: 20px; padding-right: 10px; margin-top: 20px;">
+                <div class="d-flex align-items-center" style="">
+                    <i class="bi bi-capslock-fill" style="font-size: 1.2rem; margin-left: 2px; vertical-align: middle; color:#f55607;"></i>
+                    <h5 class="mb-0 ms-auto" style="padding-left: 10px; vertical-align: middle;">Бонус комбо:</h5>
+                </div>
+                <div class="d-flex align-items-center">
+                    <h5 class="mb-0 ms-auto">{{ quiz_user.combo_score }}</h5>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    {% for problem, used, full, pt in hearts_data %}
+    <div class="task-card">
+        <div class="d-flex align-items-center" style="margin-bottom: 5px;">
+            <h3 class="mb-0">{{ problem.title }}</h3>
+            <div class="d-flex" style="margin-left: auto;">
+                <!-- Отображаем пустые сердца -->
+                {% for i in used %}
+                <i class="bi bi-heart" style="font-size: 0.8rem; color: #ccc; margin-left: 3px;"></i> <!-- Пустые сердца -->
+                {% endfor %}
+
+                <!-- Отображаем полные сердца -->
+                {% for i in full %}
+                <i class="bi bi-heart-fill" style="font-size: 0.8rem; color: #f55607; margin-left: 3px;"></i> <!-- Красные сердца -->
+                {% endfor %}
+            </div>
+        </div>
+
+        <p style="white-space: pre-wrap; font-size: 1rem; color: #333;">{{ problem.content|safe }}</p>
+        <p>Потенциально: {{ pt }}</p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <!-- Поле ввода, занимающее 50% ширины карточки -->
+                <input type="hidden" name="problem_id" value="{{ problem.id }}">
+                <input type="text" class="form-control" placeholder="Введите свой ответ" aria-label="Введите свой ответ"
+                       style="width: 50%; border-radius: 5px;" name="user_answer" required>
+
+                <!-- Кнопка с иконкой -->
+                <button type="submit" class="btn btn-outline-primary" style="--bs-btn-border-color: #00000000; --bs-btn-hover-color:#1000ff" name="check_answer"
+                        value="true">
+                    <i class="bi bi-arrow-right-square-fill" style="font-size: 1.0rem;"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    {% endfor %}
+
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Подтверждение</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Вы уверены, что хотите купить эту задачу?
+                </div>
+                <div class="modal-footer">
+                    {% if user.is_staff %}
+                    <a href="#" id="editTaskLink" class="btn btn-secondary">Редактировать задачу</a>
+                    {% endif %}
+                    <button type="button" class="btn btn-default" data-bs-dismiss="modal">Отмена</button>
+
+                    <a href="#" id="buyTaskLink" class="btn btn-warning">Купить задачу</a>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Блок сообщений -->
+    {% if messages %}
+    <div id="messageContainer">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show shadow-sm" role="alert">
+             {{ message|safe }}
+            <!--            <button type="button" class="close" data-dismiss="alert" aria-label="Закрыть">-->
+            <!--                <span aria-hidden="true">&times;</span>-->
+            <!--            </button>-->
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+
+
+<script>
+    // Переменная для хранения идентификатора интервала
+    let intervalId;
+
+    let contestId = "{{ contest.id }}"; // Получаем ID контеста из шаблона
+    let makeRedirect = "{{ make_redirect }}"; // Получаем ID контеста из шаблона
+    let serverTime = new Date("{{ current_server_time_utc7|date:'Y-m-d H:i:s' }}").getTime();  // Получаем серверное время
+
+    const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
+    const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
+
+    // Функция обновления таймера
+    function updateTimer() {
+        const now = serverTime + (new Date().getTime() - serverTime);  // Используем серверное время для вычислений
+
+        // Если текущее время меньше времени начала соревнования
+        if (now < contestStartDate) {
+            const timeLeft = contestStartDate - now;
+            displayTime("До начала соревнования осталось:", timeLeft);
+        }
+        // Если текущее время находится между началом и концом соревнования
+        else if (now >= contestStartDate && now < contestEndDate) {
+            const timeLeft = contestEndDate - now;
+            displayTime("До окончания соревнования осталось:", timeLeft);
+        }
+        // Если текущее время больше времени окончания соревнования
+        else {
+            clearInterval(intervalId);  // Останавливаем таймер
+            document.getElementById("timer-display").innerHTML = "<strong>Соревнование завершено</strong>";
+
+            //if (makeRedirect == True){
+            //    window.location.href = `/contests/${contestId}/`; // Перенаправление на нужную страницу
+            //}
+        }
+    }
+
+    // Функция отображения времени
+    function displayTime(message, timeLeft) {
+        const hours = Math.floor(timeLeft / (1000 * 60 * 60));  // Часы
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));  // Минуты
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);  // Секунды
+
+        // Форматируем время в HH:MM:SS
+        const formattedTime =
+            (hours < 10 ? '0' : '') + hours + ":" +
+            (minutes < 10 ? '0' : '') + minutes + ":" +
+            (seconds < 10 ? '0' : '') + seconds;
+
+        // Обновляем текст таймера
+        document.getElementById("timer-display").innerHTML = `
+            <strong>${message}</strong>
+            <h3>${formattedTime}</h3>
+        `;
+    }
+
+    // Запуск таймера при загрузке страницы
+    window.onload = function() {
+        updateTimer();  // Сразу обновляем
+        intervalId = setInterval(updateTimer, 200);  // Каждую секунду обновляем
+    }
+</script>
+
+
+<script>
+    var confirmationModal = document.getElementById('confirmationModal');
+    confirmationModal.addEventListener('show.bs.modal', function (event) {
+        var button = event.relatedTarget;  // Кнопка, которая вызвала модальное окно
+        var taskId = button.getAttribute('data-task-id');  // Получаем id задачи из атрибута
+        console.log('taskId:', taskId);  // Выводим taskId
+
+        // Обновляем значение в скрытом поле
+        var taskIdInput = document.getElementById('taskIdInput');
+        if (taskIdInput) {
+            taskIdInput.value = taskId;  // Устанавливаем значение id задачи в скрытое поле
+        }
+
+        // Обновляем ссылку для редактирования задачи
+        var editTaskLink = document.getElementById('editTaskLink');
+        if (editTaskLink) {
+            // Формируем URL для редактирования задачи
+            editTaskLink.href = "/edit_quiz_problem/" + taskId + "/";  // Прямое формирование URL
+
+        }
+
+
+        var buyTaskLink = document.getElementById('buyTaskLink');
+        if (buyTaskLink) {
+            // Формируем URL для редактирования задачи
+            buyTaskLink.href = "/buy_quiz_problem/" + taskId + "/";  // Прямое формирование URL
+
+        }
+    });
+</script>
+
+<script>
+    setTimeout(function() {
+        let alerts = document.querySelectorAll("#messageContainer .alert");
+        alerts.forEach(alert => {
+            alert.style.opacity = "0";
+            setTimeout(() => alert.remove(), 500); // Удаление после анимации
+        });
+    }, 7000);
+</script>
+
+<!-- Подключение Bootstrap JS и зависимостей (опционально) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js">
+</script>
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>-->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+{% endblock %}
