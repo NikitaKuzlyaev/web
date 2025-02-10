@@ -214,7 +214,7 @@ class ContestDetailViewAdmin:
             form_contest.save()  # Сохраняем изменения
             # Получаем контекст для рендеринга страницы
             context = ContestDetailViewAdmin.get_context(request, contest)
-            return render(request, 'contest_detail_admin.html', context)
+            return render(request, 'contest_templates/contest_detail_admin.html', context)
         else:
             # Если форма не валидна, можно вернуть ошибку или вернуть форму на страницу
             messages.error(request, 'Ошибка при обновлении контеста.')
@@ -233,7 +233,7 @@ class ContestDetailViewAdmin:
         page_id = request.POST.get('edit_page')
         selected_page = get_object_or_404(ContestPage, id=page_id)
         context = ContestDetailViewAdmin.get_context(request, contest, selected_page=selected_page)
-        return render(request, 'contest_detail_admin.html', context)
+        return render(request, 'contest_templates/contest_detail_admin.html', context)
 
     @staticmethod
     def handle_save_page(request, contest):
@@ -318,7 +318,7 @@ class ContestDetailViewAdmin:
         contest_threshold.save()
 
         context = ContestDetailViewAdmin.get_context(request, contest)
-        return render(request, 'contest_detail_admin.html', context=context)
+        return render(request, 'contest_templates/contest_detail_admin.html', context=context)
 
     @staticmethod
     def handle_add_answer_file(request, contest):

@@ -610,8 +610,8 @@ def contest_detail_view(request, contest_id):
 
     # Получаем связанный Quiz (если он существует)
     quiz = Quiz.objects.filter(contest=contest).first()
-
     user_profile = Profile.objects.filter(user=request.user).first()
+    current_server_time_utc7 = now().astimezone(timezone_utc7)
 
     context = {
         'user_profile': user_profile.name,
@@ -619,6 +619,7 @@ def contest_detail_view(request, contest_id):
         'contest_pages': contest_pages,
         'selected_page': selected_page,
         'quiz': quiz,
+        'current_server_time_utc7': current_server_time_utc7,
     }
 
     if quiz:

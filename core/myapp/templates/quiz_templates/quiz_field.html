@@ -448,13 +448,14 @@ background-color: gray;
 
     let contestId = "{{ contest.id }}"; // Получаем ID контеста из шаблона
     let makeRedirect = "{{ make_redirect }}"; // Получаем ID контеста из шаблона
+    let serverTime = new Date("{{ current_server_time_utc7|date:'Y-m-d H:i:s' }}").getTime();  // Получаем серверное время
 
     const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
     const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
 
     // Функция обновления таймера
     function updateTimer() {
-        const now = new Date().getTime();  // Текущее время
+        const now = serverTime + (new Date().getTime() - serverTime);  // Используем серверное время для вычислений
 
         // Если текущее время меньше времени начала соревнования
         if (now < contestStartDate) {
@@ -471,9 +472,9 @@ background-color: gray;
             clearInterval(intervalId);  // Останавливаем таймер
             document.getElementById("timer-display").innerHTML = "<strong>Соревнование завершено</strong>";
 
-            if (makeRedirect == True){
-                window.location.href = `/contests/${contestId}/`; // Перенаправление на нужную страницу
-            }
+            //if (makeRedirect == True){
+            //    window.location.href = `/contests/${contestId}/`; // Перенаправление на нужную страницу
+            //}
         }
     }
 

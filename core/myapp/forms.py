@@ -35,8 +35,10 @@ class SinglePasswordChangeForm(forms.Form):
         user.set_password(new_password)
         user.save()
 
+
 class FileUploadForm(forms.Form):
     image = forms.ImageField(label='Choose an image')
+
 
 # class ImageUploadForm(forms.ModelForm):
 #     class Meta:
@@ -55,10 +57,12 @@ class FileUploadForm(forms.Form):
 
 from .models import AppConfig
 
+
 class AppConfigForm(forms.ModelForm):
     class Meta:
         model = AppConfig
         fields = ['allow_registration', 'enable_feature_x']
+
 
 class QuizProblemForm(forms.ModelForm):
     # class Meta:

@@ -274,10 +274,11 @@
 
     const contestStartDate = new Date("{{ contest.time_start|date:'Y-m-d H:i:s' }}").getTime();
     const contestEndDate = new Date("{{ contest.time_end|date:'Y-m-d H:i:s' }}").getTime();
+    let serverTime = new Date("{{ current_server_time_utc7|date:'Y-m-d H:i:s' }}").getTime();  // Получаем серверное время
 
     // Функция обновления таймера
     function updateTimer() {
-        const now = new Date().getTime();  // Текущее время
+        const now = serverTime + (new Date().getTime() - serverTime);  // Используем серверное время для вычислений
 
         // Если текущее время меньше времени начала соревнования
         if (now < contestStartDate) {

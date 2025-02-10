@@ -25,14 +25,18 @@
     {% endfor %}
     {% endif %}
 
+    {% if quiz %}
+    <a href="{% url 'quizzes' %}" class="btn btn-secondary mb-3">Назад к соревнованиям</a>
+    {% else %}
     <a href="{% url 'contests' %}" class="btn btn-secondary mb-3">Назад к соревнованиям</a>
+    {% endif %}
 
     {% if not contest.is_open %}
-        {% if quiz %}
-        <a href="{% url 'quiz_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники квиза</a>
-        {% else %}
-        <a href="{% url 'contest_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники соревнования</a>
-        {% endif %}
+    {% if quiz %}
+    <a href="{% url 'quiz_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники квиза</a>
+    {% else %}
+    <a href="{% url 'contest_participants_admin' contest.id %}" class="btn btn-secondary mb-3">Участники соревнования</a>
+    {% endif %}
     {% endif %}
 
     <form method="post" style="margin: 0;">
@@ -99,6 +103,8 @@
                 {% csrf_token %}
                 <button type="submit" name="add_page" class="btn btn-success mt-3">Добавить новую вкладку</button>
             </form>
+
+            {% if not quiz %}
             <a href="{% url 'contest_detail_admin_checker' contest.id %}" class="btn btn-primary">
                 Редактировать чекер
             </a>
@@ -120,7 +126,7 @@
                 <input type="hidden" name="run_checker">
                 <button type="submit" class="btn btn-primary">Запустить чекер</button>
             </form>
-
+            {% endif %}
         </div>
 
 
@@ -148,6 +154,7 @@
 
     </div>
 
+    {% if not quiz %}
     {% for threshold in contest_thresholds %}
     <div class="list-group-item">
         <h5>{{ threshold.title }}</h5>
@@ -162,6 +169,7 @@
             Save changes
         </button>
     </form>
+    {% endif %}
 
 
     <div>

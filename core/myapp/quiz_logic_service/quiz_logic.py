@@ -71,7 +71,13 @@ def quiz_realtime_log(request, contest_id):
         Отображает страницу с realtime логом для конкурса.
     """
     contest = get_object_or_404(Contest, pk=contest_id)
-    return render(request, 'quiz_templates/quiz_realtime_log.html', {'contest': contest})
+    timezone_utc7 = pytz.timezone('Asia/Bangkok')
+    current_server_time_utc7 = timezone.now().astimezone(timezone_utc7)
+    context = {
+        'contest': contest,
+        'current_server_time_utc7': current_server_time_utc7,
+    }
+    return render(request, 'quiz_templates/quiz_realtime_log.html', context)
 
 
 @csrf_exempt
@@ -119,7 +125,9 @@ def quiz_view(request):
     if request.method == 'POST':
         form = ContestForm(request.POST)
         if form.is_valid():
-            form.save()
+            new_contest = form.save()
+            new_quiz = Quiz.objects.create(contest=new_contest)
+            new_quiz.save()
             return redirect('quizzes')
     else:
         form = ContestForm()
@@ -231,6 +239,9 @@ def quiz_field_view(request, contest_id):
 
     make_redirect = not request.user.is_staff
 
+    timezone_utc7 = pytz.timezone('Asia/Bangkok')
+    current_server_time_utc7 = timezone.now().astimezone(timezone_utc7)
+
     context = {
         'user_profile': user_profile.name,
         'columns': list(range(width)),  # Диапазон для столбцов
@@ -240,6 +251,7 @@ def quiz_field_view(request, contest_id):
         'problems': problems_to_show,
         'contest': contest,
         'make_redirect': make_redirect,
+        'current_server_time_utc7': current_server_time_utc7,
         'quiz_user': quiz_user,
         'potential_score': potential_score,
         'quiz_field_flags': quiz_field_flags,
@@ -437,26 +449,21 @@ def quiz_results(request, contest_id):
 
 @user_passes_test(lambda u: u.is_staff)
 def quiz_participants_admin(request, contest_id):
+    """
+        Административная панель для управления участниками конкурса.
+    """
     contest = get_object_or_404(Contest, id=contest_id)
     profiles = Profile.objects.filter(contest_access=contest)
-
+    quiz = Quiz.objects.filter(contest=contest).first()
     participants = []
     for profile in profiles:
         user = profile.user
-        quiz_user = QuizUser.objects.filter(user=user, quiz__contest=contest).first()
-
-        if not quiz_user:
-            quiz = Quiz.objects.filter(contest=contest).first()
-            if quiz:
-                quiz_user = QuizUser.objects.create(user=user, quiz=quiz)
-
+        quiz_user, _ = QuizUser.objects.get_or_create(user=user, quiz=quiz)
         participants.append({
             "user": user,
             "profile": profile,
             "quiz_user": quiz_user,
         })
-
-    # logger.debug(participants)
 
     if request.method == 'POST':
         participant_id = request.POST.get('participant_id')
@@ -469,21 +476,12 @@ def quiz_participants_admin(request, contest_id):
                 logger.debug('delete_participant')
                 user.delete()  # Удаляем пользователя, связанный с Profile
 
-            elif 'show_attempts' in request.POST:
-                logger.debug('show_attempts')
-                # return redirect('show_attempts', user_id=user.id)
-
-            elif 'edit_info' in request.POST:
-                logger.debug('edit_info')
-                # return redirect('edit_user_info', user_id=user.id)
-
             return redirect('quiz_participants_admin', contest_id=contest.id)
 
         form = ContestUserProfileForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('quiz_participants_admin', contest_id=contest.id)
-
     else:
         form = ContestUserProfileForm(initial={'contest_access': contest})
 
@@ -492,12 +490,14 @@ def quiz_participants_admin(request, contest_id):
         'participants': participants,
         'form': form,
     }
-
     return render(request, 'quiz_templates/quiz_participants_admin.html', context)
 
 
 @user_passes_test(lambda u: u.is_staff)
 def quiz_edit_user_profile(request, quiz_user_id):
+    """
+        Административное редактирование профиля и информации об участии в конкурсе.
+    """
     profile = get_object_or_404(Profile, id=quiz_user_id)
     user = profile.user
     quiz_user = QuizUser.objects.filter(user=user).first()
@@ -528,37 +528,30 @@ def quiz_edit_user_profile(request, quiz_user_id):
 
     # Создание пустой формы для пароля
     password_form = SinglePasswordChangeForm()
-
     context = {
         'profile': profile,
         'quiz_user': quiz_user,
         'password_form': password_form,
     }
-
     return render(request, 'quiz_templates/quiz_edit_userprofile.html', context)
 
 
 @user_passes_test(lambda u: u.is_staff)
 def quiz_edit_user_attempts(request, quiz_user_id):
-    # Получаем объект QuizUser по переданному id
-    quiz_user = QuizUser.objects.filter(id=quiz_user_id).first()
-    if not quiz_user:
-        messages.error(request, "QuizUser не найден.")
-        return redirect('some_view')  # Замените на нужное представление
-
-    quiz_id = quiz_user.quiz.id  # Получаем quiz_id из QuizUser
-
-    # Фильтруем попытки по user_id, используя id связанного объекта User
+    """
+        Административное редактирование попыток пользователя.
+    """
+    quiz_user = get_object_or_404(QuizUser, pk=quiz_user_id)
+    quiz_id = quiz_user.quiz.id
     user_attempts = QuizAttempt.objects.filter(
         user_id=quiz_user.user.id,
         problem__quizFieldCell__quizField__quiz__id=quiz_id
     )
 
-    # Удаление попытки, если был отправлен запрос
     if request.method == 'POST':
         if 'delete_attempt' in request.POST:
             attempt_id = request.POST.get('attempt_id')
-            attempt = QuizAttempt.objects.filter(id=attempt_id, user_id=quiz_user.user.id).first()
+            attempt = QuizAttempt.objects.filter(id=attempt_id, user=quiz_user.user).first()
             if attempt:
                 attempt.delete()
                 messages.success(request, "Попытка удалена успешно.")
@@ -567,45 +560,35 @@ def quiz_edit_user_attempts(request, quiz_user_id):
 
         return redirect(reverse('quiz_edit_user_attempts', args=[quiz_user_id]))
 
-    # Собираем попытки и связанные задачи для отображения
-    attempts_with_problems = []
-    for attempt in user_attempts:
-        problem = QuizProblem.objects.filter(id=attempt.problem_id).first()
-        attempts_with_problems.append({
-            'attempt': attempt,
-            'problem': problem
-        })
+    attempts_with_problems = [{
+        'attempt': attempt,
+        'problem': QuizProblem.objects.filter(pk=attempt.problem_id).first()
+    } for attempt in user_attempts]
 
     context = {
         'attempts_with_problems': attempts_with_problems
     }
-
     return render(request, 'quiz_templates/quiz_edit_user_attempts.html', context)
 
 
-def number_of_current_user_problems(quiz: Quiz, user: User):
+def number_of_current_user_problems(quiz: Quiz, user: User) -> int:
+    """
+        Подсчитывает количество активных (в процессе) задач пользователя для данного Quiz.
+    """
     quiz_field = get_object_or_404(QuizField, quiz=quiz)
     quiz_field_cells = QuizFieldCell.objects.filter(quizField=quiz_field)
-
     result = 0
-
     for cell in quiz_field_cells:
         quiz_problem = QuizProblem.objects.filter(quizFieldCell=cell).first()
-
         if not quiz_problem:
             continue
         if not (cell.row < quiz_field.height and cell.col < quiz_field.width):
             continue
-
         last_attempt = QuizAttempt.objects.filter(user=user, problem=quiz_problem).order_by('-attempt_number').first()
         if last_attempt:
-            if last_attempt.is_successful:
-                pass
-            elif last_attempt.attempt_number >= 3:
-                pass
-            else:
-                result += 1
-
+            if last_attempt.is_successful or last_attempt.attempt_number >= 3:
+                continue
+            result += 1
     return result
 
 

@@ -11,8 +11,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Копирование кода проекта в контейнер
-COPY . /app
 
+COPY . /app
 
 # Удаляем старое окружение, если оно было скопировано
 RUN rm -rf myenv
@@ -26,7 +26,7 @@ ENV PATH="/app/venv/bin:$PATH"
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR /app/webproject
+WORKDIR /app/core
 
 # Установка uWSGI
 RUN pip install uwsgi
